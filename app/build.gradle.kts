@@ -75,8 +75,9 @@ dependencies {
 
     // T003: openWakeWord wake-word engine SDK (Kotlin wrapper around ONNX
     // Runtime; runs fully on-device — no account, API key, or secret of any
-    // kind, unlike the previously evaluated cloud-vendor engine this
-    // replaces). Actual usage (WakeWordListener.kt) is T010 — this task only
+    // kind, unlike Picovoice's Porcupine (the engine originally used for
+    // T003), which required a per-account AccessKey with free-tier usage
+    // limits). Actual usage (WakeWordListener.kt) is T010 — this task only
     // wires the dependency.
     //
     // At runtime this needs three .onnx assets under
