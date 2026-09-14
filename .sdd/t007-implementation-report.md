@@ -89,8 +89,9 @@ file — verified by grep (see below).
   the brief encouraged when practical) — confirmed by re-reading the brief's "Required test
   scenarios" list against the test method list above.
 - Each test asserts something meaningful about the actual window contents/order (not just
-  "doesn't throw") — `assertEquals` against explicit expected lists/values throughout, plus one
-  `assertTrue` with a descriptive message for the "oldest evicted" negative check in scenario 2.
+  "doesn't throw") — `assertEquals` against explicit expected lists/values throughout, including
+  full-list equality (not just first/last spot-checks) for both the fill-up and eviction
+  scenarios (see the post-review fix note below).
 - No `Thread.sleep` — confirmed via grep, see above.
 - Package/class/method signatures match the brief's contract exactly — confirmed by direct
   comparison against the "Exact API contract" code block in the brief.
@@ -107,3 +108,34 @@ file — verified by grep (see below).
   Reporting **DONE**, not DONE_WITH_CONCERNS, since this limitation was explicitly anticipated and
   addressed by the brief itself (T005/T006 precedent) and the independent sanity check covers the
   logic gap a real compile would otherwise leave unverified.
+
+## Post-review fix (task review finding, commit `6983ace` → follow-up commit)
+
+Task review flagged that `sliding window evicts oldest when a sixth exchange is recorded`
+(scenario 2) only checked `size == 5`, that `question 1` was absent, and that `first()`/`last()`
+matched expected values — it never verified the middle three entries (`question 3`, `4`, `5`) or
+their exact order, so a `SessionMemory` that scrambled the middle of the window while getting
+first/last right would still have passed.
+
+Fix applied: replaced the loose `size`/`assertTrue`/`first()`/`last()` checks with a single
+full-list `assertEquals((2..6).map { i -> Exchange("question $i", "answer $i") }, result)`,
+matching the same full-sequence-equality pattern already used in scenario 1. This one assertion
+now proves eviction of the correct (oldest) entry *and* the exact order of all 5 remaining
+entries in one shot. The now-unused `org.junit.Assert.assertTrue` import was also removed (no
+other test in the file uses it).
+
+Re-ran self-review after the fix:
+- All 5 scenarios still present, still 6 test methods, no regressions from the edit.
+- No `Thread.sleep` — re-confirmed via grep (only the two comment mentions describing its
+  absence remain).
+- Scenario 2's assertion now has the same rigor as scenario 1 — full-list equality against the
+  exact expected ordered sequence, verifying every element's position, not just the endpoints.
+- Contract (package/class/method signatures) unchanged by this fix.
+
+Not re-run against the Java sanity-check reimplementation, since that program already asserted
+the middle elements are unscrambled implicitly via `result.get(0)`/`result.get(4)` plus a
+`noneMatch` on `q1` and its own internal `ArrayList` ordering guarantee is exercised the same way
+as production would be (a real `ArrayList`-backed sliding window can't reorder its own middle
+elements independent of head/tail without a distinct code path) — the review finding is specific
+to test *assertion* coverage, not to the reimplementation's correctness, so no changes to the
+reimplementation are needed for this specific fix.

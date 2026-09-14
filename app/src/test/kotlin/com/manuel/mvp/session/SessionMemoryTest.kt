@@ -6,7 +6,6 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.ZoneOffset
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
@@ -74,10 +73,7 @@ class SessionMemoryTest {
 
         val result = memory.currentExchanges()
 
-        assertEquals(5, result.size)
-        assertTrue("oldest exchange (question 1) should have been evicted", result.none { it.question == "question 1" })
-        assertEquals(Exchange("question 2", "answer 2"), result.first())
-        assertEquals(Exchange("question 6", "answer 6"), result.last())
+        assertEquals((2..6).map { i -> Exchange("question $i", "answer $i") }, result)
     }
 
     /** Scenario 3: clear() empties the window immediately, with zero elapsed time. */
