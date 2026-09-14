@@ -96,6 +96,15 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    // T006: ContentDatabase/ContentDao (app/src/main/kotlin/com/manuel/mvp/rag/) use
+    // androidx.sqlite's SupportSQLiteOpenHelper/SupportSQLiteDatabase API directly (no Room) to
+    // manage the FTS5 `fragments` table, via the framework-backed
+    // FrameworkSQLiteOpenHelperFactory implementation. Not pulled in transitively by anything else
+    // in this dependency list, so it's declared explicitly here. Version verified live against
+    // Google's Maven repository at the time of this task (latest stable: 2.7.1; 2.8.0-alpha01 also
+    // exists but isn't stable).
+    implementation("androidx.sqlite:sqlite-framework:2.7.1")
+
     // T005: FragmentSearcherTest (app/src/test/kotlin/com/manuel/mvp/rag/) runs FragmentSearcher's
     // real search/ranking logic as a JVM unit test (test/, not androidTest/) against a real,
     // FTS5-capable SQLite database via org.xerial:sqlite-jdbc, through the FragmentRowSource
