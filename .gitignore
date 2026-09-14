@@ -24,3 +24,6 @@ captures/
 # Keystore files (never commit real signing keys)
 *.jks
 *.keystore
+
+# Claude Code session/worktree management (not repo content)
+.claude/
