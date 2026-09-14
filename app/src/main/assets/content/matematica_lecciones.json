@@ -1,0 +1,266 @@
+[
+  {
+    "id": "matematica-leccion-01-001",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 1 — Números y conteo",
+    "tema": "Contar del 1 al 10",
+    "texto": "Los números del 1 al 10 sirven para contar cosas. Si tenés tres manzanas, decís uno, dos, tres, y sabés que hay 3 manzanas."
+  },
+  {
+    "id": "matematica-leccion-01-002",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 1 — Números y conteo",
+    "tema": "El número cero",
+    "texto": "El número cero (0) significa que no hay nada. Si una caja está vacía, decimos que tiene 0 objetos adentro."
+  },
+  {
+    "id": "matematica-leccion-01-003",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 1 — Números y conteo",
+    "tema": "El orden de los números",
+    "texto": "Los números van siempre en el mismo orden: después del 5 viene el 6, y después del 9 viene el 10. Cada número es uno más que el anterior."
+  },
+  {
+    "id": "matematica-leccion-01-004",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 1 — Números y conteo",
+    "tema": "Más y menos: comparar cantidades",
+    "texto": "Podemos comparar cantidades contando. Si vos tenés 5 lápices y yo tengo 3, vos tenés más y yo tengo menos."
+  },
+  {
+    "id": "matematica-leccion-01-005",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 1 — Números y conteo",
+    "tema": "Contar objetos de la vida diaria",
+    "texto": "Contar sirve para saber cuántas cosas hay. Si en el patio de la escuela hay 4 pelotas, las contamos una por una: 1, 2, 3, 4."
+  },
+  {
+    "id": "matematica-leccion-02-001",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 2 — Suma",
+    "tema": "Qué es sumar",
+    "texto": "Sumar es juntar cantidades para saber cuántas cosas hay en total. El signo de la suma es el +."
+  },
+  {
+    "id": "matematica-leccion-02-002",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 2 — Suma",
+    "tema": "Ejemplo de suma sencilla",
+    "texto": "Si tenés 2 caramelos y te regalan 3 más, en total tenés 2+3=5 caramelos."
+  },
+  {
+    "id": "matematica-leccion-02-003",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 2 — Suma",
+    "tema": "Sumar con los dedos de la mano",
+    "texto": "Para sumar podés usar los dedos de las manos. Para sumar 4+2, levantá 4 dedos de una mano y 2 dedos de la otra, y contalos todos juntos: son 6."
+  },
+  {
+    "id": "matematica-leccion-02-004",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 2 — Suma",
+    "tema": "En la suma el orden no cambia el resultado",
+    "texto": "En una suma, el orden de los números no cambia el resultado. Por ejemplo, 3+5 da 8, y 5+3 también da 8."
+  },
+  {
+    "id": "matematica-leccion-02-005",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 2 — Suma",
+    "tema": "Sumar tres números seguidos",
+    "texto": "También se pueden sumar más de dos números, de a uno por vez. Para 2+3+1, primero sumamos 2+3=5, y después 5+1=6."
+  },
+  {
+    "id": "matematica-leccion-03-001",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 3 — Resta",
+    "tema": "Qué es restar",
+    "texto": "Restar es quitar una cantidad de otra para saber cuánto queda. El signo de la resta es el -."
+  },
+  {
+    "id": "matematica-leccion-03-002",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 3 — Resta",
+    "tema": "Ejemplo de resta sencilla",
+    "texto": "Si tenés 5 galletitas y te comés 2, te quedan 5-2=3 galletitas."
+  },
+  {
+    "id": "matematica-leccion-03-003",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 3 — Resta",
+    "tema": "Restar contando hacia atrás",
+    "texto": "Para restar podés contar hacia atrás. Para hacer 7-3, empezás en 7 y contás tres números para atrás: 6, 5, 4. El resultado es 4."
+  },
+  {
+    "id": "matematica-leccion-03-004",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 3 — Resta",
+    "tema": "Cuando el resultado de la resta es cero",
+    "texto": "Si a un número le restás ese mismo número, el resultado es 0. Por ejemplo, 4-4=0: si tenías 4 caramelos y los repartiste todos, no te queda ninguno."
+  },
+  {
+    "id": "matematica-leccion-03-005",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 3 — Resta",
+    "tema": "La resta es lo contrario de la suma",
+    "texto": "La resta deshace lo que hace la suma. Si 3+2=5, entonces 5-2=3 y también 5-3=2."
+  },
+  {
+    "id": "matematica-leccion-04-001",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 4 — Multiplicación",
+    "tema": "Multiplicación básica",
+    "texto": "Multiplicar es sumar un número varias veces. Por ejemplo, 3 x 4 es lo mismo que sumar 3 cuatro veces: 3+3+3+3=12."
+  },
+  {
+    "id": "matematica-leccion-04-002",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 4 — Multiplicación",
+    "tema": "El signo de multiplicar",
+    "texto": "El signo de multiplicar es la x, que se lee por. Cuando ves 2 x 5 (dos por cinco), significa sumar el número 2 cinco veces."
+  },
+  {
+    "id": "matematica-leccion-04-003",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 4 — Multiplicación",
+    "tema": "La tabla del 2",
+    "texto": "En la tabla del 2, cada resultado aumenta de a 2: 2x1=2, 2x2=4, 2x3=6, 2x4=8 y 2x5=10."
+  },
+  {
+    "id": "matematica-leccion-04-004",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 4 — Multiplicación",
+    "tema": "La tabla del 5",
+    "texto": "En la tabla del 5, los resultados siempre terminan en 0 o en 5: 5x1=5, 5x2=10, 5x3=15 y 5x4=20."
+  },
+  {
+    "id": "matematica-leccion-04-005",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 4 — Multiplicación",
+    "tema": "Multiplicar por 1 y por 0",
+    "texto": "Cualquier número multiplicado por 1 da el mismo número, por ejemplo 7x1=7. Cualquier número multiplicado por 0 da 0, por ejemplo 7x0=0."
+  },
+  {
+    "id": "matematica-leccion-04-006",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 4 — Multiplicación",
+    "tema": "Un ejemplo con cajas de caramelos",
+    "texto": "Si hay 3 cajas con 4 caramelos cada una, en total hay 3x4=12 caramelos, porque 4+4+4=12."
+  },
+  {
+    "id": "matematica-leccion-05-001",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 5 — Formas geométricas",
+    "tema": "El triángulo",
+    "texto": "El triángulo es una figura con 3 lados y 3 esquinas (vértices). El techo de una casa a veces tiene forma de triángulo."
+  },
+  {
+    "id": "matematica-leccion-05-002",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 5 — Formas geométricas",
+    "tema": "El cuadrado",
+    "texto": "El cuadrado tiene 4 lados iguales y 4 esquinas. Los cuatro lados del cuadrado miden todos lo mismo."
+  },
+  {
+    "id": "matematica-leccion-05-003",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 5 — Formas geométricas",
+    "tema": "El rectángulo",
+    "texto": "El rectángulo tiene 4 lados y 4 esquinas, igual que el cuadrado, pero no todos sus lados miden lo mismo: dos lados son más largos y dos son más cortos."
+  },
+  {
+    "id": "matematica-leccion-05-004",
+    "area": "Matemática",
+    "nivel": "Inicial",
+    "leccion": "Lección 5 — Formas geométricas",
+    "tema": "El círculo",
+    "texto": "El círculo es una figura redonda que no tiene lados ni esquinas. Una pelota o una rueda tienen forma de círculo."
+  },
+  {
+    "id": "matematica-leccion-05-005",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 5 — Formas geométricas",
+    "tema": "Contar los lados de cada figura",
+    "texto": "Podemos reconocer las figuras contando sus lados: el triángulo tiene 3 lados, el cuadrado y el rectángulo tienen 4 lados cada uno, y el círculo no tiene ninguno."
+  },
+  {
+    "id": "matematica-leccion-05-006",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 5 — Formas geométricas",
+    "tema": "Qué es un vértice",
+    "texto": "Un vértice es la esquina donde se juntan dos lados de una figura. El triángulo tiene 3 vértices y el cuadrado tiene 4 vértices."
+  },
+  {
+    "id": "matematica-leccion-06-001",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 6 — División básica",
+    "tema": "Qué es dividir",
+    "texto": "Dividir es repartir una cantidad en partes iguales. El signo de dividir es ÷, aunque también se puede escribir con dos puntos (:)."
+  },
+  {
+    "id": "matematica-leccion-06-002",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 6 — División básica",
+    "tema": "Ejemplo de división sencilla",
+    "texto": "Si tenés 6 caramelos y los repartís entre 2 amigos por igual, cada uno recibe 6÷2=3 caramelos."
+  },
+  {
+    "id": "matematica-leccion-06-003",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 6 — División básica",
+    "tema": "Dividir en grupos iguales",
+    "texto": "Si hay 12 alumnos y se forman grupos de 4 alumnos cada uno, se pueden armar 12÷4=3 grupos."
+  },
+  {
+    "id": "matematica-leccion-06-004",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 6 — División básica",
+    "tema": "La división es lo contrario de la multiplicación",
+    "texto": "La división deshace lo que hace la multiplicación. Como 3x4=12, entonces 12÷4=3 y también 12÷3=4."
+  },
+  {
+    "id": "matematica-leccion-06-005",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 6 — División básica",
+    "tema": "Otro ejemplo de reparto igualitario",
+    "texto": "Si repartís 10 figuritas entre 5 amigos por igual, a cada uno le tocan 10÷5=2 figuritas, porque 5+5=10."
+  },
+  {
+    "id": "matematica-leccion-06-006",
+    "area": "Matemática",
+    "nivel": "Primario",
+    "leccion": "Lección 6 — División básica",
+    "tema": "Dividir un número por 1",
+    "texto": "Cualquier número dividido por 1 da el mismo número. Por ejemplo, 8÷1=8, porque repartir entre una sola persona significa que se queda con todo."
+  }
+]
