@@ -3,14 +3,18 @@
 # This file wires the vendored llama.cpp and whisper.cpp submodules
 # (../third_party/llama.cpp, ../third_party/whisper.cpp) into the Android
 # Gradle Plugin's externalNativeBuild (see app/build.gradle.kts), and defines
-# a placeholder `manuel_native` JNI bridge target that later tasks will fill
-# in with real code:
-#   - T013 (WhisperTranscriber.kt) will add the whisper.cpp JNI bridge.
+# the `manuel_native` JNI bridge target:
+#   - T013 added the whisper.cpp JNI bridge (src/main/cpp/whisper_jni.cpp).
 #   - T015 (LlamaEngine.kt) will add the llama.cpp JNI bridge.
 #
-# Scope note (T002): this task only sets up the build mechanism. It does not
-# add any JNI glue code that actually calls into llama.cpp's or whisper.cpp's
-# APIs — see app/src/main/cpp/manuel_native.cpp.
+# Scope note (T002): this task only set up the build mechanism; it added no
+# JNI glue code itself — see app/src/main/cpp/manuel_native.cpp.
+#
+# Scope note (T013): whisper_jni.cpp was written and reviewed line-by-line
+# against the real third_party/whisper.cpp/include/whisper.h API, but — like
+# T002 before it — has not actually been compiled or linked: no NDK/CMake
+# toolchain is installed in this sandbox (see t013-whisper-transcriber-spec.md's
+# Clarifications).
 
 cmake_minimum_required(VERSION 3.22.1)
 
@@ -63,14 +67,15 @@ add_subdirectory(
 )
 
 # ---------------------------------------------------------------------------
-# manuel_native: placeholder JNI bridge target
+# manuel_native: JNI bridge target
 # ---------------------------------------------------------------------------
-# T013/T015 will add real `extern "C" JNIEXPORT` functions to
-# manuel_native.cpp (or additional .cpp files added to this target) that call
-# into the `llama` and `whisper` library targets linked below. No such calls
-# exist yet on purpose — see app/src/main/cpp/manuel_native.cpp.
+# manuel_native.cpp remains a placeholder (see its own header comment); the
+# real `extern "C" JNIEXPORT` functions calling into the `whisper` library
+# target linked below live in whisper_jni.cpp (T013). T015 will add a sibling
+# llama_jni.cpp calling into the `llama` target the same way.
 add_library(manuel_native SHARED
     src/main/cpp/manuel_native.cpp
+    src/main/cpp/whisper_jni.cpp
 )
 
 target_compile_features(manuel_native PRIVATE cxx_std_17)
