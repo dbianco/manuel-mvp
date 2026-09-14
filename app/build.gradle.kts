@@ -95,4 +95,18 @@ dependencies {
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // T005: Robolectric lets FragmentSearcherTest (app/src/test/kotlin/com/manuel/mvp/rag/) run
+    // a real, FTS5-capable SQLite database as a JVM unit test (test/, not androidTest/) without a
+    // device/emulator. Test-scope only -- FragmentSearcher itself doesn't exist yet (T006).
+    // Versions verified live against Maven Central / Google's Maven at the time of this task
+    // (latest stable: Robolectric 4.17, released 2026-09-10; androidx.sqlite 2.7.1).
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.17")
+    // Not literally required by T005's own brief text, but added here because the test file
+    // itself (per the exact API contract T005 was given) directly references
+    // androidx.sqlite.db.SupportSQLiteDatabase / SupportSQLiteOpenHelper /
+    // FrameworkSQLiteOpenHelperFactory to build its FTS5 fixture database -- without this
+    // dependency the test file cannot resolve those types at all, contract or no contract.
+    testImplementation("androidx.sqlite:sqlite-framework:2.7.1")
 }
