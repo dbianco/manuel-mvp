@@ -1,15 +1,15 @@
 ## Tasks
 
-- [ ] T001 Crear el scaffold del proyecto Android Kotlin (Gradle, módulo `app`, minSdk 29, Jetpack Compose habilitado) en `app/build.gradle.kts` y `settings.gradle.kts`
-- [ ] T002 [P] Configurar build nativo (CMake/NDK) para los targets JNI de llama.cpp y whisper.cpp en `app/CMakeLists.txt`, depends on T001
-- [ ] T003 [P] Agregar dependencia del SDK de Porcupine y cargar la AccessKey de Picovoice desde `local.properties` (nunca en el repo) en `app/build.gradle.kts`, depends on T001
-- [ ] T004 [P] Definir el esquema del JSON de contenidos y redactar 4-6 lecciones de Matemática de nivel inicial/primario en `app/src/main/assets/content/matematica_lecciones.json`, depends on T001
+- [x] T001 Crear el scaffold del proyecto Android Kotlin (Gradle, módulo `app`, minSdk 29, Jetpack Compose habilitado) en `app/build.gradle.kts` y `settings.gradle.kts`
+- [x] T002 [P] Configurar build nativo (CMake/NDK) para los targets JNI de llama.cpp y whisper.cpp en `app/CMakeLists.txt`, depends on T001
+- [ ] T003 [P] Agregar dependencia del SDK de openWakeWord (`openwakeword-android-kt`) y preparar el mecanismo para cargar el modelo custom de la palabra clave "Manuel" (`.onnx`, entrenado offline vía el pipeline de openWakeWord) en `app/build.gradle.kts` / `app/src/main/assets/models/`, depends on T001 — **nota (2026-09-14): reemplaza la versión original de esta tarea, que agregaba el SDK de Porcupine + AccessKey de Picovoice; ver spec.md Clarifications y plan.md Research para el motivo del cambio de motor**
+- [x] T004 [P] Definir el esquema del JSON de contenidos y redactar 4-6 lecciones de Matemática de nivel inicial/primario en `app/src/main/assets/content/matematica_lecciones.json`, depends on T001
 - [ ] T005 [P] Escribir tests unitarios de búsqueda de fragmentos (top 3-5 resultados relevantes vía FTS5) en `app/src/test/kotlin/com/manuel/mvp/rag/FragmentSearcherTest.kt`, depends on T004
 - [ ] T006 Implementar `ContentDatabase.kt`, `ContentDao.kt` (esquema SQLite/FTS5 versionado, migración inicial con downgrade probado) y `FragmentSearcher.kt` para satisfacer FR-006/FR-014 en `app/src/main/kotlin/com/manuel/mvp/rag/`, depends on T005
 - [ ] T007 [P] Escribir tests unitarios de la memoria de sesión (ventana de 5 intercambios, borrado en "Dejar de escuchar" y por timeout de 5 min) en `app/src/test/kotlin/com/manuel/mvp/session/SessionMemoryTest.kt`, depends on T001
 - [ ] T008 Implementar `SessionMemory.kt` (ventana en memoria, sin persistencia) para satisfacer FR-010 en `app/src/main/kotlin/com/manuel/mvp/session/`, depends on T007
 - [ ] T009 [P] Escribir tests unitarios del parseo de la palabra clave ("Manuel, <instrucción>": extracción cuando está presente, descarte silencioso cuando falta o no hay instrucción clara después) en `app/src/test/kotlin/com/manuel/mvp/audio/KeywordPrefixParserTest.kt`, depends on T001
-- [ ] T010 Implementar `WakeWordListener.kt` (wrapper de Porcupine: arma/desarma con "Manuel", vuelve a escuchar en silencio si no hay instrucción clara) y el parseo de prefijo para satisfacer FR-002/FR-003/FR-004 en `app/src/main/kotlin/com/manuel/mvp/audio/`, depends on T003, T009
+- [ ] T010 Implementar `WakeWordListener.kt` (wrapper de openWakeWord: arma/desarma con "Manuel", vuelve a escuchar en silencio si no hay instrucción clara) y el parseo de prefijo para satisfacer FR-002/FR-003/FR-004 en `app/src/main/kotlin/com/manuel/mvp/audio/`, depends on T003, T009
 - [ ] T011 Implementar `AudioCaptureManager.kt` (ventana de captura de mic disparada tras la palabra clave) en `app/src/main/kotlin/com/manuel/mvp/audio/`, depends on T010
 - [ ] T012 [P] Escribir tests unitarios de `WhisperTranscriber` (umbral de confianza, pedido de repetición cuando la confianza es baja) en `app/src/test/kotlin/com/manuel/mvp/stt/WhisperTranscriberTest.kt`, depends on T002
 - [ ] T013 Implementar `WhisperTranscriber.kt` (bridge JNI a whisper.cpp, modelo tiny/base) para satisfacer FR-005 en `app/src/main/kotlin/com/manuel/mvp/stt/`, depends on T012, T011
