@@ -5,16 +5,18 @@
 # Gradle Plugin's externalNativeBuild (see app/build.gradle.kts), and defines
 # the `manuel_native` JNI bridge target:
 #   - T013 added the whisper.cpp JNI bridge (src/main/cpp/whisper_jni.cpp).
-#   - T015 (LlamaEngine.kt) will add the llama.cpp JNI bridge.
+#   - T015 added the llama.cpp JNI bridge (src/main/cpp/llama_jni.cpp).
 #
 # Scope note (T002): this task only set up the build mechanism; it added no
 # JNI glue code itself — see app/src/main/cpp/manuel_native.cpp.
 #
-# Scope note (T013): whisper_jni.cpp was written and reviewed line-by-line
-# against the real third_party/whisper.cpp/include/whisper.h API, but — like
-# T002 before it — has not actually been compiled or linked: no NDK/CMake
-# toolchain is installed in this sandbox (see t013-whisper-transcriber-spec.md's
-# Clarifications).
+# Scope note (T013/T015): whisper_jni.cpp and llama_jni.cpp were each written
+# and reviewed line-by-line against the real third_party/whisper.cpp and
+# third_party/llama.cpp headers (and, for llama_jni.cpp, against llama.cpp's
+# own examples/simple/simple.cpp reference), but — like T002 before them —
+# have not actually been compiled or linked: no NDK/CMake toolchain is
+# installed in this sandbox (see t013-whisper-transcriber-spec.md's and
+# t015-prompt-builder-llama-engine-spec.md's Clarifications).
 
 cmake_minimum_required(VERSION 3.22.1)
 
@@ -70,12 +72,13 @@ add_subdirectory(
 # manuel_native: JNI bridge target
 # ---------------------------------------------------------------------------
 # manuel_native.cpp remains a placeholder (see its own header comment); the
-# real `extern "C" JNIEXPORT` functions calling into the `whisper` library
-# target linked below live in whisper_jni.cpp (T013). T015 will add a sibling
-# llama_jni.cpp calling into the `llama` target the same way.
+# real `extern "C" JNIEXPORT` functions calling into the `whisper` and `llama`
+# library targets linked below live in whisper_jni.cpp (T013) and
+# llama_jni.cpp (T015), respectively.
 add_library(manuel_native SHARED
     src/main/cpp/manuel_native.cpp
     src/main/cpp/whisper_jni.cpp
+    src/main/cpp/llama_jni.cpp
 )
 
 target_compile_features(manuel_native PRIVATE cxx_std_17)
