@@ -1,0 +1,24 @@
+## Tasks
+
+- [ ] T001 Crear el scaffold del proyecto Android Kotlin (Gradle, módulo `app`, minSdk 29, Jetpack Compose habilitado) en `app/build.gradle.kts` y `settings.gradle.kts`
+- [ ] T002 [P] Configurar build nativo (CMake/NDK) para los targets JNI de llama.cpp y whisper.cpp en `app/CMakeLists.txt`, depends on T001
+- [ ] T003 [P] Agregar dependencia del SDK de Porcupine y cargar la AccessKey de Picovoice desde `local.properties` (nunca en el repo) en `app/build.gradle.kts`, depends on T001
+- [ ] T004 [P] Definir el esquema del JSON de contenidos y redactar 4-6 lecciones de Matemática de nivel inicial/primario en `app/src/main/assets/content/matematica_lecciones.json`, depends on T001
+- [ ] T005 [P] Escribir tests unitarios de búsqueda de fragmentos (top 3-5 resultados relevantes vía FTS5) en `app/src/test/kotlin/com/manuel/mvp/rag/FragmentSearcherTest.kt`, depends on T004
+- [ ] T006 Implementar `ContentDatabase.kt`, `ContentDao.kt` (esquema SQLite/FTS5 versionado, migración inicial con downgrade probado) y `FragmentSearcher.kt` para satisfacer FR-006/FR-014 en `app/src/main/kotlin/com/manuel/mvp/rag/`, depends on T005
+- [ ] T007 [P] Escribir tests unitarios de la memoria de sesión (ventana de 5 intercambios, borrado en "Dejar de escuchar" y por timeout de 5 min) en `app/src/test/kotlin/com/manuel/mvp/session/SessionMemoryTest.kt`, depends on T001
+- [ ] T008 Implementar `SessionMemory.kt` (ventana en memoria, sin persistencia) para satisfacer FR-010 en `app/src/main/kotlin/com/manuel/mvp/session/`, depends on T007
+- [ ] T009 [P] Escribir tests unitarios del parseo de la palabra clave ("Manuel, <instrucción>": extracción cuando está presente, descarte silencioso cuando falta o no hay instrucción clara después) en `app/src/test/kotlin/com/manuel/mvp/audio/KeywordPrefixParserTest.kt`, depends on T001
+- [ ] T010 Implementar `WakeWordListener.kt` (wrapper de Porcupine: arma/desarma con "Manuel", vuelve a escuchar en silencio si no hay instrucción clara) y el parseo de prefijo para satisfacer FR-002/FR-003/FR-004 en `app/src/main/kotlin/com/manuel/mvp/audio/`, depends on T003, T009
+- [ ] T011 Implementar `AudioCaptureManager.kt` (ventana de captura de mic disparada tras la palabra clave) en `app/src/main/kotlin/com/manuel/mvp/audio/`, depends on T010
+- [ ] T012 [P] Escribir tests unitarios de `WhisperTranscriber` (umbral de confianza, pedido de repetición cuando la confianza es baja) en `app/src/test/kotlin/com/manuel/mvp/stt/WhisperTranscriberTest.kt`, depends on T002
+- [ ] T013 Implementar `WhisperTranscriber.kt` (bridge JNI a whisper.cpp, modelo tiny/base) para satisfacer FR-005 en `app/src/main/kotlin/com/manuel/mvp/stt/`, depends on T012, T011
+- [ ] T014 [P] Escribir tests unitarios de `PromptBuilder` (turno actual + fragmentos RAG + memoria de sesión, prioridad del turno actual sobre el historial) en `app/src/test/kotlin/com/manuel/mvp/llm/PromptBuilderTest.kt`, depends on T006, T008
+- [ ] T015 Implementar `PromptBuilder.kt` y `LlamaEngine.kt` (bridge JNI a llama.cpp, Llama 3.2 3B Instruct Q4_K_M) para satisfacer FR-007/FR-008 en `app/src/main/kotlin/com/manuel/mvp/llm/`, depends on T014, T002
+- [ ] T016 Implementar `SpeechSynthesizer.kt` (wrapper de TextToSpeech, verificación de voz en español en el primer inicio) para satisfacer FR-009 en `app/src/main/kotlin/com/manuel/mvp/tts/`, depends on T001
+- [ ] T017 Implementar `LocalMetricsLogger.kt` (tiempos por etapa, errores, tasa de activación/falsos positivos de la palabra clave, sin audio ni texto de preguntas) para satisfacer FR-013 en `app/src/main/kotlin/com/manuel/mvp/metrics/`, depends on T001
+- [ ] T018 Implementar `ConversationPipeline.kt` orquestando palabra clave → STT → RAG → LLM → TTS con registro de métricas, para satisfacer FR-001/FR-011/FR-012 en `app/src/main/kotlin/com/manuel/mvp/pipeline/`, depends on T013, T015, T016, T017
+- [ ] T019 [P] Escribir tests instrumentados de los estados de UI (armado, escuchando, procesando, respondiendo, error) y de accesibilidad (`contentDescription` en los botones) en `app/src/androidTest/kotlin/com/manuel/mvp/ui/MainScreenTest.kt`, depends on T018
+- [ ] T020 Implementar `MainScreen.kt`, `AssistantState.kt` y `MainActivity.kt` (Compose, botones "Escuchar"/"Dejar de escuchar", estado visible) para satisfacer FR-001 en `app/src/main/kotlin/com/manuel/mvp/ui/` y `app/src/main/kotlin/com/manuel/mvp/MainActivity.kt`, depends on T019, T018
+- [ ] T021 Configurar CI (GitHub Actions) corriendo unit tests y lint en cada PR antes de mergear a `main` en `.github/workflows/ci.yml`, depends on T001
+- [ ] T022 Redactar el protocolo de prueba manual (30 preguntas + 5 diálogos multi-turno, sección 11 del spec fuente) para validar SC-001 a SC-011 en el hardware objetivo, en `docs/superpowers/specs/manuel-mvp-test-protocol.md`, depends on T020
