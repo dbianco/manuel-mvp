@@ -30,3 +30,9 @@ captures/
 
 # SDD orchestrator per-branch feature cache (server is authoritative)
 .sdd/feature.json
+
+# Per-task implementation working notes (scratch, not project documentation --
+# durable specs/plans live in docs/superpowers/specs/)
+.sdd/*-implementation-brief.md
+.sdd/*-implementation-report.md
+.sdd/ledger.md
