@@ -1,18 +1,13 @@
 package com.manuel.mvp.rag
 
-import android.content.Context
-import androidx.sqlite.db.SupportSQLiteDatabase
-import androidx.sqlite.db.SupportSQLiteOpenHelper
-import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
+import java.sql.Connection
+import java.sql.DriverManager
+import java.sql.ResultSet
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
-import org.robolectric.annotation.Config
 
 /**
  * Unit tests defining the exact behavioral contract that T006's real `FragmentSearcher` /
@@ -20,90 +15,76 @@ import org.robolectric.annotation.Config
  * content fragments via SQLite FTS5, ranked by relevance, accent-insensitive (FR-006/RF-03 --
  * real classroom Whisper.cpp transcriptions may or may not preserve Spanish accents).
  *
- * `FragmentSearcher` and `ContentFragment` (see the companion object's fixture below, and the
- * calls in each `@Test`) do not exist in the main source set yet -- they are T006's job, not this
- * task's. This file will not compile until T006 adds them; that is expected for this test-first
- * split (T005 defines the contract via tests, T006 implements it).
+ * `FragmentSearcher`, `ContentFragment`, and `FragmentRowSource` do not exist in the main source
+ * set yet -- they are T006's job, not this task's. This file will not compile until T006 adds
+ * them; that is expected for this test-first split (T005 defines the contract via tests, T006
+ * implements it).
  *
- * Test setup: rather than depending on T006's not-yet-existing `ContentDatabase`/`ContentDao`,
- * each test builds its own real, in-memory FTS5-backed SQLite database directly via
- * [FrameworkSQLiteOpenHelperFactory] running under Robolectric, seeds a small hand-crafted fixture
- * of `ContentFragment`-shaped rows (not the real `matematica_lecciones.json` content -- see the
- * task brief), and constructs a real `FragmentSearcher` against that database.
+ * ### Why this doesn't use Robolectric (revised contract, see task-5-report.md)
  *
- * IMPORTANT -- known environment limitation found while writing this test (full detail in
- * task-5-report.md): sandbox verification (no real Android SDK/emulator available in this
- * environment; see the T005 task brief) found that Robolectric 4.17's default NATIVE SQLite
- * engine does NOT compile in the FTS5 extension module. `CREATE VIRTUAL TABLE ... USING fts5(...)`
- * fails at runtime with `SQLiteException: no such module: fts5`, reproduced directly against the
- * framework `android.database.sqlite.SQLiteDatabase` class (which `SupportSQLiteDatabase` /
- * `FrameworkSQLiteOpenHelperFactory` is a thin pass-through wrapper around, so the same engine is
- * used either way) at `@Config(sdk = 33)`, `34`, and `35` alike, on this host. Robolectric's
- * LEGACY SQLite mode is not a viable fallback either: its bundled native library ships no aarch64
- * build at all (`UnsupportedOperationException: Architecture 'aarch64' is not supported`), so it
- * cannot run on Apple Silicon regardless of FTS5 support. See
+ * An earlier version of this test built its FTS5 fixture directly against
+ * `androidx.sqlite.db.SupportSQLiteDatabase` under Robolectric. Empirical investigation (a real,
+ * running standalone Robolectric harness, not just docs-reading) found that Robolectric 4.17's
+ * default NATIVE SQLite engine does not compile in the FTS5 module at all (`no such module: fts5`,
+ * reproduced identically at `@Config(sdk = 33/34/35)`), and its LEGACY mode has no aarch64 native
+ * build, so it cannot run on Apple Silicon either way. See
  * https://github.com/robolectric/robolectric/issues/8495 for a related, closed-as-not-planned
- * Robolectric FTS bug report. This looks like a real gap in Robolectric's own native SQLite build,
- * not a mistake in this test's SQL or setup -- but it means this suite, though written against the
- * real, verified androidx.sqlite/Robolectric API surface, may still fail at runtime under
- * Robolectric today even once T006 lands a correct `FragmentSearcher`. T006's implementer should
- * re-verify this against whichever exact Robolectric version is resolved when this actually runs
- * (Robolectric may fix it in a later release); if the gap persists, the practical fallback is
- * exercising this class via an instrumented test on a real device/emulator running API 30+ (where
- * Android's bundled SQLite does support FTS5), rather than relying on this Robolectric suite alone
- * as a CI gate.
+ * Robolectric FTS bug report, and task-5-report.md for the full writeup.
+ *
+ * Rather than chase a Robolectric configuration that supports FTS5, the API contract was revised
+ * so `FragmentSearcher`'s actual search/ranking logic depends only on a thin [FragmentRowSource]
+ * raw-SQL-execution seam, not directly on Android's `SupportSQLiteDatabase`. `FragmentSearcher`
+ * still owns all the real query-building and ranking logic (the `CREATE VIRTUAL TABLE ... USING
+ * fts5(...)` fixture setup below, and the `SELECT ... WHERE fragments MATCH ? ORDER BY
+ * bm25(fragments) LIMIT ?`-shaped query `search()` builds and runs via
+ * `source.rawQuery(...)`) -- this test exercises that real production logic, just against a
+ * [FragmentRowSource] backed by a plain JDBC connection (`org.xerial:sqlite-jdbc`) instead of
+ * Android's SQLite. Both are real SQLite, so the FTS5 SQL text itself is identical either way;
+ * production code (T006) will implement `FragmentRowSource` against `SupportSQLiteDatabase`
+ * instead. `org.xerial:sqlite-jdbc`'s FTS5 support (including the exact `unicode61
+ * remove_diacritics 2` tokenizer used below) was verified empirically before adopting this
+ * approach -- see task-5-report.md.
  */
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [34])
 class FragmentSearcherTest {
 
-    private lateinit var db: SupportSQLiteDatabase
+    private lateinit var connection: Connection
     private lateinit var searcher: FragmentSearcher
 
     @Before
     fun setUp() {
-        val context: Context = RuntimeEnvironment.getApplication()
-        val configuration =
-            SupportSQLiteOpenHelper.Configuration.builder(context)
-                .name(null) // in-memory database, fresh per test
-                .callback(
-                    object : SupportSQLiteOpenHelper.Callback(1) {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            db.execSQL(CREATE_FRAGMENTS_TABLE_SQL)
-                        }
-
-                        override fun onUpgrade(
-                            db: SupportSQLiteDatabase,
-                            oldVersion: Int,
-                            newVersion: Int,
-                        ) {
-                            // No-op: every test starts from a fresh in-memory database at version 1.
-                        }
-                    }
-                )
-                .build()
-        db = FrameworkSQLiteOpenHelperFactory().create(configuration).writableDatabase
+        connection = DriverManager.getConnection("jdbc:sqlite::memory:")
+        connection.createStatement().use { statement -> statement.execute(CREATE_FRAGMENTS_TABLE_SQL) }
         FIXTURE.forEach(::insertFragment)
-        searcher = FragmentSearcher(db)
+        searcher =
+            FragmentSearcher(
+                FragmentRowSource { sql, args ->
+                    connection.prepareStatement(sql).use { statement ->
+                        args.forEachIndexed { index, value -> statement.setObject(index + 1, value) }
+                        statement.executeQuery().use { resultSet -> resultSet.toRowMaps() }
+                    }
+                }
+            )
     }
 
     @After
     fun tearDown() {
-        db.close()
+        connection.close()
     }
 
     private fun insertFragment(fragment: ContentFragment) {
-        db.execSQL(
-            "INSERT INTO fragments (id, area, nivel, leccion, tema, texto) VALUES (?, ?, ?, ?, ?, ?)",
-            arrayOf(
-                fragment.id,
-                fragment.area,
-                fragment.nivel,
-                fragment.leccion,
-                fragment.tema,
-                fragment.texto,
-            ),
-        )
+        connection
+            .prepareStatement(
+                "INSERT INTO fragments (id, area, nivel, leccion, tema, texto) VALUES (?, ?, ?, ?, ?, ?)"
+            )
+            .use { statement ->
+                statement.setString(1, fragment.id)
+                statement.setString(2, fragment.area)
+                statement.setString(3, fragment.nivel)
+                statement.setString(4, fragment.leccion)
+                statement.setString(5, fragment.tema)
+                statement.setString(6, fragment.texto)
+                statement.executeUpdate()
+            }
     }
 
     @Test
@@ -282,4 +263,20 @@ class FragmentSearcherTest {
                 ),
             )
     }
+}
+
+/**
+ * Maps every row of this [ResultSet] to a `Map<String, String?>` keyed by column label, matching
+ * the shape [FragmentRowSource.rawQuery] returns. Test-only plumbing: it has no knowledge of
+ * `ContentFragment` or any FragmentSearcher-specific column list -- it just reflects whatever
+ * columns the SQL FragmentSearcher builds actually selected.
+ */
+private fun ResultSet.toRowMaps(): List<Map<String, String?>> {
+    val columnCount = metaData.columnCount
+    val columnNames = (1..columnCount).map { metaData.getColumnLabel(it) }
+    val rows = mutableListOf<Map<String, String?>>()
+    while (next()) {
+        rows += columnNames.associateWith { name -> getString(name) }
+    }
+    return rows
 }
