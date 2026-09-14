@@ -1,29 +1,8 @@
-import java.util.Properties
-
 plugins {
     id("com.android.application")
     // Kotlin support is built into AGP 9.0+; only the Compose compiler plugin is needed.
     id("org.jetbrains.kotlin.plugin.compose")
 }
-
-// T003: Picovoice Porcupine (wake-word) requires a free per-user AccessKey from
-// console.picovoice.ai. That key is a secret and must never be committed, so it
-// is read from the gitignored root `local.properties` file (the same file Gradle
-// uses for the local SDK path) rather than from any source file. Add it there as:
-//
-//   picovoice.accessKey=<your-key-from-console.picovoice.ai>
-//
-// If `local.properties` or the property is missing (e.g. a fresh clone before the
-// human partner has set up their own key), this resolves to an empty string so the
-// Gradle build still succeeds. Porcupine will simply fail at *runtime* init in that
-// case (a concern for T010's WakeWordListener.kt, not this build wiring).
-val localProperties = Properties().apply {
-    val localPropertiesFile = rootProject.file("local.properties")
-    if (localPropertiesFile.exists()) {
-        localPropertiesFile.inputStream().use { load(it) }
-    }
-}
-val picovoiceAccessKey: String = localProperties.getProperty("picovoice.accessKey", "")
 
 android {
     namespace = "com.manuel.mvp"
@@ -43,10 +22,6 @@ android {
         ndk {
             abiFilters += listOf("arm64-v8a", "x86_64")
         }
-
-        // T003: expose the Picovoice AccessKey (see above) to Kotlin as
-        // BuildConfig.PICOVOICE_ACCESS_KEY, for T010's WakeWordListener.kt to consume.
-        buildConfigField("String", "PICOVOICE_ACCESS_KEY", "\"$picovoiceAccessKey\"")
     }
 
     // T002: wires app/CMakeLists.txt (vendored llama.cpp/whisper.cpp
@@ -98,10 +73,24 @@ dependencies {
     implementation("androidx.core:core-ktx:1.19.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.11.0")
 
-    // T003: Picovoice Porcupine wake-word engine SDK. Actual usage
-    // (WakeWordListener.kt) is T010 — this task only wires the dependency
-    // and the AccessKey loading mechanism above.
-    implementation("ai.picovoice:porcupine-android:4.0.2")
+    // T003: openWakeWord wake-word engine SDK (Kotlin wrapper around ONNX
+    // Runtime; runs fully on-device — no account, API key, or secret of any
+    // kind, unlike the previously evaluated cloud-vendor engine this
+    // replaces). Actual usage (WakeWordListener.kt) is T010 — this task only
+    // wires the dependency.
+    //
+    // At runtime this needs three .onnx assets under
+    // app/src/main/assets/wakeword/:
+    //   - melspectrogram.onnx, embedding_model.onnx: generic, shared models
+    //     from the openWakeWord project (Apache-2.0), vendored by this task.
+    //   - manuel.onnx: the custom "Manuel" keyword classifier. This file does
+    //     NOT exist yet — it must be trained by a human partner using the
+    //     openWakeWord project's training notebook/Colab pipeline
+    //     (github.com/dscripka/openWakeWord), then placed at exactly
+    //     app/src/main/assets/wakeword/manuel.onnx (T010 will reference this
+    //     path). Until that file exists, wake-word detection cannot function
+    //     — expected at this stage of the project.
+    implementation("xyz.rementia:openwakeword:0.1.5")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
