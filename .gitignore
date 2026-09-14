@@ -27,3 +27,6 @@ captures/
 
 # Claude Code session/worktree management (not repo content)
 .claude/
+
+# SDD orchestrator per-branch feature cache (server is authoritative)
+.sdd/feature.json
