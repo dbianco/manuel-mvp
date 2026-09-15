@@ -27,6 +27,7 @@
 #include <jni.h>
 
 #include <string>
+#include <thread>
 #include <vector>
 
 #include "llama.h"
@@ -87,6 +88,15 @@ Java_com_manuel_mvp_llm_LlamaEngine_nativeInit(
     ctx_params.n_ctx = kContextBudget;
     ctx_params.n_batch = kContextBudget;
 
+    // llama_context_default_params() hardcodes GGML_DEFAULT_N_THREADS (4) for both fields,
+    // regardless of actual hardware -- verified on-device: this left generation using only half
+    // of an 8-core phone CPU. Use every core the OS reports instead.
+    const auto hw_threads = static_cast<int32_t>(std::thread::hardware_concurrency());
+    if (hw_threads > 0) {
+        ctx_params.n_threads = hw_threads;
+        ctx_params.n_threads_batch = hw_threads;
+    }
+
     llama_context *ctx = llama_init_from_model(model, ctx_params);
     if (ctx == nullptr) {
         // Context init failed after a successful model load -- free the model rather than leaking
@@ -97,6 +107,20 @@ Java_com_manuel_mvp_llm_LlamaEngine_nativeInit(
 
     llama_sampler_chain_params sampler_params = llama_sampler_chain_default_params();
     llama_sampler *sampler = llama_sampler_chain_init(sampler_params);
+    // Greedy decoding alone is deterministic with zero randomness, so once it starts repeating a
+    // phrase it has no way to escape the loop -- verified on-device with Qwen2.5-0.5B, which
+    // degenerated into repeating "que es un tipo de triángulo" until hitting max_tokens. A
+    // repetition penalty (still fully deterministic -- it only reshapes logits before the greedy
+    // argmax pick, it doesn't sample) discourages recently-used tokens without introducing
+    // randomness into response wording.
+    llama_sampler_chain_add(
+        sampler,
+        llama_sampler_init_penalties(
+            /* n_vocab */ llama_vocab_n_tokens(vocab),
+            /* penalty_last_n */ 64,
+            /* penalty_repeat */ 1.3f,
+            /* penalty_freq */ 0.0f,
+            /* penalty_present */ 0.0f));
     llama_sampler_chain_add(sampler, llama_sampler_init_greedy());
 
     auto *session = new LlamaSession{model, ctx, sampler, vocab, static_cast<int>(max_tokens)};

@@ -10,15 +10,11 @@ import kotlinx.coroutines.flow.Flow
 
 /**
  * Wraps openWakeWord's [WakeWordEngine] to arm/disarm background listening for the "Manuel"
- * keyword (FR-002), and validates the STT transcript captured after a detection against
- * [KeywordPrefixParser] (FR-003/FR-004): only a transcript that clearly starts with the keyword
- * and is followed by a non-blank instruction is surfaced as a conversation turn; anything else
- * ([KeywordPrefixParser.parse] returning `null`) means the caller returns to the keyword-waiting
- * state without producing a spoken response or registering a visible failed turn.
- *
- * The acoustic detector ([WakeWordEngine], non-deterministic and hardware-dependent) and the
- * textual keyword-prefix check ([KeywordPrefixParser], pure and already unit-tested by T009) stay
- * independent: [resolveInstruction] is a thin pass-through, not a merge of the two.
+ * keyword (FR-002). [resolveInstruction] validates the STT transcript captured *after* a
+ * detection (FR-003/FR-004): only a non-blank transcript is surfaced as a conversation turn;
+ * a blank one means the caller returns to the keyword-waiting state without producing a spoken
+ * response or registering a visible failed turn. See [resolveInstruction]'s doc for why this does
+ * not check for a "manuel" text prefix, despite [KeywordPrefixParser] existing for that purpose.
  *
  * [Context] and [CoroutineScope] are taken from the caller rather than owned internally, so
  * lifecycle (cancellation, cleanup) stays with whoever constructs this listener.
@@ -64,17 +60,29 @@ class WakeWordListener(
     }
 
     /**
-     * Validates the STT transcript captured after a wake-word detection against the keyword-prefix
-     * contract (FR-003/FR-004). Returns the extracted instruction, or `null` when the transcript
-     * doesn't clearly start with the keyword followed by an instruction -- callers MUST treat
+     * Validates the STT transcript captured after a wake-word detection (FR-003/FR-004). Returns
+     * the extracted instruction, or `null` when there's no clear instruction -- callers MUST treat
      * `null` as "return to keyword-waiting state silently".
+     *
+     * Does NOT delegate to [KeywordPrefixParser] here: [transcript] is [AudioCaptureManager]'s
+     * capture of the audio *following* [engine]'s acoustic wake-word detection -- a fresh
+     * `AudioRecord` session started only after the detection fires, so it can never contain the
+     * word "manuel" itself (that utterance was already consumed by [engine]'s own separate
+     * recorder). Requiring a textual "manuel" prefix here -- verified against a real device, not
+     * just review -- meant every real transcript was silently discarded, regardless of how
+     * accurately whisper transcribed it. [KeywordPrefixParser] remains a correct, tested component
+     * for its own documented contract (parsing "Manuel, <instrucción>"-shaped text); it's simply
+     * the wrong tool for text that was never going to contain the keyword in the first place.
      */
-    fun resolveInstruction(transcript: String): String? = KeywordPrefixParser.parse(transcript)
+    fun resolveInstruction(transcript: String): String? = transcript.trim().ifEmpty { null }
 
     companion object {
         const val KEYWORD_MODEL_NAME = "manuel"
         const val DEFAULT_MODEL_ASSET_PATH = "wakeword/manuel.onnx"
-        const val DEFAULT_THRESHOLD = 0.5f
+        // Lowered from 0.5 after real-device testing: the trained model (synthetic TTS voices
+        // only, reduced sample count) misses real speech often enough at 0.5 to be unreliable.
+        // 0.35 trades a few more false positives for meaningfully better recall.
+        const val DEFAULT_THRESHOLD = 0.35f
         const val DEFAULT_DETECTION_COOLDOWN_MS = 2_000L
     }
 }

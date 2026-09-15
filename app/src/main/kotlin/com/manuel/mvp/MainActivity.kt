@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
@@ -88,6 +89,7 @@ class MainActivity : ComponentActivity() {
                         built.pipeline.state.collectLatest { assistantState = it.toAssistantState() }
                     }
                 } catch (error: Exception) {
+                    Log.e("MainActivity", "Pipeline init failed", error)
                     assistantState = AssistantState.Error(
                         error.message ?: "No se pudo iniciar el asistente",
                     )
@@ -105,6 +107,7 @@ class MainActivity : ComponentActivity() {
                         }
                     },
                     onDejarDeEscucharClick = { pipeline?.disarm() },
+                    onHablarAhoraClick = { pipeline?.triggerManualTurn() },
                 )
             }
 
@@ -182,6 +185,12 @@ class MainActivity : ComponentActivity() {
         // clarifications). These paths are where a human/first-launch download step is expected to
         // place them under internal storage before the assistant can function.
         private const val WHISPER_MODEL_RELATIVE_PATH = "models/ggml-tiny.bin"
-        private const val LLAMA_MODEL_RELATIVE_PATH = "models/llama-3.2-3b-instruct-q4_k_m.gguf"
+
+        // Switched 3B -> 1B -> Qwen2.5 0.5B: even 1B generation was slow enough on phone CPU
+        // (no GPU delegate) to hurt real-time voice interaction. Qwen2.5-0.5B-Instruct is half
+        // the params of the 1B Llama and notably strong at Spanish for its size. PromptBuilder
+        // never used a chat template for either model (plain-text completion), so no prompt
+        // changes were needed to switch architectures.
+        private const val LLAMA_MODEL_RELATIVE_PATH = "models/qwen2.5-0.5b-instruct-q4_k_m.gguf"
     }
 }

@@ -2,6 +2,7 @@ package com.manuel.mvp.pipeline
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.annotation.RequiresPermission
 import com.manuel.mvp.audio.AudioCaptureManager
 import com.manuel.mvp.audio.WakeWordListener
@@ -87,6 +88,19 @@ class ConversationPipeline(
     }
 
     /**
+     * Manually starts a conversation turn without requiring a successful acoustic wake-word
+     * detection first -- a fallback for when the trained wake-word model's real-world accuracy is
+     * unreliable (verified on-device: it misses real speech often enough at moderate confidence
+     * thresholds to frustrate normal use). The caller (`MainScreen`'s "Hablar ahora" button) is
+     * responsible for only offering this while [state] is [PipelineState.Armed], so RECORD_AUDIO
+     * is guaranteed granted by the same contract [arm] already relies on.
+     */
+    @RequiresPermission(Manifest.permission.RECORD_AUDIO)
+    fun triggerManualTurn() {
+        scope.launch { handleDetection() }
+    }
+
+    /**
      * Disarms listening ("Dejar de escuchar"): stops the wake-word engine, cancels any in-flight
      * detection handling, and clears session memory (FR-001, FR-010).
      */
@@ -152,8 +166,10 @@ class ConversationPipeline(
                     }
                     is TranscriptionOutcome.Transcribed -> transcriptionOutcome.text
                 }
+                Log.d("ConversationPipeline", "Transcribed: \"$transcribedText\"")
 
                 val instruction = wakeWordListener.resolveInstruction(transcribedText)
+                Log.d("ConversationPipeline", "Resolved instruction: ${instruction?.let { "\"$it\"" }}")
                 if (instruction == null) {
                     // FR-003/FR-004: no keyword prefix / no clear instruction -- silently discard.
                     metricsLogger.recordWakeWordActivation(WakeWordActivationOutcome.POSSIBLE_FALSE_POSITIVE)
@@ -171,6 +187,7 @@ class ConversationPipeline(
                 val generationStartMs = System.currentTimeMillis()
                 val response = llamaEngine.generate(prompt)
                 val generationDurationMs = System.currentTimeMillis() - generationStartMs
+                Log.d("ConversationPipeline", "Generated response: \"$response\"")
 
                 _state.value = PipelineState.Responding
                 speechSynthesizer.speak(response)

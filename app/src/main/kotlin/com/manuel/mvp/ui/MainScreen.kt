@@ -28,15 +28,21 @@ import androidx.compose.ui.unit.dp
  * involved. `MainActivity` is responsible for wiring the real pipeline to these callbacks and this
  * state.
  *
- * Both buttons always stay on-screen; only their enabled state toggles (exactly one is ever
- * actionable at a time) -- stable positions are easier to predict for a screen-reader user or a
- * young child than a button that appears/disappears.
+ * Both "Escuchar"/"Dejar de escuchar" buttons always stay on-screen; only their enabled state
+ * toggles (exactly one is ever actionable at a time) -- stable positions are easier to predict for
+ * a screen-reader user or a young child than a button that appears/disappears. A third,
+ * optional "Hablar ahora" button (enabled only while [state] is [AssistantState.Armed]) manually
+ * starts a turn without needing a successful acoustic wake-word detection first -- added after
+ * real-device testing showed the trained wake-word model misses real speech often enough to
+ * frustrate normal use; [onHablarAhoraClick] defaults to a no-op so existing callers/tests that
+ * don't care about this fallback don't need to change.
  */
 @Composable
 fun MainScreen(
     state: AssistantState,
     onEscucharClick: () -> Unit,
     onDejarDeEscucharClick: () -> Unit,
+    onHablarAhoraClick: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     Surface(modifier = modifier.fillMaxSize()) {
@@ -63,6 +69,14 @@ fun MainScreen(
                     Text(DEJAR_DE_ESCUCHAR_LABEL)
                 }
             }
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(
+                onClick = onHablarAhoraClick,
+                enabled = state is AssistantState.Armed,
+                modifier = Modifier.semantics { contentDescription = HABLAR_AHORA_LABEL },
+            ) {
+                Text(HABLAR_AHORA_LABEL)
+            }
         }
     }
 }
@@ -78,3 +92,4 @@ private fun statusText(state: AssistantState): String = when (state) {
 
 const val ESCUCHAR_LABEL = "Escuchar"
 const val DEJAR_DE_ESCUCHAR_LABEL = "Dejar de escuchar"
+const val HABLAR_AHORA_LABEL = "Hablar ahora"
