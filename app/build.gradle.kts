@@ -118,4 +118,19 @@ dependencies {
     // (latest stable: junit 4.13.2, org.xerial:sqlite-jdbc 3.53.4.0).
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.xerial:sqlite-jdbc:3.53.4.0")
+
+    // T019: MainScreenTest (app/src/androidTest/kotlin/com/manuel/mvp/ui/) instrumented-tests the
+    // not-yet-existing MainScreen composable (T020) via Compose's own test APIs. Gradle resolves
+    // dependency versions per source-set configuration independently, so the compose-bom platform
+    // needs re-declaring here for androidTestImplementation even though it's already declared
+    // above for implementation. debugImplementation("androidx.compose.ui:ui-test-manifest")
+    // (already present above, from T001) supplies the test activity manifest entry
+    // createComposeRule() needs. Cannot be verified via a real Gradle sync in this sandbox (see
+    // t019-main-screen-test-spec.md's Clarifications) -- versions chosen to match what's already
+    // pinned above (compose-bom 2026.09.00) plus androidx.test.ext:junit, the standard JUnit4
+    // runner for Android instrumented tests -- 1.3.0 confirmed as the current latest/release
+    // version via dl.google.com/dl/android/maven2/androidx/test/ext/junit/maven-metadata.xml.
+    androidTestImplementation(platform("androidx.compose:compose-bom:2026.09.00"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
 }
