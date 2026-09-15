@@ -96,14 +96,19 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    // T006: ContentDatabase/ContentDao (app/src/main/kotlin/com/manuel/mvp/rag/) use
-    // androidx.sqlite's SupportSQLiteOpenHelper/SupportSQLiteDatabase API directly (no Room) to
-    // manage the FTS5 `fragments` table, via the framework-backed
-    // FrameworkSQLiteOpenHelperFactory implementation. Not pulled in transitively by anything else
-    // in this dependency list, so it's declared explicitly here. Version verified live against
-    // Google's Maven repository at the time of this task (latest stable: 2.7.1; 2.8.0-alpha01 also
-    // exists but isn't stable).
-    implementation("androidx.sqlite:sqlite-framework:2.7.1")
+    // T006 (revised post-T022, on real hardware): ContentDatabase/ContentDao
+    // (app/src/main/kotlin/com/manuel/mvp/rag/) originally used
+    // androidx.sqlite:sqlite-framework's FrameworkSQLiteOpenHelperFactory, which wraps the OS's own
+    // bundled SQLite -- but the first real on-device run (an Android 37 emulator, google_apis
+    // image) failed with "no such module: fts5", confirming the OS's system SQLite doesn't have
+    // FTS5 compiled in (exactly the limitation already known for Robolectric's SQLite, now also
+    // confirmed for real Android). Switched to androidx.sqlite:sqlite-bundled, Google's own
+    // bundled-SQLite artifact built specifically for this problem (ships a recent SQLite compiled
+    // with FTS5, independent of the OS version) -- this uses the newer SQLiteDriver/SQLiteConnection
+    // API rather than SupportSQLiteOpenHelper/SupportSQLiteDatabase, so ContentDatabase.kt/
+    // ContentDao.kt were migrated accordingly. Version matches the sqlite-framework version it
+    // replaces (2.7.1, verified live against Google's Maven repository).
+    implementation("androidx.sqlite:sqlite-bundled:2.7.1")
 
     // T005: FragmentSearcherTest (app/src/test/kotlin/com/manuel/mvp/rag/) runs FragmentSearcher's
     // real search/ranking logic as a JVM unit test (test/, not androidTest/) against a real,

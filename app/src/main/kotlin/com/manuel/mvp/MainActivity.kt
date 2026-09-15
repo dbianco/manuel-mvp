@@ -121,7 +121,7 @@ class MainActivity : ComponentActivity() {
      */
     private fun buildPipeline(): ConversationPipeline {
         val contentDatabase = ContentDatabase.create(applicationContext)
-        val fragmentSearcher = FragmentSearcher(ContentDao(contentDatabase.readableDatabase))
+        val fragmentSearcher = FragmentSearcher(ContentDao(contentDatabase.connection))
 
         val whisperEngine = NativeWhisperEngine(File(filesDir, WHISPER_MODEL_RELATIVE_PATH).absolutePath)
         val whisperTranscriber = WhisperTranscriber(whisperEngine)
