@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- T020: required for WakeWordListener (T010) and AudioCaptureManager (T011) to record from
+         the microphone. Requested at runtime from MainActivity before the first arm() call, per
+         Android's runtime-permission model (API 23+; this app's minSdk is 29). -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:allowBackup="true"
         android:label="Manuel"
