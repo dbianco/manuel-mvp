@@ -80,7 +80,7 @@ class WakeWordListener(
     companion object {
         /**
          * The wake word is "anita", not "manuel" (the assistant's name), because openWakeWord's
-         * training pipeline (`manuel_model_training.ipynb`) generates its examples with an
+         * training pipeline (`anita_model_training.ipynb`) generates its examples with an
          * *English* TTS voice: the first model learned "man-WELL", which is not what a Spanish
          * speaker says, and missed real speech often. "Anita" is pronounced the same in both
          * languages, has three syllables (longer phrases detect more reliably), and is not a word
