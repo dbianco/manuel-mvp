@@ -137,7 +137,7 @@ Java_com_manuel_mvp_llm_LlamaEngine_nativeGenerate(
             break;
         }
 
-        const llama_token new_token_id = llama_sampler_sample(session->sampler, session->ctx, -1);
+        llama_token new_token_id = llama_sampler_sample(session->sampler, session->ctx, -1);
 
         if (llama_vocab_is_eog(session->vocab, new_token_id)) {
             break;
