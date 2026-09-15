@@ -1,0 +1,42 @@
+# Spec: ConversationPipeline (T018)
+
+## User Scenarios
+
+### Primary user story
+
+As Manuel, once armed ("Escuchar"), I want every wake-word detection to flow automatically through capture → transcription → keyword-prefix validation → RAG search → LLM generation → TTS, updating a visible state and logging metrics along the way, entirely offline (FR-012) and coherently across turns via session memory (FR-011), so the whole conversational loop (FR-001's "único mecanismo de control manual") runs without any other manual step per turn.
+
+### Acceptance scenarios
+
+1. **Given** the pipeline is armed, **When** a wake-word detection fires and `AudioCaptureManager` returns `null` (no speech), **Then** the pipeline records a `POSSIBLE_FALSE_POSITIVE` activation, produces no spoken response, and returns to the armed/waiting state (FR-004).
+2. **Given** captured audio, **When** `WhisperTranscriber` returns `RepeatRequested` (low confidence), **Then** the pipeline records a `POSSIBLE_FALSE_POSITIVE` activation and speaks a fixed "please repeat" prompt (FR-005), then returns to armed.
+3. **Given** a transcribed instruction, **When** `WakeWordListener.resolveInstruction(...)` returns `null` (no keyword prefix / no clear instruction), **Then** the pipeline records a `POSSIBLE_FALSE_POSITIVE` activation, produces no spoken response, and returns to armed (FR-003/FR-004).
+4. **Given** a resolved instruction, **When** the full turn completes (RAG search, prompt assembly, LLM generation, TTS), **Then** the pipeline records a `VALID_TURN` activation, logs a `TurnMetrics` entry with all four stage durations plus the total, records the exchange in `SessionMemory` (so the next turn's history includes it, satisfying FR-011), and returns to armed.
+5. **Given** any exception during a turn, **When** it's thrown by any collaborator, **Then** the pipeline catches it, logs a `TurnMetrics` entry with a non-null `error`, transitions to an `Error` state, and does not crash or leave the pipeline stuck — the next wake-word detection is still handled normally.
+6. **Given** `disarm()` is called, **When** it runs, **Then** it disarms `WakeWordListener`, cancels any in-flight detection handling, clears `SessionMemory` (FR-001's "borra la memoria de sesión"), and transitions to a `Disarmed` state.
+
+## Functional Requirements
+
+- **FR-001**: The system MUST add `ConversationPipeline.kt` at `app/src/main/kotlin/com/manuel/mvp/pipeline/`, constructor-injected with all of `WakeWordListener` (T010), `AudioCaptureManager` (T011), `WhisperTranscriber` (T013), `FragmentSearcher` (T006), `SessionMemory` (T008), `PromptBuilder` and `LlamaEngine` (T015), `SpeechSynthesizer` (T016), `LocalMetricsLogger` (T017), and a `CoroutineScope` (matching `WakeWordListener`'s convention of taking its scope from the caller, not owning one internally).
+- **FR-002**: The system MUST add a `PipelineState` sealed type (`Disarmed`, `Armed`, `Listening`, `Processing`, `Responding`, `Error(message)`) in the same package, exposed as `ConversationPipeline.state: StateFlow<PipelineState>` for the UI layer (T020) to observe.
+- **FR-003**: `arm()` MUST call `WakeWordListener.arm()`, set state to `Armed`, and start collecting `WakeWordListener.armedDetections` on the injected scope, handling each detection per FR-005 through FR-008 below.
+- **FR-004**: `disarm()` MUST call `WakeWordListener.disarm()`, cancel the detection-collection coroutine, call `SessionMemory.clear()`, and set state to `Disarmed`.
+- **FR-005**: On each detection, the pipeline MUST set state to `Listening`, call `AudioCaptureManager.captureInstruction()`, and if it returns `null`, record a `POSSIBLE_FALSE_POSITIVE` activation and return to `Armed` without speaking (FR-004 of the top-level spec).
+- **FR-006**: If audio was captured, the pipeline MUST set state to `Processing`, call `WhisperTranscriber.transcribe(audio)`, and on `RepeatRequested`, record a `POSSIBLE_FALSE_POSITIVE` activation, set state to `Responding`, speak a fixed repeat-request prompt, then return to `Armed` (FR-005 of the top-level spec).
+- **FR-007**: On a successful transcription, the pipeline MUST call `WakeWordListener.resolveInstruction(transcribedText)`; if it returns `null`, record a `POSSIBLE_FALSE_POSITIVE` activation and return to `Armed` without speaking (FR-003/FR-004 of the top-level spec).
+- **FR-008**: On a resolved instruction, the pipeline MUST, in order: search `FragmentSearcher` for RAG fragments, read `SessionMemory.currentExchanges()`, build a prompt via `PromptBuilder`, generate a response via `LlamaEngine`, set state to `Responding` and speak the response via `SpeechSynthesizer`, record the exchange via `SessionMemory.record(...)`, record a `VALID_TURN` activation, log a complete `TurnMetrics` entry (all 4 stage durations + total), then return to `Armed`.
+- **FR-009**: Any exception raised anywhere in FR-005 through FR-008's handling of one detection MUST be caught, logged as a `TurnMetrics` entry with a non-null `error` (and zeroed/best-effort stage durations), and MUST transition state to `Error(message)` without terminating the detection-collection coroutine — the next detection must still be handled normally.
+- **FR-010**: The pipeline MUST perform no network I/O anywhere in this flow (FR-012 of the top-level spec) — every collaborator it calls is already on-device only, so this is satisfied by construction as long as no new network call is introduced here.
+
+## Success Criteria
+
+- **SC-001**: `ConversationPipeline.kt` compiles cleanly against every one of its real collaborator classes (`WakeWordListener`, `AudioCaptureManager`, `WhisperTranscriber`, `FragmentSearcher`, `SessionMemory`, `PromptBuilder`, `LlamaEngine`, `SpeechSynthesizer`, `LocalMetricsLogger`) plus `kotlinx-coroutines-core` and the Android/openWakeWord/onnxruntime classes those collaborators themselves need, verified via one combined standalone compile (this sandbox has no Android SDK, so this substitutes for `./gradlew build`).
+- **SC-002**: A grep-level review confirms no HTTP client, socket, or URL-based API is referenced anywhere in the new file (FR-010/FR-012).
+- **SC-003**: Every one of the 6 acceptance scenarios above maps to a distinct, inspectable branch in `handleDetection()`'s control flow (verified by code review, since a full behavioral test would require interface-based fakes for every collaborator — out of scope here, see Clarifications).
+
+## Clarifications
+
+- 2026-09-14: **No dedicated unit test for `ConversationPipeline` itself.** Every collaborator except `WhisperTranscriber` (which already has an injectable `WhisperEngine` seam from T012) is a concrete class requiring real Android hardware, a real native engine, or a real TTS voice to exercise for real — `AudioCaptureManager` (real `AudioRecord`), `WakeWordListener` (real openWakeWord engine), `LlamaEngine` (real JNI/GGUF model), `SpeechSynthesizer` (real `TextToSpeech`). Retrofitting interfaces for all of them purely to make `ConversationPipeline` unit-testable is a larger refactor than this task's scope; verification here is a full compile-check against every real collaborator (SC-001) plus code review (SC-003), matching the established pattern for orchestration-heavy, hardware/native-dependent classes (`AudioCaptureManager`, `WakeWordListener`). A future task could extract per-collaborator interfaces if pipeline-level test coverage becomes a priority.
+- 2026-09-14: **Order of checks: silence (FR-004) before low-confidence (FR-005) before keyword-prefix (FR-003).** This mirrors the natural sequential dependency: there's no transcription to have low confidence in if no audio was captured, and no transcript to check the keyword prefix against if transcription itself was rejected for low confidence. This ordering isn't a judgment call so much as the only order the data dependencies allow.
+- 2026-09-14: **The repeat-request prompt text is a fixed constant**, not something `PromptBuilder`/`LlamaEngine` generate — asking the user to repeat themselves is a deterministic, canned response with no need for an LLM call (and no RAG/history context makes sense for it), keeping this path fast and simple.
+- 2026-09-14: **A turn-level exception does not clear `SessionMemory` or disarm the pipeline** — only `disarm()` (FR-001's explicit "Dejar de escuchar") clears history; a single failed turn is treated as recoverable, not a reason to lose the whole session's context.
