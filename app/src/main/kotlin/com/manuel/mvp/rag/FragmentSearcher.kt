@@ -25,9 +25,30 @@ class FragmentSearcher(private val source: FragmentRowSource) {
      * an empty list if nothing matches.
      */
     fun search(query: String, limit: Int = 5): List<ContentFragment> {
-        val rows = source.rawQuery(SEARCH_SQL, listOf(query, limit))
+        val rows = source.rawQuery(SEARCH_SQL, listOf(query.toFts5MatchExpression(), limit))
         return rows.map { row -> row.toContentFragment() }
     }
+
+    /**
+     * Turns free-form (whisper-transcribed) [query] text into a safe FTS5 `MATCH` operand.
+     *
+     * [query] is user-controlled: it's whatever the child said, verbatim. FTS5's query syntax
+     * treats `-`, `"`, `(`, `)`, and `:` as operators/metacharacters (e.g. a leading `-` negates
+     * the next term, `NEAR(...)`/`col:term` change the query shape entirely), so passing it
+     * through unescaped lets ordinary spoken input like "no-se" or "hora: la de comer" throw a
+     * `SQLITE_ERROR` (or, worse, silently change what's searched) instead of just searching for
+     * those words. Splitting into whitespace-separated tokens and quoting each one as an FTS5
+     * string literal (doubling embedded `"`) makes every token a literal phrase match, immune to
+     * FTS5 syntax -- space-separated quoted phrases keep FTS5's default implicit-AND-of-terms
+     * behavior, so plain queries rank the same as before this fix.
+     */
+    private fun String.toFts5MatchExpression(): String =
+        trim()
+            .split(Regex("\\s+"))
+            .filter { it.isNotEmpty() }
+            .joinToString(" ") { token -> "\"" + token.replace("\"", "\"\"") + "\"" }
+
+
 
     private fun Map<String, String?>.toContentFragment(): ContentFragment =
         ContentFragment(

@@ -26,7 +26,7 @@ class NativeWhisperEngine(modelPath: String) : WhisperEngine {
         nativeTranscribe(contextHandle, audioPcm16)
 
     /** Frees the native whisper.cpp context. This engine must not be used again after calling this. */
-    fun release() {
+    override fun release() {
         nativeRelease(contextHandle)
     }
 

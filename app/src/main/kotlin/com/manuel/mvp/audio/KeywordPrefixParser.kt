@@ -19,7 +19,13 @@ object KeywordPrefixParser {
         val trimmedStart = transcript.trimStart()
         if (!trimmedStart.startsWith(KEYWORD, ignoreCase = true)) return null
 
-        var rest = trimmedStart.substring(KEYWORD.length).trimStart()
+        val afterKeyword = trimmedStart.substring(KEYWORD.length)
+        // Word-boundary check: "Manuela" / "Manuelito" also startsWith("manuel"), but the keyword
+        // must match the whole word, not just a prefix of a longer one. A letter immediately after
+        // "manuel" means this is a different word, not the wake word followed by its separator.
+        if (afterKeyword.isNotEmpty() && afterKeyword[0].isLetter()) return null
+
+        var rest = afterKeyword.trimStart()
         if (rest.startsWith(",")) {
             rest = rest.substring(1)
         }

@@ -69,6 +69,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             var assistantState by remember { mutableStateOf<AssistantState>(AssistantState.Disarmed) }
             var pipeline by remember { mutableStateOf<ConversationPipeline?>(null) }
+            var contentDatabase by remember { mutableStateOf<ContentDatabase?>(null) }
 
             val requestRecordAudioPermission = rememberLauncherForActivityResult(
                 ActivityResultContracts.RequestPermission(),
@@ -80,10 +81,11 @@ class MainActivity : ComponentActivity() {
 
             LaunchedEffect(Unit) {
                 try {
-                    val builtPipeline = withContext(Dispatchers.IO) { buildPipeline() }
-                    pipeline = builtPipeline
+                    val built = withContext(Dispatchers.IO) { buildPipeline() }
+                    contentDatabase = built.contentDatabase
+                    pipeline = built.pipeline
                     launch {
-                        builtPipeline.state.collectLatest { assistantState = it.toAssistantState() }
+                        built.pipeline.state.collectLatest { assistantState = it.toAssistantState() }
                     }
                 } catch (error: Exception) {
                     assistantState = AssistantState.Error(
@@ -106,11 +108,15 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
-            // Ensures the wake-word engine and any in-flight turn are released if the activity is
-            // torn down while armed, even though the LaunchedEffect's own cancellation would
-            // already stop the detection-collection coroutine.
+            // Ensures every native/OS resource this activity's pipeline holds (wake-word engine,
+            // whisper.cpp/llama.cpp native contexts, TTS engine, the FTS5 database connection) is
+            // actually released when the activity is torn down, not just disarmed -- previously
+            // only disarm() ran here, leaking every one of those on every activity destroy.
             DisposableEffect(Unit) {
-                onDispose { pipeline?.disarm() }
+                onDispose {
+                    pipeline?.release()
+                    contentDatabase?.close()
+                }
             }
         }
     }
@@ -119,6 +125,12 @@ class MainActivity : ComponentActivity() {
         ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) ==
             PackageManager.PERMISSION_GRANTED
 
+    /** Bundles [buildPipeline]'s pipeline with the [ContentDatabase] it's backed by, since the
+     * database's connection is only needed by [FragmentSearcher] construction, but its lifecycle
+     * (closing it) belongs to the activity, not to [ConversationPipeline].
+     */
+    private class PipelineBundle(val pipeline: ConversationPipeline, val contentDatabase: ContentDatabase)
+
     /**
      * Constructs every [ConversationPipeline] collaborator and wires them together. Model file
      * paths point at internal-storage locations a human/first-launch download step is expected to
@@ -126,7 +138,7 @@ class MainActivity : ComponentActivity() {
      * needs *a* path, not to provision the file itself (matching T013/T015's "packaging is out of
      * scope" stance).
      */
-    private fun buildPipeline(): ConversationPipeline {
+    private fun buildPipeline(): PipelineBundle {
         val contentDatabase = ContentDatabase.create(applicationContext)
         val fragmentSearcher = FragmentSearcher(ContentDao(contentDatabase.connection))
 
@@ -140,7 +152,7 @@ class MainActivity : ComponentActivity() {
 
         val wakeWordListener = WakeWordListener(applicationContext, lifecycleScope)
 
-        return ConversationPipeline(
+        val pipeline = ConversationPipeline(
             wakeWordListener = wakeWordListener,
             audioCaptureManager = AudioCaptureManager(),
             whisperTranscriber = whisperTranscriber,
@@ -152,6 +164,7 @@ class MainActivity : ComponentActivity() {
             metricsLogger = LocalMetricsLogger(),
             scope = lifecycleScope,
         )
+        return PipelineBundle(pipeline, contentDatabase)
     }
 
     private fun PipelineState.toAssistantState(): AssistantState = when (this) {

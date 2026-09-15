@@ -15,6 +15,7 @@ import com.manuel.mvp.session.SessionMemory
 import com.manuel.mvp.stt.TranscriptionOutcome
 import com.manuel.mvp.stt.WhisperTranscriber
 import com.manuel.mvp.tts.SpeechSynthesizer
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -70,6 +71,12 @@ class ConversationPipeline(
      */
     @RequiresPermission(Manifest.permission.RECORD_AUDIO)
     fun arm() {
+        // Idempotent: MainActivity's two arm() call sites (the direct click handler and the
+        // permission-grant callback) can race or double-fire from user double-taps. Without this
+        // guard, a second call would leak the first detectionCollectionJob (never cancelled) and
+        // leave two collectors racing to handle the same wake-word detections.
+        if (detectionCollectionJob != null) return
+
         wakeWordListener.arm()
         _state.value = PipelineState.Armed
         detectionCollectionJob = scope.launch {
@@ -89,6 +96,21 @@ class ConversationPipeline(
         detectionCollectionJob = null
         sessionMemory.clear()
         _state.value = PipelineState.Disarmed
+    }
+
+    /**
+     * Disarms, then releases every native/OS resource this pipeline's collaborators hold
+     * ([WakeWordListener], [WhisperTranscriber]'s engine, [LlamaEngine], [SpeechSynthesizer]).
+     * Callers (`MainActivity`'s `DisposableEffect`) must call this exactly once, when the pipeline
+     * itself is being torn down for good -- unlike [disarm], this pipeline must not be used again
+     * afterwards.
+     */
+    fun release() {
+        disarm()
+        wakeWordListener.release()
+        whisperTranscriber.release()
+        llamaEngine.release()
+        speechSynthesizer.shutdown()
     }
 
     // RECORD_AUDIO is guaranteed by arm()'s own @RequiresPermission contract -- this is only
@@ -166,6 +188,11 @@ class ConversationPipeline(
                 )
                 _state.value = PipelineState.Armed
             }
+        } catch (cancellation: CancellationException) {
+            // disarm()/scope teardown cancels this coroutine deliberately (e.g. the activity is
+            // torn down mid-turn) -- that is not a turn failure, and must propagate so structured
+            // concurrency actually stops the coroutine instead of being reported as an error state.
+            throw cancellation
         } catch (error: Exception) {
             // FR-009: a turn-level failure is recoverable -- log it, surface it, keep listening.
             metricsLogger.recordTurn(

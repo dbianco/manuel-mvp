@@ -108,6 +108,14 @@ Java_com_manuel_mvp_llm_LlamaEngine_nativeGenerate(
     JNIEnv *env, jobject /* thiz */, jlong context_handle, jstring prompt) {
     auto *session = reinterpret_cast<LlamaSession *>(context_handle);
 
+    // Sessions are reused across conversational turns (T018's ConversationPipeline calls
+    // nativeGenerate once per turn on the same handle), but this file never tracks a running
+    // sequence position across calls -- every call starts a fresh llama_batch_get_one at
+    // position 0 via llama_decode. Without clearing the KV cache first, the second and later
+    // turns would decode this new prompt's tokens on top of stale cache entries left at those
+    // same positions from the previous turn, corrupting attention over stale context.
+    llama_memory_clear(llama_get_memory(session->ctx), /* data */ true);
+
     const char *prompt_chars = env->GetStringUTFChars(prompt, nullptr);
     const std::string prompt_str(prompt_chars);
     env->ReleaseStringUTFChars(prompt, prompt_chars);

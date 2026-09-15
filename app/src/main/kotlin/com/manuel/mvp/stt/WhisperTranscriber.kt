@@ -24,6 +24,9 @@ sealed class TranscriptionOutcome {
  */
 interface WhisperEngine {
     fun transcribe(audioPcm16: ShortArray): TranscriptionResult
+
+    /** Releases any resources this engine holds. No-op by default -- only [NativeWhisperEngine] needs it. */
+    fun release() {}
 }
 
 /**
@@ -45,6 +48,9 @@ class WhisperTranscriber(
             TranscriptionOutcome.RepeatRequested
         }
     }
+
+    /** Passthrough to the underlying [WhisperEngine], so callers don't need to hold a separate reference just to release it. */
+    fun release() = engine.release()
 
     companion object {
         const val DEFAULT_CONFIDENCE_THRESHOLD = 0.6f

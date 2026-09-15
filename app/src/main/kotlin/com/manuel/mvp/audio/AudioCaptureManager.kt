@@ -70,12 +70,25 @@ class AudioCaptureManager(
             while (true) {
                 val frameBuffer = ShortArray(frameSize)
                 val samplesRead = audioRecord.read(frameBuffer, 0, frameBuffer.size)
-                if (samplesRead <= 0) continue
+
+                // A negative return is an AudioRecord error code (e.g. ERROR_INVALID_OPERATION,
+                // ERROR_DEAD_OBJECT if the mic is revoked mid-capture), and 0 means "no samples
+                // available yet" on a non-blocking read. Neither means "this frame had no speech" --
+                // treat this frame as silence for policy purposes instead of skipping the elapsed-
+                // time check entirely, which would spin forever with no timeout if the mic never
+                // recovers (e.g. ERROR_DEAD_OBJECT, which never un-errors).
+                val elapsedMs = System.nanoTime() / NANOS_PER_MILLI - startElapsedMs
+                if (samplesRead <= 0) {
+                    when (policy.onFrame(elapsedMs, isSpeech = false)) {
+                        CaptureDecision.Continue -> continue
+                        CaptureDecision.StopWithAudio -> return@withContext concatenate(capturedFrames)
+                        CaptureDecision.StopSilently -> return@withContext null
+                    }
+                }
 
                 val frame = if (samplesRead == frameBuffer.size) frameBuffer else frameBuffer.copyOf(samplesRead)
                 capturedFrames.add(frame)
 
-                val elapsedMs = System.nanoTime() / NANOS_PER_MILLI - startElapsedMs
                 val isSpeech = speechEnergyDetector.isSpeech(frame)
 
                 when (policy.onFrame(elapsedMs, isSpeech)) {
