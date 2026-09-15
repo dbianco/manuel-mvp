@@ -22,6 +22,7 @@
 #include <jni.h>
 
 #include <string>
+#include <thread>
 #include <vector>
 
 #include "whisper.h"
@@ -110,7 +111,12 @@ Java_com_manuel_mvp_stt_NativeWhisperEngine_nativeTranscribe(
     wparams.print_realtime = false;
     wparams.print_timestamps = false;
     wparams.no_timestamps = true;
-    wparams.n_threads = 4;
+
+    // Was hardcoded to 4 -- verified on-device: transcription alone took 14s for ~4s of audio
+    // (3.5x slower than real-time) on an 8-core phone using only half its cores. Same fix already
+    // applied to llama_jni.cpp's context params.
+    const auto hw_threads = static_cast<int32_t>(std::thread::hardware_concurrency());
+    wparams.n_threads = hw_threads > 0 ? hw_threads : 4;
 
     // A fresh whisper_state per call, instead of reusing ctx's implicit shared state (what plain
     // whisper_full() does) across every transcription -- verified on-device: reusing the same

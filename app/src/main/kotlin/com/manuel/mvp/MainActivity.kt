@@ -179,6 +179,11 @@ class MainActivity : ComponentActivity() {
         // transcription can work. The llama.cpp/Qwen model this used to load is no longer wired
         // up at all: see ConversationPipeline's doc comment for why the MVP now answers from
         // matched lesson content directly instead of LLM generation.
+        //
+        // Tried base after verified on-device transcription errors (whisper heard "sumar" as
+        // "rumar", "su mar", and "fumar" across three consecutive attempts), but on-device timing
+        // showed base ran ~3x slower than tiny (28s vs 8.5s transcription alone, blowing the 15s
+        // SC-005 target) for an accuracy gain that wasn't reliably worth that cost -- reverted.
         private const val WHISPER_MODEL_RELATIVE_PATH = "models/ggml-tiny.bin"
     }
 }

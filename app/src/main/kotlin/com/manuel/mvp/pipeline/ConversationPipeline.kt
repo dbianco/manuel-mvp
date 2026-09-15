@@ -192,6 +192,11 @@ class ConversationPipeline(
                 // instead of generating a new sentence -- see this class's doc comment for why.
                 val response = ragFragments.firstOrNull()?.texto ?: noAnswerResponse
                 Log.d("ConversationPipeline", "Response: \"$response\"")
+                Log.d(
+                    "ConversationPipeline",
+                    "Timing: capture=${captureDurationMs}ms transcribe=${transcriptionDurationMs}ms " +
+                        "search=${searchDurationMs}ms total=${System.currentTimeMillis() - turnStartMs}ms",
+                )
 
                 _state.value = PipelineState.Responding
                 speechSynthesizer.speak(response)
