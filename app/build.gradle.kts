@@ -22,6 +22,27 @@ android {
         ndk {
             abiFilters += listOf("arm64-v8a", "x86_64")
         }
+
+        // Verified on-device (see docs/superpowers/specs/response-time-investigation-plan.md
+        // item 1): AGP maps the Gradle debug variant to CMAKE_BUILD_TYPE=Debug by default,
+        // overriding ggml's own Release-by-default fallback -- whisper.cpp/llama.cpp's hot
+        // compute kernels (matmul, attention, quantized dot products) were running with zero
+        // -O2/-O3 optimization this whole time. Forcing Release here applies to both variants;
+        // a debug APK with release-optimized native libs is a completely standard combination.
+        //
+        // Item 2: GGML_NATIVE=OFF is correct for cross-compilation (it would otherwise target
+        // the *build* machine's CPU, not the phone's), but leaves ggml building generic ARMv8-A
+        // kernels with no dotprod/i8mm/fp16 arithmetic -- extensions that specifically speed up
+        // the quantized matmul kernels this app's models use. armv8.2-a+dotprod+fp16 has been a
+        // near-universal baseline on Android phones since ~2018-2019 flagship chips, but this has
+        // NOT yet been verified against the exact real device's ISA -- if it causes an
+        // illegal-instruction crash on launch, drop back to plain "armv8-a".
+        externalNativeBuild {
+            cmake {
+                arguments += "-DCMAKE_BUILD_TYPE=Release"
+                arguments += "-DGGML_CPU_ARM_ARCH=armv8.2-a+dotprod+fp16"
+            }
+        }
     }
 
     // T002: wires app/CMakeLists.txt (vendored llama.cpp/whisper.cpp
@@ -123,6 +144,12 @@ dependencies {
     // (latest stable: junit 4.13.2, org.xerial:sqlite-jdbc 3.53.4.0).
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.xerial:sqlite-jdbc:3.53.4.0")
+
+    // CannedAnswersTest loads the real content/preguntas_respuestas.json asset into an FTS5
+    // database and checks the test-protocol questions map to the right answers. Android's own
+    // org.json classes are only stubs on the JVM unit-test classpath (every method throws), so
+    // the real library is added for tests only. Version verified against Maven Central.
+    testImplementation("org.json:json:20260814")
 
     // T019: MainScreenTest (app/src/androidTest/kotlin/com/manuel/mvp/ui/) instrumented-tests the
     // not-yet-existing MainScreen composable (T020) via Compose's own test APIs. Gradle resolves

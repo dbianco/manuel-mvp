@@ -23,6 +23,7 @@ import com.manuel.mvp.audio.WakeWordListener
 import com.manuel.mvp.metrics.LocalMetricsLogger
 import com.manuel.mvp.pipeline.ConversationPipeline
 import com.manuel.mvp.pipeline.PipelineState
+import com.manuel.mvp.rag.AnswerSearcher
 import com.manuel.mvp.rag.ContentDao
 import com.manuel.mvp.rag.ContentDatabase
 import com.manuel.mvp.rag.FragmentSearcher
@@ -141,7 +142,9 @@ class MainActivity : ComponentActivity() {
      */
     private fun buildPipeline(): PipelineBundle {
         val contentDatabase = ContentDatabase.create(applicationContext)
-        val fragmentSearcher = FragmentSearcher(ContentDao(contentDatabase.connection))
+        val contentDao = ContentDao(contentDatabase.connection)
+        val fragmentSearcher = FragmentSearcher(contentDao)
+        val answerSearcher = AnswerSearcher(contentDao)
 
         val whisperEngine = NativeWhisperEngine(File(filesDir, WHISPER_MODEL_RELATIVE_PATH).absolutePath)
         val whisperTranscriber = WhisperTranscriber(whisperEngine)
@@ -156,6 +159,7 @@ class MainActivity : ComponentActivity() {
             audioCaptureManager = AudioCaptureManager(),
             whisperTranscriber = whisperTranscriber,
             fragmentSearcher = fragmentSearcher,
+            answerSearcher = answerSearcher,
             sessionMemory = SessionMemory(clock = Clock.systemUTC()),
             speechSynthesizer = speechSynthesizer,
             metricsLogger = LocalMetricsLogger(),

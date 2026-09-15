@@ -7,7 +7,9 @@ import androidx.sqlite.execSQL
 import org.json.JSONArray
 
 /**
- * SQLite database helper for the preloaded lesson-content `fragments` FTS5 table.
+ * SQLite database helper for the two preloaded-content FTS5 tables: `fragments` (lesson
+ * content, searched by [FragmentSearcher]) and `respuestas` (curated question/answer pairs,
+ * searched by [AnswerSearcher]). Both schemas live in [ContentSchema].
  *
  * Uses `androidx.sqlite:sqlite-bundled`'s [BundledSQLiteDriver] rather than
  * `androidx.sqlite:sqlite-framework`'s `FrameworkSQLiteOpenHelperFactory` (the original T006
@@ -19,12 +21,9 @@ import org.json.JSONArray
  *
  * This driver API has no built-in open-helper/version-callback lifecycle (unlike
  * `SupportSQLiteOpenHelper`), so schema creation/versioning is done by hand here via
- * `PRAGMA user_version`, replicating what `SupportSQLiteOpenHelper.Callback`'s
- * `onCreate`/`onUpgrade`/`onDowngrade` did before.
- *
- * The `fragments` table schema (columns, FTS5 tokenizer) intentionally matches
- * `FragmentSearcherTest`'s (T005) fixture exactly, byte-for-byte, since [FragmentSearcher]'s query
- * shape assumes it.
+ * `PRAGMA user_version`. Every table holds only preloaded, re-derivable content (no user data),
+ * so *any* version mismatch -- upgrade or downgrade -- is handled the same simple way: drop
+ * everything and re-seed from the bundled JSON assets.
  */
 class ContentDatabase private constructor(val connection: SQLiteConnection) : AutoCloseable {
 
@@ -33,55 +32,39 @@ class ContentDatabase private constructor(val connection: SQLiteConnection) : Au
 
     companion object {
         private const val DATABASE_NAME = "manuel_content.db"
-        private const val DATABASE_VERSION = 1
-        private const val CONTENT_ASSET_PATH = "content/matematica_lecciones.json"
 
-        private const val CREATE_FRAGMENTS_TABLE_SQL =
-            """
-            CREATE VIRTUAL TABLE fragments USING fts5(
-                id UNINDEXED,
-                area,
-                nivel,
-                leccion,
-                tema,
-                texto,
-                tokenize = 'unicode61 remove_diacritics 2'
-            )
-            """
+        // Version history: 1 = `fragments` only; 2 = added `respuestas`.
+        private const val DATABASE_VERSION = 2
+
+        private const val FRAGMENTS_ASSET_PATH = "content/matematica_lecciones.json"
+        private const val ANSWERS_ASSET_PATH = "content/preguntas_respuestas.json"
 
         private const val INSERT_FRAGMENT_SQL =
             "INSERT INTO fragments (id, area, nivel, leccion, tema, texto) VALUES (?, ?, ?, ?, ?, ?)"
 
+        private const val INSERT_ANSWER_SQL =
+            "INSERT INTO respuestas (id, tema, pregunta, variantes, respuesta, fragmentos) VALUES (?, ?, ?, ?, ?, ?)"
+
+        /** Separator used to fold a JSON entry's `variantes` list into one indexed text column. */
+        private const val VARIANTES_SEPARATOR = " | "
+
         /**
-         * Opens (creating and seeding on first run, or re-seeding on a schema downgrade) a
-         * [ContentDatabase] backed by the bundled, FTS5-capable SQLite. [context] is used both to
-         * resolve the on-disk database file path ([Context.getDatabasePath]) and, on first
-         * creation or downgrade, to read the preloaded content asset via [Context.getAssets].
+         * Opens (creating and seeding on first run, or dropping and re-seeding on any schema
+         * version mismatch) a [ContentDatabase] backed by the bundled, FTS5-capable SQLite.
+         * [context] is used both to resolve the on-disk database file path
+         * ([Context.getDatabasePath]) and, when seeding, to read the content assets via
+         * [Context.getAssets].
          */
         fun create(context: Context): ContentDatabase {
             val dbFile = context.getDatabasePath(DATABASE_NAME)
             dbFile.parentFile?.mkdirs()
 
             val connection = BundledSQLiteDriver().open(dbFile.path)
-            val currentVersion = readUserVersion(connection)
-
-            when {
-                currentVersion == 0 -> {
-                    createSchemaAndSeed(connection, context)
-                    writeUserVersion(connection, DATABASE_VERSION)
-                }
-                currentVersion > DATABASE_VERSION -> {
-                    // This table holds only preloaded, re-derivable lesson content (no user
-                    // data), so downgrading is safe to implement as "drop and recreate, then
-                    // re-seed from the bundled JSON asset" rather than failing.
-                    connection.execSQL("DROP TABLE IF EXISTS fragments")
-                    createSchemaAndSeed(connection, context)
-                    writeUserVersion(connection, DATABASE_VERSION)
-                }
-                currentVersion < DATABASE_VERSION -> {
-                    // No schema upgrades exist yet -- version 1 is the only version defined so
-                    // far. Future upgrades should add real migration steps here.
-                }
+            if (readUserVersion(connection) != DATABASE_VERSION) {
+                connection.execSQL("DROP TABLE IF EXISTS fragments")
+                connection.execSQL("DROP TABLE IF EXISTS respuestas")
+                createSchemaAndSeed(connection, context)
+                writeUserVersion(connection, DATABASE_VERSION)
             }
 
             return ContentDatabase(connection)
@@ -97,16 +80,16 @@ class ContentDatabase private constructor(val connection: SQLiteConnection) : Au
         }
 
         private fun createSchemaAndSeed(connection: SQLiteConnection, context: Context) {
-            connection.execSQL(CREATE_FRAGMENTS_TABLE_SQL)
-            seedFragments(connection, context)
+            connection.execSQL(ContentSchema.CREATE_FRAGMENTS_TABLE_SQL)
+            connection.execSQL(ContentSchema.CREATE_RESPUESTAS_TABLE_SQL)
+            seedFragments(connection, readAssetArray(context, FRAGMENTS_ASSET_PATH))
+            seedAnswers(connection, readAssetArray(context, ANSWERS_ASSET_PATH))
         }
 
-        private fun seedFragments(connection: SQLiteConnection, context: Context) {
-            val json =
-                context.assets.open(CONTENT_ASSET_PATH).use { input ->
-                    input.reader(Charsets.UTF_8).readText()
-                }
-            val fragments = JSONArray(json)
+        private fun readAssetArray(context: Context, assetPath: String): JSONArray =
+            JSONArray(context.assets.open(assetPath).use { it.reader(Charsets.UTF_8).readText() })
+
+        private fun seedFragments(connection: SQLiteConnection, fragments: JSONArray) {
             connection.prepare(INSERT_FRAGMENT_SQL).use { statement ->
                 for (i in 0 until fragments.length()) {
                     val fragment = fragments.getJSONObject(i)
@@ -121,5 +104,24 @@ class ContentDatabase private constructor(val connection: SQLiteConnection) : Au
                 }
             }
         }
+
+        private fun seedAnswers(connection: SQLiteConnection, answers: JSONArray) {
+            connection.prepare(INSERT_ANSWER_SQL).use { statement ->
+                for (i in 0 until answers.length()) {
+                    val answer = answers.getJSONObject(i)
+                    statement.bindText(1, answer.getString("id"))
+                    statement.bindText(2, answer.getString("tema"))
+                    statement.bindText(3, answer.getString("pregunta"))
+                    statement.bindText(4, answer.getJSONArray("variantes").joinStrings(VARIANTES_SEPARATOR))
+                    statement.bindText(5, answer.getString("respuesta"))
+                    statement.bindText(6, answer.getJSONArray("fragmentos").joinStrings(","))
+                    statement.step()
+                    statement.reset()
+                }
+            }
+        }
+
+        private fun JSONArray.joinStrings(separator: String): String =
+            (0 until length()).joinToString(separator) { getString(it) }
     }
 }

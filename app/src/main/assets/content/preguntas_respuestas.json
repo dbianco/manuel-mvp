@@ -1,0 +1,467 @@
+[
+  {
+    "id": "qa-01",
+    "tema": "Contar del 1 al 10",
+    "pregunta": "¿Cómo se cuenta del uno al diez?",
+    "variantes": [
+      "contame los números hasta el diez",
+      "cómo cuento del uno al diez",
+      "decime los números del uno al diez",
+      "cómo se cuenta hasta diez",
+      "cómo se cuenta del 1 al 10",
+      "contá hasta el 10",
+      "contar hasta diez"
+    ],
+    "respuesta": "Se cuenta así: uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve y diez. Los números sirven para contar cosas: si tenés tres manzanas, decís uno, dos, tres, y sabés que hay tres manzanas.",
+    "fragmentos": ["matematica-leccion-01-001"]
+  },
+  {
+    "id": "qa-02",
+    "tema": "El número cero",
+    "pregunta": "¿Qué es el número cero?",
+    "variantes": [
+      "el cero es un número o no es nada",
+      "qué significa el cero",
+      "qué es el cero",
+      "para qué sirve el cero",
+      "qué quiere decir cero"
+    ],
+    "respuesta": "El cero es un número que significa que no hay nada. Si una caja está vacía, decimos que tiene cero objetos adentro.",
+    "fragmentos": ["matematica-leccion-01-002"]
+  },
+  {
+    "id": "qa-03",
+    "tema": "El orden de los números",
+    "pregunta": "¿Qué número viene después del cinco?",
+    "variantes": [
+      "en qué orden van los números",
+      "qué número viene después del nueve",
+      "cuál es el orden de los números",
+      "qué viene después del 5",
+      "qué viene después del 9",
+      "qué número sigue"
+    ],
+    "respuesta": "Los números van siempre en el mismo orden: después del cinco viene el seis, y después del nueve viene el diez. Cada número es uno más que el anterior.",
+    "fragmentos": ["matematica-leccion-01-003"]
+  },
+  {
+    "id": "qa-04",
+    "tema": "Más y menos: comparar cantidades",
+    "pregunta": "¿Cómo sé si un número es más grande o más chico que otro?",
+    "variantes": [
+      "cuál es más grande cinco o siete",
+      "cómo comparo dos cantidades",
+      "qué número es mayor",
+      "qué número es menor",
+      "cómo sé cuál tiene más",
+      "quién tiene más y quién tiene menos",
+      "cuál es más grande 5 o 7"
+    ],
+    "respuesta": "Se compara contando. Si vos tenés cinco lápices y yo tengo tres, vos tenés más y yo tengo menos. Entre cinco y siete, el siete es más grande, porque viene después al contar.",
+    "fragmentos": ["matematica-leccion-01-004", "matematica-leccion-01-003"]
+  },
+  {
+    "id": "qa-05",
+    "tema": "Contar objetos de la vida diaria",
+    "pregunta": "¿Para qué sirve contar?",
+    "variantes": [
+      "por qué contamos las cosas",
+      "para qué sirven los números",
+      "cómo cuento las pelotas del patio",
+      "cómo sé cuántas cosas hay",
+      "contar objetos"
+    ],
+    "respuesta": "Contar sirve para saber cuántas cosas hay. Si en el patio de la escuela hay cuatro pelotas, las contamos una por una: uno, dos, tres, cuatro.",
+    "fragmentos": ["matematica-leccion-01-005"]
+  },
+  {
+    "id": "qa-06",
+    "tema": "Qué es sumar",
+    "pregunta": "¿Qué es sumar?",
+    "variantes": [
+      "qué es la suma",
+      "qué significa sumar",
+      "explicame la suma",
+      "repasemos la lección de la suma",
+      "si tengo tres caramelos y me dan dos más",
+      "sumo",
+      "sumás",
+      "sumando",
+      "juntar cantidades"
+    ],
+    "respuesta": "Sumar es juntar cantidades para saber cuántas cosas hay en total. Si tenés tres caramelos y te dan dos más, sumaste, y ahora tenés cinco caramelos.",
+    "fragmentos": ["matematica-leccion-02-001", "matematica-leccion-02-002"]
+  },
+  {
+    "id": "qa-07",
+    "tema": "Ejemplo de suma sencilla",
+    "pregunta": "Dame un ejemplo de suma",
+    "variantes": [
+      "un ejemplo de sumar",
+      "mostrame una suma",
+      "cuánto es dos más tres",
+      "cuánto es 2 más 3",
+      "ejemplo sencillo de suma",
+      "una suma fácil"
+    ],
+    "respuesta": "Si tenés dos caramelos y te regalan tres más, en total tenés cinco caramelos. Dos más tres es igual a cinco.",
+    "fragmentos": ["matematica-leccion-02-002"]
+  },
+  {
+    "id": "qa-08",
+    "tema": "Sumar con los dedos de la mano",
+    "pregunta": "¿Cómo sumo con los dedos de la mano?",
+    "variantes": [
+      "ayudame a sumar con la mano",
+      "sumar con los dedos",
+      "cómo uso los dedos para sumar",
+      "contar con los dedos",
+      "sumar con las manos",
+      "cuánto es cuatro más dos",
+      "cuánto es 4 más 2"
+    ],
+    "respuesta": "Levantá en una mano tantos dedos como el primer número, y en la otra mano tantos como el segundo. Después contá todos los dedos levantados. Para cuatro más dos, levantás cuatro dedos y dos dedos, y al contarlos todos juntos son seis.",
+    "fragmentos": ["matematica-leccion-02-003"]
+  },
+  {
+    "id": "qa-09",
+    "tema": "En la suma el orden no cambia el resultado",
+    "pregunta": "¿Importa el orden cuando sumo?",
+    "variantes": [
+      "si cambio el orden de la suma cambia el resultado",
+      "da lo mismo tres más cinco que cinco más tres",
+      "el orden de los números en la suma",
+      "puedo sumar al revés",
+      "cuánto es tres más cinco",
+      "cuánto es 3 más 5"
+    ],
+    "respuesta": "No, en una suma el orden de los números no cambia el resultado. Tres más cinco da ocho, y cinco más tres también da ocho.",
+    "fragmentos": ["matematica-leccion-02-004"]
+  },
+  {
+    "id": "qa-10",
+    "tema": "Sumar tres números seguidos",
+    "pregunta": "¿Cómo sumo tres números seguidos?",
+    "variantes": [
+      "y si sumo tres números seguidos",
+      "puedo sumar más de dos números",
+      "sumar varios números",
+      "cuánto es dos más tres más uno",
+      "cuánto es 2 más 3 más 1",
+      "sumar tres números"
+    ],
+    "respuesta": "Se suman de a uno por vez. Para dos más tres más uno, primero sumás dos más tres, que da cinco, y después sumás cinco más uno, que da seis.",
+    "fragmentos": ["matematica-leccion-02-005"]
+  },
+  {
+    "id": "qa-11",
+    "tema": "Qué es restar",
+    "pregunta": "¿Qué es restar?",
+    "variantes": [
+      "qué es la resta",
+      "qué significa restar",
+      "explicame la resta",
+      "repasemos la resta",
+      "si tenía cinco lápices y perdí dos",
+      "resto",
+      "restás",
+      "restando",
+      "quitar una cantidad"
+    ],
+    "respuesta": "Restar es quitar una cantidad de otra para saber cuánto queda. Si tenías cinco lápices y perdiste dos, restaste, y te quedan tres lápices.",
+    "fragmentos": ["matematica-leccion-03-001", "matematica-leccion-03-002"]
+  },
+  {
+    "id": "qa-12",
+    "tema": "Ejemplo de resta sencilla",
+    "pregunta": "Dame un ejemplo de resta",
+    "variantes": [
+      "un ejemplo de restar",
+      "mostrame una resta",
+      "cuánto es cinco menos dos",
+      "cuánto es 5 menos 2",
+      "ejemplo sencillo de resta",
+      "una resta fácil"
+    ],
+    "respuesta": "Si tenés cinco galletitas y te comés dos, te quedan tres galletitas. Cinco menos dos es igual a tres.",
+    "fragmentos": ["matematica-leccion-03-002"]
+  },
+  {
+    "id": "qa-13",
+    "tema": "Restar contando hacia atrás",
+    "pregunta": "¿Cómo resto contando hacia atrás?",
+    "variantes": [
+      "contá para atrás desde el cinco",
+      "restar contando para atrás",
+      "cómo cuento hacia atrás para restar",
+      "cuánto es siete menos tres",
+      "cuánto es 7 menos 3",
+      "contar para atrás",
+      "contá para atrás desde el 5"
+    ],
+    "respuesta": "Empezás en el número más grande y contás hacia atrás tantos números como quieras restar. Para siete menos tres, desde el siete contás seis, cinco, cuatro: el resultado es cuatro. Y contar para atrás desde el cinco es: cinco, cuatro, tres, dos, uno, cero.",
+    "fragmentos": ["matematica-leccion-03-003", "matematica-leccion-01-003"]
+  },
+  {
+    "id": "qa-14",
+    "tema": "Cuando el resultado de la resta es cero",
+    "pregunta": "¿Qué pasa si a un número le resto el mismo número?",
+    "variantes": [
+      "cuánto es cuatro menos cuatro",
+      "cuánto es 4 menos 4",
+      "restar un número a sí mismo",
+      "cuándo una resta da cero",
+      "por qué una resta da cero"
+    ],
+    "respuesta": "El resultado es cero. Por ejemplo, cuatro menos cuatro es cero: si tenías cuatro caramelos y los repartiste todos, no te queda ninguno.",
+    "fragmentos": ["matematica-leccion-03-004"]
+  },
+  {
+    "id": "qa-15",
+    "tema": "La resta es lo contrario de la suma",
+    "pregunta": "¿La resta es lo contrario de qué?",
+    "variantes": [
+      "de qué es lo contrario la resta",
+      "la resta deshace la suma",
+      "qué relación hay entre la suma y la resta",
+      "la resta y la suma son opuestas",
+      "resta contraria a la suma"
+    ],
+    "respuesta": "La resta es lo contrario de la suma: deshace lo que la suma hace. Si tres más dos es cinco, entonces cinco menos dos es tres, y cinco menos tres es dos.",
+    "fragmentos": ["matematica-leccion-03-005"]
+  },
+  {
+    "id": "qa-16",
+    "tema": "Qué es multiplicar",
+    "pregunta": "¿Qué es multiplicar?",
+    "variantes": [
+      "qué es la multiplicación",
+      "explicame la multiplicación como si fuera chiquito",
+      "qué significa multiplicar",
+      "repasemos la multiplicación",
+      "multiplicar",
+      "multiplico",
+      "multiplicando",
+      "sumar un número varias veces"
+    ],
+    "respuesta": "Multiplicar es sumar un mismo número varias veces. Tres por cuatro es lo mismo que sumar tres cuatro veces: tres más tres más tres más tres, que da doce.",
+    "fragmentos": ["matematica-leccion-04-001"]
+  },
+  {
+    "id": "qa-17",
+    "tema": "El signo de la multiplicación",
+    "pregunta": "¿Cómo se lee el signo de la multiplicación?",
+    "variantes": [
+      "cuál es el signo de multiplicar",
+      "qué significa por en una multiplicación",
+      "qué quiere decir dos por cinco",
+      "signo por",
+      "cómo se escribe una multiplicación"
+    ],
+    "respuesta": "El signo de multiplicar es una equis, y se lee por. Cuando ves dos por cinco, significa sumar el número dos cinco veces.",
+    "fragmentos": ["matematica-leccion-04-002"]
+  },
+  {
+    "id": "qa-18",
+    "tema": "La tabla del 2",
+    "pregunta": "¿Cuánto es la tabla del dos?",
+    "variantes": [
+      "la tabla del dos cuánto da",
+      "decime la tabla del dos",
+      "repasemos la tabla del dos",
+      "cuánto es dos por tres",
+      "cuánto es dos por cuatro",
+      "tabla del 2",
+      "cuánto es 2 por 3"
+    ],
+    "respuesta": "Dos por uno es dos, dos por dos es cuatro, dos por tres es seis, dos por cuatro es ocho y dos por cinco es diez. En la tabla del dos, cada resultado aumenta de a dos.",
+    "fragmentos": ["matematica-leccion-04-003"]
+  },
+  {
+    "id": "qa-19",
+    "tema": "La tabla del 5",
+    "pregunta": "¿Cuánto es la tabla del cinco?",
+    "variantes": [
+      "la tabla del cinco cuánto da",
+      "decime la tabla del cinco",
+      "repasemos la tabla del cinco",
+      "cuánto es cinco por cuatro",
+      "cuánto es cinco por dos",
+      "tabla del 5",
+      "cuánto es 5 por 4"
+    ],
+    "respuesta": "Cinco por uno es cinco, cinco por dos es diez, cinco por tres es quince y cinco por cuatro es veinte. En la tabla del cinco, los resultados siempre terminan en cero o en cinco.",
+    "fragmentos": ["matematica-leccion-04-004"]
+  },
+  {
+    "id": "qa-20",
+    "tema": "Cinco por tres",
+    "pregunta": "¿Cuánto es cinco por tres?",
+    "variantes": [
+      "y cuánto es cinco por tres",
+      "cinco por tres",
+      "cuánto da cinco por tres",
+      "tres por cinco",
+      "cuánto es 5 por 3"
+    ],
+    "respuesta": "Cinco por tres es quince. Es lo mismo que sumar cinco tres veces: cinco más cinco más cinco.",
+    "fragmentos": ["matematica-leccion-04-004", "matematica-leccion-04-001"]
+  },
+  {
+    "id": "qa-21",
+    "tema": "Multiplicar por 1 y por 0",
+    "pregunta": "¿Cuánto es un número multiplicado por uno o por cero?",
+    "variantes": [
+      "y cinco por cero",
+      "cuánto es cinco por cero",
+      "cuánto es siete por uno",
+      "cuánto es siete por cero",
+      "multiplicar por cero",
+      "multiplicar por uno",
+      "cualquier número por cero",
+      "cuánto es 5 por 0",
+      "cuánto es 7 por 1"
+    ],
+    "respuesta": "Cualquier número multiplicado por uno da el mismo número: siete por uno es siete. Y cualquier número multiplicado por cero da cero: siete por cero es cero, y cinco por cero también es cero.",
+    "fragmentos": ["matematica-leccion-04-005"]
+  },
+  {
+    "id": "qa-22",
+    "tema": "Un ejemplo con cajas de caramelos",
+    "pregunta": "Si hay tres cajas con cuatro caramelos cada una, ¿cuántos caramelos hay?",
+    "variantes": [
+      "tres cajas con cuatro caramelos",
+      "cuántos caramelos hay en tres cajas de cuatro",
+      "ejemplo de multiplicación con cajas",
+      "cuánto es tres por cuatro",
+      "cuánto es 3 por 4",
+      "cajas de caramelos"
+    ],
+    "respuesta": "Hay doce caramelos en total, porque tres por cuatro es doce: cuatro más cuatro más cuatro da doce.",
+    "fragmentos": ["matematica-leccion-04-006"]
+  },
+  {
+    "id": "qa-23",
+    "tema": "El triángulo",
+    "pregunta": "¿Cuántos lados tiene un triángulo?",
+    "variantes": [
+      "qué es un triángulo",
+      "cuántas esquinas tiene el triángulo",
+      "cómo es un triángulo",
+      "cuántos lados tienen los triángulos",
+      "cuántos vértices tiene un triángulo",
+      "triángulos",
+      "figura de tres lados"
+    ],
+    "respuesta": "Un triángulo tiene tres lados y tres esquinas, que se llaman vértices. El techo de una casa a veces tiene forma de triángulo.",
+    "fragmentos": ["matematica-leccion-05-001"]
+  },
+  {
+    "id": "qa-24",
+    "tema": "El cuadrado",
+    "pregunta": "¿Cuántos lados tiene un cuadrado?",
+    "variantes": [
+      "y el cuadrado",
+      "qué es un cuadrado",
+      "cómo es un cuadrado",
+      "cuántas esquinas tiene el cuadrado",
+      "cuántos vértices tiene un cuadrado",
+      "cuadrados",
+      "figura de cuatro lados iguales"
+    ],
+    "respuesta": "Un cuadrado tiene cuatro lados iguales y cuatro esquinas. Sus cuatro lados miden todos lo mismo.",
+    "fragmentos": ["matematica-leccion-05-002"]
+  },
+  {
+    "id": "qa-25",
+    "tema": "El rectángulo",
+    "pregunta": "¿Qué es un rectángulo?",
+    "variantes": [
+      "cuántos lados tiene un rectángulo",
+      "en qué se diferencia el rectángulo del cuadrado",
+      "cómo es un rectángulo",
+      "rectángulos",
+      "rectángulo y cuadrado"
+    ],
+    "respuesta": "El rectángulo tiene cuatro lados y cuatro esquinas, igual que el cuadrado, pero no todos sus lados miden lo mismo: dos lados son más largos y dos son más cortos.",
+    "fragmentos": ["matematica-leccion-05-003"]
+  },
+  {
+    "id": "qa-26",
+    "tema": "El círculo",
+    "pregunta": "¿Cuántos lados tiene un círculo?",
+    "variantes": [
+      "qué es un círculo",
+      "cómo es un círculo",
+      "el círculo tiene esquinas",
+      "figura redonda",
+      "círculos",
+      "qué forma tiene una pelota"
+    ],
+    "respuesta": "El círculo no tiene lados ni esquinas: es una figura redonda. Una pelota o una rueda tienen forma de círculo.",
+    "fragmentos": ["matematica-leccion-05-004"]
+  },
+  {
+    "id": "qa-27",
+    "tema": "Qué es un vértice",
+    "pregunta": "¿Qué es un vértice?",
+    "variantes": [
+      "qué son los vértices",
+      "qué es una esquina de una figura",
+      "dónde se juntan dos lados",
+      "vértices",
+      "qué es un bértice",
+      "bértices"
+    ],
+    "respuesta": "Un vértice es la esquina donde se juntan dos lados de una figura. El triángulo tiene tres vértices y el cuadrado tiene cuatro vértices.",
+    "fragmentos": ["matematica-leccion-05-006"]
+  },
+  {
+    "id": "qa-28",
+    "tema": "Qué es dividir",
+    "pregunta": "¿Qué es dividir?",
+    "variantes": [
+      "qué es la división",
+      "qué significa dividir",
+      "explicame la división",
+      "repasemos la división",
+      "si reparto caramelos en partes iguales cómo se llama eso",
+      "divido",
+      "dividiendo",
+      "cuánto es seis dividido dos",
+      "cuánto es 6 dividido 2"
+    ],
+    "respuesta": "Dividir es repartir una cantidad en partes iguales. Si repartís seis caramelos entre dos amigos por igual, cada uno recibe tres: seis dividido dos es tres.",
+    "fragmentos": ["matematica-leccion-06-001", "matematica-leccion-06-002"]
+  },
+  {
+    "id": "qa-29",
+    "tema": "Dividir en grupos iguales",
+    "pregunta": "¿Cómo reparto algo en partes iguales?",
+    "variantes": [
+      "cómo armo grupos iguales",
+      "repartir entre amigos",
+      "cuántos grupos de cuatro puedo armar con doce alumnos",
+      "reparto figuritas entre amigos",
+      "cuánto es doce dividido cuatro",
+      "cuánto es 12 dividido 4",
+      "cuánto es diez dividido cinco"
+    ],
+    "respuesta": "Repartir en partes iguales es dividir. Si hay doce alumnos y armás grupos de cuatro, podés armar tres grupos, porque doce dividido cuatro es tres. Y si repartís diez figuritas entre cinco amigos, a cada uno le tocan dos.",
+    "fragmentos": ["matematica-leccion-06-003", "matematica-leccion-06-005"]
+  },
+  {
+    "id": "qa-30",
+    "tema": "Dividir un número por 1",
+    "pregunta": "¿Qué pasa si divido un número por uno?",
+    "variantes": [
+      "y si divido un número por uno",
+      "cuánto es ocho dividido uno",
+      "cuánto es 8 dividido 1",
+      "dividir por uno",
+      "un número dividido uno"
+    ],
+    "respuesta": "Da el mismo número. Ocho dividido uno es ocho, porque repartir entre una sola persona significa que esa persona se queda con todo.",
+    "fragmentos": ["matematica-leccion-06-006"]
+  }
+]

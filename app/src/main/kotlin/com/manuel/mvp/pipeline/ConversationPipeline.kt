@@ -9,6 +9,7 @@ import com.manuel.mvp.audio.WakeWordListener
 import com.manuel.mvp.metrics.LocalMetricsLogger
 import com.manuel.mvp.metrics.TurnMetrics
 import com.manuel.mvp.metrics.WakeWordActivationOutcome
+import com.manuel.mvp.rag.AnswerSearcher
 import com.manuel.mvp.rag.FragmentSearcher
 import com.manuel.mvp.session.SessionMemory
 import com.manuel.mvp.stt.TranscriptionOutcome
@@ -32,13 +33,15 @@ import kotlinx.coroutines.withContext
  * MVP simplification (verified on-device): the LLM generation step ([com.manuel.mvp.llm.LlamaEngine]
  * / [com.manuel.mvp.llm.PromptBuilder], still present in the codebase but no longer wired up here)
  * was too slow (multi-minute on phone CPU with no GPU delegate) and too unreliable (rambling,
- * repetition) for real classroom use. Since `matematica_lecciones.json`'s `texto` fields are
- * already written as short, direct, spoken-friendly answers, the best-matching
- * [FragmentSearcher] result is now spoken back verbatim -- instant, and exactly as accurate as the
- * lesson content itself. [FragmentSearcher]'s FTS5 query ANDs every query token together, so an
- * off-topic or ambiguous instruction (no shared vocabulary with the lesson content) naturally
- * returns zero fragments, which is what triggers [NO_ANSWER_RESPONSE] below -- no separate
- * out-of-scope detection needed.
+ * repetition) for real classroom use. Answers are looked up instead, in three tiers, and spoken
+ * verbatim: first a curated question/answer pair ([AnswerSearcher], matched on the question's
+ * phrasing -- `content/preguntas_respuestas.json`, 30 entries written for speech, grounded in
+ * the lesson content); failing that, the best-matching lesson fragment's own text
+ * ([FragmentSearcher] -- `matematica_lecciones.json`'s `texto` fields are already short, direct,
+ * spoken-friendly sentences); failing that, [NO_ANSWER_RESPONSE]. Both searchers OR the
+ * question's content words together and return nothing for an off-topic question (no shared
+ * vocabulary) or an all-filler one ("¿y eso?"), so FR-008's "don't invent an answer" rule is
+ * enforced structurally, with no separate out-of-scope detection needed.
  *
  * Every collaborator (and the [scope] it runs detection handling on) is constructor-injected
  * rather than owned internally, matching [WakeWordListener]'s convention (T010) of keeping
@@ -54,6 +57,7 @@ class ConversationPipeline(
     private val audioCaptureManager: AudioCaptureManager,
     private val whisperTranscriber: WhisperTranscriber,
     private val fragmentSearcher: FragmentSearcher,
+    private val answerSearcher: AnswerSearcher,
     private val sessionMemory: SessionMemory,
     private val speechSynthesizer: SpeechSynthesizer,
     private val metricsLogger: LocalMetricsLogger,
@@ -185,13 +189,21 @@ class ConversationPipeline(
                 }
 
                 val searchStartMs = System.currentTimeMillis()
-                val ragFragments = fragmentSearcher.search(instruction, limit = 1)
+                val cannedAnswer = answerSearcher.search(instruction).firstOrNull()
+                val fragment =
+                    if (cannedAnswer == null) fragmentSearcher.search(instruction, limit = 1).firstOrNull() else null
                 val searchDurationMs = System.currentTimeMillis() - searchStartMs
 
-                // MVP simplification: speak the best-matching lesson fragment's own text verbatim
-                // instead of generating a new sentence -- see this class's doc comment for why.
-                val response = ragFragments.firstOrNull()?.texto ?: noAnswerResponse
-                Log.d("ConversationPipeline", "Response: \"$response\"")
+                // MVP simplification: speak a curated answer (or, failing that, the best-matching
+                // lesson fragment's own text) verbatim instead of generating a new sentence -- see
+                // this class's doc comment for why.
+                val response = cannedAnswer?.respuesta ?: fragment?.texto ?: noAnswerResponse
+                val responseSource = when {
+                    cannedAnswer != null -> "respuestas/${cannedAnswer.id}"
+                    fragment != null -> "fragments/${fragment.id}"
+                    else -> "none"
+                }
+                Log.d("ConversationPipeline", "Response ($responseSource): \"$response\"")
                 Log.d(
                     "ConversationPipeline",
                     "Timing: capture=${captureDurationMs}ms transcribe=${transcriptionDurationMs}ms " +
