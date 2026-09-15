@@ -7,7 +7,7 @@ import org.junit.Test
 /**
  * Unit tests defining the exact behavioral contract that T010's real `KeywordPrefixParser`
  * implementation must satisfy: given a full STT transcript, extract the instruction that follows
- * the wake word ("Manuel, <instrucción>") when — and only when — the transcript is clearly
+ * the wake word ("Anita, <instrucción>") when — and only when — the transcript is clearly
  * prefixed by it, or return `null` (silent discard) otherwise.
  *
  * This is a purely textual contract, separate from the acoustic wake-word detector
@@ -24,7 +24,7 @@ import org.junit.Test
  * ### Contract under test
  *
  * `KeywordPrefixParser.parse(transcript: String): String?`:
- * - Matches the keyword ("Manuel") case-insensitively, anchored at the (trimmed) start of the
+ * - Matches the keyword ("Anita") case-insensitively, anchored at the (trimmed) start of the
  *   transcript — the keyword must open the utterance, not merely appear somewhere in it.
  * - An optional comma and/or whitespace may separate the keyword from the instruction; neither is
  *   required.
@@ -38,7 +38,7 @@ class KeywordPrefixParserTest {
     /** Scenario 1: keyword + comma + instruction extracts the instruction, trimmed. */
     @Test
     fun `extracts instruction after keyword and comma`() {
-        val result = KeywordPrefixParser.parse("Manuel, ¿cuánto es tres por cuatro?")
+        val result = KeywordPrefixParser.parse("Anita, ¿cuánto es tres por cuatro?")
 
         assertEquals("¿cuánto es tres por cuatro?", result)
     }
@@ -46,7 +46,7 @@ class KeywordPrefixParserTest {
     /** Scenario 2: keyword matching is case-insensitive. */
     @Test
     fun `matches keyword case-insensitively`() {
-        val result = KeywordPrefixParser.parse("manuel, contame un cuento")
+        val result = KeywordPrefixParser.parse("anita, contame un cuento")
 
         assertEquals("contame un cuento", result)
     }
@@ -54,7 +54,7 @@ class KeywordPrefixParserTest {
     /** Scenario 3: the comma is optional — whitespace alone separates keyword and instruction. */
     @Test
     fun `extracts instruction when comma separator is absent`() {
-        val result = KeywordPrefixParser.parse("MANUEL dime la tabla del 5")
+        val result = KeywordPrefixParser.parse("ANITA dime la tabla del 5")
 
         assertEquals("dime la tabla del 5", result)
     }
@@ -70,15 +70,15 @@ class KeywordPrefixParserTest {
     /** Scenario 5: keyword present but nothing (or only punctuation/whitespace) follows it (FR-004). */
     @Test
     fun `returns null when keyword is not followed by a clear instruction`() {
-        assertNull(KeywordPrefixParser.parse("Manuel"))
-        assertNull(KeywordPrefixParser.parse("Manuel,"))
-        assertNull(KeywordPrefixParser.parse("Manuel   "))
+        assertNull(KeywordPrefixParser.parse("Anita"))
+        assertNull(KeywordPrefixParser.parse("Anita,"))
+        assertNull(KeywordPrefixParser.parse("Anita   "))
     }
 
     /** Scenario 6: keyword present but not at the start — must not activate (FR-003 anchoring). */
     @Test
     fun `returns null when keyword does not anchor the start of the transcript`() {
-        val result = KeywordPrefixParser.parse("che Manuel qué hora es")
+        val result = KeywordPrefixParser.parse("che Anita qué hora es")
 
         assertNull(result)
     }
@@ -86,7 +86,7 @@ class KeywordPrefixParserTest {
     /** Scenario 7: incidental leading whitespace before the keyword is tolerated. */
     @Test
     fun `tolerates leading whitespace before the keyword`() {
-        val result = KeywordPrefixParser.parse("  Manuel, hola")
+        val result = KeywordPrefixParser.parse("  Anita, hola")
 
         assertEquals("hola", result)
     }

@@ -8,7 +8,7 @@ sealed class PipelineState {
     /** Not listening at all -- the initial state, and the state after "Dejar de escuchar". */
     object Disarmed : PipelineState()
 
-    /** Armed and waiting for the wake word ("Manuel"). */
+    /** Armed and waiting for the wake word ("Anita"). */
     object Armed : PipelineState()
 
     /** A wake-word detection fired; capturing the instruction audio that follows. */

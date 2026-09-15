@@ -49,7 +49,8 @@ import kotlinx.coroutines.withContext
  * so a missing model file surfaces as [AssistantState.Error] rather than crashing the activity --
  * this matters concretely because the whisper GGML model still isn't bundled (too large for the
  * APK; see [WHISPER_MODEL_RELATIVE_PATH]) and needs a first-launch download step. The trained
- * `manuel.onnx` wake-word model *is* bundled (see T003's standing note, now resolved).
+ * wake-word model (`wakeword/anita.onnx`, see [WakeWordListener.DEFAULT_MODEL_ASSET_PATH]) *is*
+ * bundled.
  *
  * `RECORD_AUDIO` (declared in `AndroidManifest.xml` by this task -- it was missing entirely
  * before, correcting an unverified assumption in T016's plan.md) is requested at runtime, before

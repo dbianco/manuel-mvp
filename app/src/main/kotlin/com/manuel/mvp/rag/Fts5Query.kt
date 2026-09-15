@@ -43,11 +43,13 @@ internal object Fts5Query {
      * Spanish question words, articles, prepositions, pronouns, and common verb forms that carry
      * little topic-specific meaning on their own. Not exhaustive by design: covers what actually
      * shows up in `manuel-mvp-test-protocol.md`'s questions plus the most common Spanish function
-     * words, not a full stopword list for the language. Also includes the wake word itself, since
-     * a transcript may start with it ("Manuel, ...") without it being part of the question.
+     * words, not a full stopword list for the language. Also includes the wake word itself
+     * ("anita"; "manuel", the original one, is kept because the test protocol's questions still
+     * use it), since a transcript may start with it ("Anita, ...") without it being part of the
+     * question.
      */
     val STOPWORDS = setOf(
-        "manuel", "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "al",
+        "anita", "manuel", "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "al",
         "a", "en", "y", "o", "u", "que", "qué", "como", "cómo", "cual", "cuál", "cuales",
         "cuáles", "cuando", "cuándo", "donde", "dónde", "quien", "quién", "quienes", "quiénes",
         "cuanto", "cuánto", "cuanta", "cuánta", "cuantos", "cuántos", "cuantas", "cuántas",

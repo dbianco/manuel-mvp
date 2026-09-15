@@ -83,7 +83,7 @@ fun MainScreen(
 
 private fun statusText(state: AssistantState): String = when (state) {
     is AssistantState.Disarmed -> "Desarmado"
-    is AssistantState.Armed -> "Armado, esperando la palabra clave \"Manuel\""
+    is AssistantState.Armed -> "Armado, esperando la palabra clave \"Anita\""
     is AssistantState.Listening -> "Escuchando tu pregunta..."
     is AssistantState.Processing -> "Procesando tu pregunta..."
     is AssistantState.Responding -> "Respondiendo..."

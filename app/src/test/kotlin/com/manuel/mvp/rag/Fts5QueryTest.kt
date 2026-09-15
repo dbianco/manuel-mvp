@@ -22,6 +22,8 @@ class Fts5QueryTest {
 
     @Test
     fun `wake word and leading filler are dropped`() {
+        assertEquals("\"sumar?\"", Fts5Query.build("Anita, ¿qué es sumar?"))
+        // The original wake word is still a stopword: the test protocol's questions use it.
         assertEquals("\"sumar?\"", Fts5Query.build("Manuel, ¿qué es sumar?"))
     }
 

@@ -1,7 +1,7 @@
 package com.manuel.mvp.audio
 
 /**
- * Extracts the instruction from an STT transcript prefixed by the wake word ("Manuel,
+ * Extracts the instruction from an STT transcript prefixed by the wake word ("Anita,
  * <instrucción>"), per FR-003/FR-004: an instruction is only recognized when the keyword anchors
  * the (trimmed) start of the transcript, and returns `null` (silent discard) both when the keyword
  * is missing and when it is present but nothing meaningful follows it.
@@ -13,16 +13,17 @@ package com.manuel.mvp.audio
  */
 object KeywordPrefixParser {
 
-    private const val KEYWORD = "manuel"
+    /** Kept in sync with [WakeWordListener.KEYWORD_MODEL_NAME] -- the spoken wake word. */
+    private const val KEYWORD = WakeWordListener.KEYWORD_MODEL_NAME
 
     fun parse(transcript: String): String? {
         val trimmedStart = transcript.trimStart()
         if (!trimmedStart.startsWith(KEYWORD, ignoreCase = true)) return null
 
         val afterKeyword = trimmedStart.substring(KEYWORD.length)
-        // Word-boundary check: "Manuela" / "Manuelito" also startsWith("manuel"), but the keyword
+        // Word-boundary check: "Anitas" / "Anitaland" also startsWith("anita"), but the keyword
         // must match the whole word, not just a prefix of a longer one. A letter immediately after
-        // "manuel" means this is a different word, not the wake word followed by its separator.
+        // the keyword means this is a different word, not the wake word followed by its separator.
         if (afterKeyword.isNotEmpty() && afterKeyword[0].isLetter()) return null
 
         var rest = afterKeyword.trimStart()
