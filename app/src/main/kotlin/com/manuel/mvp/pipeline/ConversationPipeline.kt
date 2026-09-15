@@ -155,6 +155,8 @@ class ConversationPipeline(
 
                 if (audio == null) {
                     // FR-004: silence/noise/cutoff -- no clear instruction, silently return to waiting.
+                    // (Silent for the user; logged so on-device runs that "do nothing" are diagnosable.)
+                    Log.d("ConversationPipeline", "No speech captured (capture=${captureDurationMs}ms)")
                     metricsLogger.recordWakeWordActivation(WakeWordActivationOutcome.POSSIBLE_FALSE_POSITIVE)
                     _state.value = PipelineState.Armed
                     return@withContext
@@ -169,6 +171,11 @@ class ConversationPipeline(
                 val transcribedText = when (transcriptionOutcome) {
                     is TranscriptionOutcome.RepeatRequested -> {
                         // FR-005: low confidence -- ask the user to repeat, not a silent discard.
+                        Log.d(
+                            "ConversationPipeline",
+                            "Transcription rejected (low confidence), asking to repeat " +
+                                "(capture=${captureDurationMs}ms transcribe=${transcriptionDurationMs}ms)",
+                        )
                         metricsLogger.recordWakeWordActivation(WakeWordActivationOutcome.POSSIBLE_FALSE_POSITIVE)
                         _state.value = PipelineState.Responding
                         speechSynthesizer.speak(repeatPrompt)

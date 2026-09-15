@@ -10,7 +10,7 @@ This project was built end to end — spec, plan, tasks, implementation, and ver
 
 The wake word is named after **Manuel Lucio Lucero** (1814–1878), a lawyer, university teacher, and later rector of the Universidad Nacional de Córdoba — nicknamed **"Manuel Lucero, the conversationalist."** Born in San Javier, Córdoba Province, he taught Latin and philosophy at the University of Córdoba until 1840, and was elected rector of the university in 1874, where he founded its faculties of medicine and exact sciences. A conversationalist from Córdoba felt like the right namesake for an assistant built to hold a spoken conversation with kids in Córdoba's rural schools.
 
-> **Project status: the full pipeline works, verified live on a real phone, with instant responses.** Say "Manuel, ¿qué es sumar?" (or tap **Hablar ahora** to skip the wake word) and the assistant transcribes the question, searches its preloaded lesson content, and speaks the best-matching answer back — transcription and response now land in the same millisecond. An earlier version generated answers with an on-device LLM (Llama 3.2 3B → 1B → Qwen2.5-0.5B, each downsized after real-device timing); even the smallest was 45-160+ seconds per turn and prone to rambling, so the MVP now speaks matched lesson content directly instead — see [Verified on-device](#verified-on-device) below for the real bugs (four of them) that testing on real hardware found along the way.
+> **Project status: the full pipeline works, verified live on two real phones, at about 5 seconds per turn.** Say "Manuel, ¿qué es sumar?" (or tap **Hablar ahora** to skip the wake word) and the assistant transcribes the question, looks it up in a curated set of 30 spoken-friendly answers (falling back to the raw lesson content, then to a fixed "no tengo información" line), and speaks the answer back. The lookup takes ~1 ms; transcription, which used to dominate the turn, dropped from 26 s to 1.4 s on the same phone once the native libraries were built with optimization on — see [Verified on-device](#verified-on-device). An earlier version generated answers with an on-device LLM (Llama 3.2 3B → 1B → Qwen2.5-0.5B, each downsized after real-device timing); even the smallest was 45-160+ seconds per turn and prone to rambling, so the MVP now speaks matched lesson content directly instead — see [Verified on-device](#verified-on-device) below for the real bugs (four of them) that testing on real hardware found along the way.
 
 ## How it works
 
@@ -19,9 +19,15 @@ The wake word is named after **Manuel Lucio Lucero** (1814–1878), a lawyer, un
                  →  wake-word detection (openWakeWord, on-device ONNX) — skipped if manually triggered
                  →  microphone capture (bounded window, silence-aware)
                  →  speech-to-text (whisper.cpp, on-device)
-                 →  content search (SQLite FTS5, OR-matched content words, best match wins)
-                 →  spoken response (the matched lesson fragment's own text, via Android TextToSpeech)
+                 →  answer lookup (SQLite FTS5, OR-matched content words, best match wins):
+                      1. curated Q&A  (content/preguntas_respuestas.json — 30 questions, each with
+                         several phrasings, answered in short spoken-friendly Spanish)
+                      2. lesson fragment (content/matematica_lecciones.json — the raw lesson text)
+                      3. fixed "No tengo información suficiente..." line if nothing matches
+                 →  spoken response (Android TextToSpeech)
 ```
+
+Measured on a real phone (HiBreak, Android 14, whisper "tiny", "¿Qué es sumar?"): `capture≈3.7s` (the speech itself plus 1 s of trailing silence) + `transcribe≈1.3–1.7s` + `search≈1ms` ≈ **5.3 s per turn**, well under the spec's 15 s target (SC-005).
 
 An on-device LLM (llama.cpp) generated freeform answers in an earlier version instead of the last two steps — see [Verified on-device](#verified-on-device) for why that was dropped for the MVP. `llm/PromptBuilder`/`LlamaEngine` and `app/src/main/cpp/llama_jni.cpp` are still in the codebase, just not wired into `ConversationPipeline` anymore.
 
@@ -35,14 +41,20 @@ Nothing in this app calls the network — no Wi-Fi, mobile data, or Bluetooth is
 |---|---|---|
 | Wake word | [openWakeWord](https://github.com/dscripka/openWakeWord) (ONNX Runtime) | No account/API key needed (unlike Porcupine, the original choice — see `spec.md`'s Clarifications for why it was swapped out) |
 | Speech-to-text | [whisper.cpp](https://github.com/ggml-org/whisper.cpp) | Runs a `tiny`/`base` Whisper model on-device via JNI |
-| Content retrieval + answer | SQLite FTS5 (lexical search), via `androidx.sqlite:sqlite-bundled` | No vector database needed at this content scale; the bundled driver ships its own FTS5-capable SQLite, since stock Android's own SQLite doesn't have FTS5 compiled in (see [Verified on-device](#verified-on-device)). The best-matching lesson fragment's own text *is* the spoken answer — no generation step, since `matematica_lecciones.json` is already written as short, direct, spoken-friendly content |
+| Content retrieval + answer | SQLite FTS5 (lexical search), via `androidx.sqlite:sqlite-bundled` | No vector database needed at this content scale; the bundled driver ships its own FTS5-capable SQLite, since stock Android's own SQLite doesn't have FTS5 compiled in (see [Verified on-device](#verified-on-device)). The spoken answer is a curated entry from `preguntas_respuestas.json` (30 questions × several phrasings each, including the digit forms and b/v confusions whisper actually produces, answered in voseo with operations spelled out in words so TTS reads them well) or, failing that, the best-matching lesson fragment's own text — no generation step. `CannedAnswersTest` runs every question in the test protocol through the real FTS5 engine and checks it lands on the intended answer, and that out-of-scope/ambiguous ones land on nothing |
 | Text-to-speech | Android's built-in `TextToSpeech` | Offline once a Spanish voice is installed |
 
 [llama.cpp](https://github.com/ggml-org/llama.cpp) generated freeform answers in an earlier version (Llama 3.2 3B → 1B → Qwen2.5-0.5B-Instruct, Q4_K_M, each downsized after real-device timing showed the bigger ones were impractically slow on phone CPU with no GPU delegate) — dropped for the MVP in favor of the row above; the code (`llm/`, `app/src/main/cpp/llama_jni.cpp`) is still in the repo, just unused.
 
 ## Verified on-device
 
-Two real-hardware passes so far: first an Android emulator (build/install sanity), then a real phone (the actual conversational loop, end to end, including the wake-word model this repo now bundles).
+Three real-hardware passes so far: first an Android emulator (build/install sanity), then a Samsung phone (the actual conversational loop, end to end, including the wake-word model this repo now bundles), then a second, slower phone for response-time work.
+
+### Second phone (HiBreak, Android 14, MediaTek) — response time
+
+- **The native libraries had been built with no optimization at all, the whole time.** AGP maps the Gradle `debug` variant to `CMAKE_BUILD_TYPE=Debug`, which overrides ggml's own Release-by-default fallback, so whisper.cpp's compute kernels ran at `-O0`. Measured on this phone with the same question and the same audio: **transcription 26–27 s with the Debug native build vs. 1.3–1.7 s with `-DCMAKE_BUILD_TYPE=Release` plus `-DGGML_CPU_ARM_ARCH=armv8.2-a+dotprod+fp16`** (both now set in `app/build.gradle.kts`; the ISA string was checked against this SoC's `/proc/cpuinfo` features first). A debug APK with release-optimized native libs is a normal combination. Full write-up and the remaining ideas in [`docs/superpowers/specs/response-time-investigation-plan.md`](docs/superpowers/specs/response-time-investigation-plan.md).
+- **This device silently drops every `Log.d` from the app** (`getprop log.tag` is `I` system-wide, so liblog discards debug-level lines before they reach logcat — while the wake-word library's `Log.d` lines happen to get through). Symptoms looked like "the turn ran but logged nothing". Fix, per tag, until reboot: `adb shell setprop log.tag.ConversationPipeline D` (same for `MainActivity`).
+- The two paths that used to be invisible on-device — no speech captured, and a transcript rejected for low confidence — now log a line each with their timings, so a turn that "does nothing" can be told apart from a crash.
 
 ### Real phone (Samsung Galaxy S25+, Android 16)
 
@@ -56,7 +68,7 @@ Two real-hardware passes so far: first an Android emulator (build/install sanity
 
 ### Emulator pass (earlier)
 
-- `./gradlew assembleDebug` / `testDebugUnitTest` (52 tests) / `lintDebug` all pass for real via Gradle — the first real build after T001–T022's sandboxed development, which caught a `llama_jni.cpp` const-correctness bug, one real Lint `MissingPermission` finding, and stock Android's own SQLite having no FTS5 module compiled in (migrated `ContentDatabase`/`ContentDao` to `androidx.sqlite:sqlite-bundled`, which ships its own FTS5-capable SQLite).
+- `./gradlew assembleDebug` / `testDebugUnitTest` (64 tests today) / `lintDebug` all pass for real via Gradle — the first real build after T001–T022's sandboxed development, which caught a `llama_jni.cpp` const-correctness bug, one real Lint `MissingPermission` finding, and stock Android's own SQLite having no FTS5 module compiled in (migrated `ContentDatabase`/`ContentDao` to `androidx.sqlite:sqlite-bundled`, which ships its own FTS5-capable SQLite).
 
 ## Project structure
 

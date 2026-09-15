@@ -15,7 +15,36 @@ turn and is worth shrinking further, both for headroom and because whisper "base
 a bigger hit than expected. The items below are what's worth investigating next, in
 priority order, with the evidence behind each.
 
-## 1. Native libraries are built in Debug mode, not Release (confirmed, untested fix)
+## Result (2026-09-15): items 1+2 done, ~18x faster transcription
+
+Measured on a second, slower phone (HiBreak, Android 14, MediaTek, `/proc/cpuinfo`
+features include `asimddp`/`fphp`), same question ("¿Qué es sumar?"), same audio, same
+whisper "tiny" model, A/B on the same day:
+
+| Native build config | capture | transcribe | runs |
+|---|---|---|---|
+| `CMAKE_BUILD_TYPE=Debug` (the default AGP applied) | 3.7s | **26.1s, 27.1s** | 2 |
+| `Release` + `GGML_CPU_ARM_ARCH=armv8.2-a+dotprod+fp16` | 3.3–4.0s | **1.28s, 1.31s, 1.43s, 1.66s** | 4 |
+
+Total turn with the optimized build: `capture=3653ms transcribe=1664ms search=1ms
+total=5345ms`. The capture window (speech + 1s of trailing silence) is now the biggest
+component, not transcription. Both flags are set in `app/build.gradle.kts`.
+
+Two things learned along the way that the remaining items should account for:
+
+- The 8.5s Samsung number above came from a much faster SoC than the HiBreak; on the
+  HiBreak the *same* Debug build took 26s. Don't compare numbers across phones —
+  re-measure on the same device when trying items 3-6.
+- The HiBreak drops every `Log.d` from the app (`getprop log.tag` = `I`), so the
+  `Timing:` line never appeared until `adb shell setprop log.tag.ConversationPipeline
+  D` was run. The pipeline also now logs the two previously silent outcomes (no speech
+  captured; transcript rejected for low confidence) with their timings.
+
+Not yet re-measured after the fix: whisper "base" (28s before, on the Samsung Debug
+build). With an 18x kernel speedup it could plausibly land at ~2-4s on the HiBreak,
+which would make the accuracy tradeoff worth revisiting — see item 6.
+
+## 1. Native libraries are built in Debug mode, not Release (DONE — measured 26s → 1.4s together with #2)
 
 `app/.cxx/Debug/*/arm64-v8a/CMakeCache.txt` shows `CMAKE_BUILD_TYPE:STRING=Debug`.
 `ggml`'s own `CMakeLists.txt` defaults to `Release` when no build type is set
@@ -33,7 +62,7 @@ running with **zero `-O2`/`-O3` optimization** this entire session.
   needs investigating.
 - **Confidence**: high. This is the single most likely largest lever, and it's free.
 
-## 2. No ARM CPU feature targeting (confirmed, untested fix)
+## 2. No ARM CPU feature targeting (DONE — applied together with #1; not measured in isolation)
 
 `GGML_CPU_ARM_ARCH` is empty and `GGML_NATIVE=OFF` in the same `CMakeCache.txt`.
 `GGML_NATIVE=OFF` is *correct* for cross-compilation (it would otherwise try
@@ -103,8 +132,11 @@ middle ground between tiny's speed and base's accuracy once #1/#2 land.
 
 ## Suggested order
 
-Items 1 and 2 cost nothing (one build-config line each, no new downloads) and are
-backed by this session's own verified build output, not speculation — do those first
-and re-measure the same test question ("¿Qué es sumar?") after each, one at a time, to
-isolate their individual impact. Only move to items 3-6 if 1-2 don't get transcription
-comfortably faster on their own.
+Items 1 and 2 are done and measured (see "Result" above): transcription went from the
+dominant cost to ~1.4s. With the turn now at ~5.3s, ~3.7s of it is the capture window,
+so if anything else is worth doing it's **item 4** (trailing-silence padding — the 1s
+`endOfSpeechSilenceMs` is now most of the non-speech time in a turn), then **item 6**
+(re-time whisper "base" on the optimized build, for accuracy — the "tiny" model
+mishears often enough that several of the curated answers' `variantes` exist only to
+absorb its errors). Items 3 and 5 are now second-order: at 1.4s there's little left to
+win from thread tuning or `audio_ctx` truncation.
