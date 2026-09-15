@@ -1,5 +1,8 @@
 package com.manuel.mvp.pipeline
 
+import android.Manifest
+import android.annotation.SuppressLint
+import androidx.annotation.RequiresPermission
 import com.manuel.mvp.audio.AudioCaptureManager
 import com.manuel.mvp.audio.WakeWordListener
 import com.manuel.mvp.llm.LlamaEngine
@@ -55,7 +58,17 @@ class ConversationPipeline(
 
     private var detectionCollectionJob: Job? = null
 
-    /** Arms background wake-word listening ("Escuchar"). */
+    /**
+     * Arms background wake-word listening ("Escuchar").
+     *
+     * Requires `android.permission.RECORD_AUDIO` to already be granted -- every detection this
+     * triggers eventually calls [AudioCaptureManager.captureInstruction], which needs it. The
+     * caller (`MainActivity`) checks/requests this permission before calling [arm]; lint cannot
+     * trace that check through the asynchronous [WakeWordListener.armedDetections] collection down
+     * to [handleDetection]'s eventual call, so it's suppressed there instead of re-checked (see
+     * [handleDetection]).
+     */
+    @RequiresPermission(Manifest.permission.RECORD_AUDIO)
     fun arm() {
         wakeWordListener.arm()
         _state.value = PipelineState.Armed
@@ -78,6 +91,10 @@ class ConversationPipeline(
         _state.value = PipelineState.Disarmed
     }
 
+    // RECORD_AUDIO is guaranteed by arm()'s own @RequiresPermission contract -- this is only
+    // ever reached after a successful arm() call, so re-checking here would be redundant, but
+    // lint cannot trace the permission check across the intervening coroutine/Flow collection.
+    @SuppressLint("MissingPermission")
     private suspend fun handleDetection() {
         val turnStartMs = System.currentTimeMillis()
 

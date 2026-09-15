@@ -1,6 +1,7 @@
 package com.manuel.mvp
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -56,6 +57,12 @@ import kotlinx.coroutines.withContext
  */
 class MainActivity : ComponentActivity() {
 
+    // Both pipeline?.arm() call sites below are genuinely permission-checked at runtime --
+    // hasRecordAudioPermission() before one, the RequestPermission() launcher's own `granted`
+    // callback parameter before the other -- but lint's MissingPermission check only recognizes
+    // permission checks written as an inline ContextCompat.checkSelfPermission(...) comparison in
+    // the same expression, not delegated through a named helper or a callback parameter.
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

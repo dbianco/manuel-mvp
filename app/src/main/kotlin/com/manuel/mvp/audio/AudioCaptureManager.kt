@@ -1,8 +1,10 @@
 package com.manuel.mvp.audio
 
+import android.Manifest
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
+import androidx.annotation.RequiresPermission
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -34,7 +36,12 @@ class AudioCaptureManager(
      * "silencio... sin producir una respuesta hablada") -- callers MUST treat `null` as "return to
      * keyword-waiting state silently", the same way [WakeWordListener.resolveInstruction] returning
      * `null` is handled.
+     *
+     * Requires `android.permission.RECORD_AUDIO`, granted by the caller before arming (see
+     * `MainActivity`'s runtime permission request) -- callers must not invoke this before that
+     * permission is confirmed granted, or the underlying `AudioRecord` construction will throw.
      */
+    @RequiresPermission(Manifest.permission.RECORD_AUDIO)
     suspend fun captureInstruction(): ShortArray? = withContext(Dispatchers.IO) {
         val frameSize = sampleRate / FRAMES_PER_SECOND
         val minBufferSize = AudioRecord.getMinBufferSize(sampleRate, CHANNEL_CONFIG, AUDIO_FORMAT)
