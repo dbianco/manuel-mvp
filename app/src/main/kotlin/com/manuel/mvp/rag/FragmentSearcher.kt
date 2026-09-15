@@ -39,14 +39,28 @@ class FragmentSearcher(private val source: FragmentRowSource) {
      * `SQLITE_ERROR` (or, worse, silently change what's searched) instead of just searching for
      * those words. Splitting into whitespace-separated tokens and quoting each one as an FTS5
      * string literal (doubling embedded `"`) makes every token a literal phrase match, immune to
-     * FTS5 syntax -- space-separated quoted phrases keep FTS5's default implicit-AND-of-terms
-     * behavior, so plain queries rank the same as before this fix.
+     * FTS5 syntax.
+     *
+     * Tokens are OR-ed together, not AND-ed (space-separated quoted phrases would default to AND)
+     * -- verified on-device: with AND, "¿Cuántos lados tienen triángulo?" failed to match content
+     * that says the triángulo "tiene" (not "tienen") 3 lados, because *every* query word has to
+     * appear somewhere in the row for AND to match at all, and natural question phrasing rarely
+     * shares 100% of its words with the more declarative lesson text. OR ranks fragments by how
+     * many/how prominently query words appear (via `bm25`) without requiring all of them, and
+     * [STOPWORDS] keeps grammatical scaffolding words ("qué", "cuántos", "tiene") from diluting
+     * that ranking or accidentally matching unrelated content that happens to share only those.
      */
-    private fun String.toFts5MatchExpression(): String =
-        trim()
-            .split(Regex("\\s+"))
-            .filter { it.isNotEmpty() }
-            .joinToString(" ") { token -> "\"" + token.replace("\"", "\"\"") + "\"" }
+    private fun String.toFts5MatchExpression(): String {
+        val tokens = trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
+        // Stopword comparison strips leading/trailing punctuation ("¿cuántos" -> "cuántos") since
+        // that's not part of the word itself; the original token (punctuation and all) is still
+        // what gets quoted below -- FTS5's own unicode61 tokenizer re-tokenizes text inside a
+        // quoted phrase too, so it strips that punctuation on its own before matching.
+        val contentTokens = tokens
+            .filter { token -> token.trim { !it.isLetter() }.lowercase() !in STOPWORDS }
+            .ifEmpty { tokens }
+        return contentTokens.joinToString(" OR ") { token -> "\"" + token.replace("\"", "\"\"") + "\"" }
+    }
 
 
 
@@ -75,5 +89,26 @@ class FragmentSearcher(private val source: FragmentRowSource) {
             LIMIT ?
             """
                 .trimIndent()
+
+        /**
+         * Spanish question words, articles, prepositions, and common verb forms that carry little
+         * topic-specific meaning on their own -- filtered out of the OR-matched query terms above
+         * so they don't dilute ranking or cause spurious matches (e.g. "es" alone appears in almost
+         * every fragment's `texto`, since most are phrased "X es Y"). Not exhaustive by design:
+         * covers what actually shows up in `manuel-mvp-test-protocol.md`'s 30 test questions plus
+         * the most common Spanish function words, not a full stopword list for the language.
+         */
+        val STOPWORDS = setOf(
+            "manuel", "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "al",
+            "a", "en", "y", "o", "u", "que", "qué", "como", "cómo", "cual", "cuál", "cuales",
+            "cuáles", "cuando", "cuándo", "donde", "dónde", "quien", "quién", "quienes", "quiénes",
+            "cuanto", "cuánto", "cuanta", "cuánta", "cuantos", "cuántos", "cuantas", "cuántas",
+            "es", "son", "esta", "está", "estan", "están", "ser", "hay", "tiene", "tienen",
+            "tener", "hace", "hacen", "hacer", "sirve", "sirven", "servir", "puedo", "podes",
+            "podés", "puede", "pueden", "se", "me", "te", "le", "les", "su", "sus", "mi", "mis",
+            "tu", "tus", "yo", "vos", "nos", "con", "sin", "por", "para", "si", "sí", "no", "ni",
+            "pero", "eso", "esto", "esa", "ese", "esas", "esos", "ahora", "explicame", "explícame",
+            "dime", "decime", "contame", "cuéntame", "ayudame", "ayúdame", "dame",
+        )
     }
 }

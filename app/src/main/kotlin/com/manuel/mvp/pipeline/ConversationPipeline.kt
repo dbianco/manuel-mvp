@@ -6,8 +6,6 @@ import android.util.Log
 import androidx.annotation.RequiresPermission
 import com.manuel.mvp.audio.AudioCaptureManager
 import com.manuel.mvp.audio.WakeWordListener
-import com.manuel.mvp.llm.LlamaEngine
-import com.manuel.mvp.llm.PromptBuilder
 import com.manuel.mvp.metrics.LocalMetricsLogger
 import com.manuel.mvp.metrics.TurnMetrics
 import com.manuel.mvp.metrics.WakeWordActivationOutcome
@@ -27,9 +25,20 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- * Orchestrates the full conversational loop -- wake word -> capture -> STT -> keyword-prefix
- * validation -> RAG -> LLM -> TTS -- with session memory (FR-011) and metrics logging (FR-013),
- * fully offline (FR-012), behind the two-button manual control described by FR-001.
+ * Orchestrates the full conversational loop -- wake word -> capture -> STT -> content search ->
+ * TTS -- with session memory (FR-011) and metrics logging (FR-013), fully offline (FR-012),
+ * behind the three-button manual control described by FR-001.
+ *
+ * MVP simplification (verified on-device): the LLM generation step ([com.manuel.mvp.llm.LlamaEngine]
+ * / [com.manuel.mvp.llm.PromptBuilder], still present in the codebase but no longer wired up here)
+ * was too slow (multi-minute on phone CPU with no GPU delegate) and too unreliable (rambling,
+ * repetition) for real classroom use. Since `matematica_lecciones.json`'s `texto` fields are
+ * already written as short, direct, spoken-friendly answers, the best-matching
+ * [FragmentSearcher] result is now spoken back verbatim -- instant, and exactly as accurate as the
+ * lesson content itself. [FragmentSearcher]'s FTS5 query ANDs every query token together, so an
+ * off-topic or ambiguous instruction (no shared vocabulary with the lesson content) naturally
+ * returns zero fragments, which is what triggers [NO_ANSWER_RESPONSE] below -- no separate
+ * out-of-scope detection needed.
  *
  * Every collaborator (and the [scope] it runs detection handling on) is constructor-injected
  * rather than owned internally, matching [WakeWordListener]'s convention (T010) of keeping
@@ -46,12 +55,11 @@ class ConversationPipeline(
     private val whisperTranscriber: WhisperTranscriber,
     private val fragmentSearcher: FragmentSearcher,
     private val sessionMemory: SessionMemory,
-    private val promptBuilder: PromptBuilder,
-    private val llamaEngine: LlamaEngine,
     private val speechSynthesizer: SpeechSynthesizer,
     private val metricsLogger: LocalMetricsLogger,
     private val scope: CoroutineScope,
     private val repeatPrompt: String = DEFAULT_REPEAT_PROMPT,
+    private val noAnswerResponse: String = NO_ANSWER_RESPONSE,
 ) {
     private val _state = MutableStateFlow<PipelineState>(PipelineState.Disarmed)
 
@@ -114,16 +122,15 @@ class ConversationPipeline(
 
     /**
      * Disarms, then releases every native/OS resource this pipeline's collaborators hold
-     * ([WakeWordListener], [WhisperTranscriber]'s engine, [LlamaEngine], [SpeechSynthesizer]).
-     * Callers (`MainActivity`'s `DisposableEffect`) must call this exactly once, when the pipeline
-     * itself is being torn down for good -- unlike [disarm], this pipeline must not be used again
+     * ([WakeWordListener], [WhisperTranscriber]'s engine, [SpeechSynthesizer]). Callers
+     * (`MainActivity`'s `DisposableEffect`) must call this exactly once, when the pipeline itself
+     * is being torn down for good -- unlike [disarm], this pipeline must not be used again
      * afterwards.
      */
     fun release() {
         disarm()
         wakeWordListener.release()
         whisperTranscriber.release()
-        llamaEngine.release()
         speechSynthesizer.shutdown()
     }
 
@@ -178,16 +185,13 @@ class ConversationPipeline(
                 }
 
                 val searchStartMs = System.currentTimeMillis()
-                val ragFragments = fragmentSearcher.search(instruction)
+                val ragFragments = fragmentSearcher.search(instruction, limit = 1)
                 val searchDurationMs = System.currentTimeMillis() - searchStartMs
 
-                val sessionHistory = sessionMemory.currentExchanges()
-                val prompt = promptBuilder.build(instruction, ragFragments, sessionHistory)
-
-                val generationStartMs = System.currentTimeMillis()
-                val response = llamaEngine.generate(prompt)
-                val generationDurationMs = System.currentTimeMillis() - generationStartMs
-                Log.d("ConversationPipeline", "Generated response: \"$response\"")
+                // MVP simplification: speak the best-matching lesson fragment's own text verbatim
+                // instead of generating a new sentence -- see this class's doc comment for why.
+                val response = ragFragments.firstOrNull()?.texto ?: noAnswerResponse
+                Log.d("ConversationPipeline", "Response: \"$response\"")
 
                 _state.value = PipelineState.Responding
                 speechSynthesizer.speak(response)
@@ -199,7 +203,7 @@ class ConversationPipeline(
                         captureDurationMs = captureDurationMs,
                         transcriptionDurationMs = transcriptionDurationMs,
                         searchDurationMs = searchDurationMs,
-                        generationDurationMs = generationDurationMs,
+                        generationDurationMs = 0,
                         totalDurationMs = System.currentTimeMillis() - turnStartMs,
                     ),
                 )
@@ -228,5 +232,9 @@ class ConversationPipeline(
 
     companion object {
         const val DEFAULT_REPEAT_PROMPT = "¿Podés repetir la pregunta? No te escuché bien."
+
+        // FR-008's "no inventes una respuesta" rule, as a fixed spoken line instead of an
+        // LLM-generated one -- reached whenever FragmentSearcher finds no matching lesson content.
+        const val NO_ANSWER_RESPONSE = "No tengo información suficiente para responder esa pregunta con seguridad."
     }
 }

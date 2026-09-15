@@ -52,18 +52,18 @@ struct TranscriptionSummary {
     float confidence;
 };
 
-TranscriptionSummary Summarize(whisper_context *ctx) {
+TranscriptionSummary Summarize(whisper_state *state) {
     std::string text;
     double sum_p = 0.0;
     int n_total_tokens = 0;
 
-    const int n_segments = whisper_full_n_segments(ctx);
+    const int n_segments = whisper_full_n_segments_from_state(state);
     for (int i = 0; i < n_segments; ++i) {
-        text += whisper_full_get_segment_text(ctx, i);
+        text += whisper_full_get_segment_text_from_state(state, i);
 
-        const int n_tokens = whisper_full_n_tokens(ctx, i);
+        const int n_tokens = whisper_full_n_tokens_from_state(state, i);
         for (int j = 0; j < n_tokens; ++j) {
-            sum_p += whisper_full_get_token_p(ctx, i, j);
+            sum_p += whisper_full_get_token_p_from_state(state, i, j);
             ++n_total_tokens;
         }
     }
@@ -112,12 +112,23 @@ Java_com_manuel_mvp_stt_NativeWhisperEngine_nativeTranscribe(
     wparams.no_timestamps = true;
     wparams.n_threads = 4;
 
+    // A fresh whisper_state per call, instead of reusing ctx's implicit shared state (what plain
+    // whisper_full() does) across every transcription -- verified on-device: reusing the same
+    // state/compute-graph-scheduler across two calls with different audio lengths crashed the
+    // whole app with a native ggml_abort inside ggml_backend_sched_alloc_graph. A fresh state gets
+    // its own graph sized exactly for this call's input, sidestepping whatever the shared
+    // scheduler's reallocation path hit.
     TranscriptionSummary summary{"", 0.0f};
-    if (whisper_full(ctx, wparams, pcmf32.data(), static_cast<int>(pcmf32.size())) == 0) {
-        summary = Summarize(ctx);
+    whisper_state *state = whisper_init_state(ctx);
+    if (state != nullptr) {
+        if (whisper_full_with_state(ctx, state, wparams, pcmf32.data(), static_cast<int>(pcmf32.size())) == 0) {
+            summary = Summarize(state);
+        }
+        // A non-zero whisper_full_with_state return, or a null state, falls through with the
+        // zero-confidence, empty-text default above (see Summarize()'s comment) instead of
+        // throwing across the JNI boundary.
+        whisper_free_state(state);
     }
-    // A non-zero whisper_full return falls through with the zero-confidence, empty-text default
-    // above (see Summarize()'s comment) instead of throwing across the JNI boundary.
 
     jclass result_class = env->FindClass("com/manuel/mvp/stt/TranscriptionResult");
     jmethodID ctor = env->GetMethodID(result_class, "<init>", "(Ljava/lang/String;F)V");

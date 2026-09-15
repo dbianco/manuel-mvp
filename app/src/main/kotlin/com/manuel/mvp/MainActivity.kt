@@ -20,8 +20,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.manuel.mvp.audio.AudioCaptureManager
 import com.manuel.mvp.audio.WakeWordListener
-import com.manuel.mvp.llm.LlamaEngine
-import com.manuel.mvp.llm.PromptBuilder
 import com.manuel.mvp.metrics.LocalMetricsLogger
 import com.manuel.mvp.pipeline.ConversationPipeline
 import com.manuel.mvp.pipeline.PipelineState
@@ -48,9 +46,9 @@ import kotlinx.coroutines.withContext
  * Pipeline construction happens inside a [LaunchedEffect] on [Dispatchers.IO] (several
  * collaborator constructors do blocking I/O or native/JNI init) and is wrapped in a `try`/`catch`
  * so a missing model file surfaces as [AssistantState.Error] rather than crashing the activity --
- * this matters concretely today, since neither the whisper/llama GGUF models nor the trained
- * `manuel.onnx` wake-word model exist yet in this repository (see T003/T013/T015's standing
- * notes): a fresh checkout is expected to show an error state until those files are provisioned.
+ * this matters concretely because the whisper GGML model still isn't bundled (too large for the
+ * APK; see [WHISPER_MODEL_RELATIVE_PATH]) and needs a first-launch download step. The trained
+ * `manuel.onnx` wake-word model *is* bundled (see T003's standing note, now resolved).
  *
  * `RECORD_AUDIO` (declared in `AndroidManifest.xml` by this task -- it was missing entirely
  * before, correcting an unverified assumption in T016's plan.md) is requested at runtime, before
@@ -148,8 +146,6 @@ class MainActivity : ComponentActivity() {
         val whisperEngine = NativeWhisperEngine(File(filesDir, WHISPER_MODEL_RELATIVE_PATH).absolutePath)
         val whisperTranscriber = WhisperTranscriber(whisperEngine)
 
-        val llamaEngine = LlamaEngine(File(filesDir, LLAMA_MODEL_RELATIVE_PATH).absolutePath)
-
         val speechSynthesizer = SpeechSynthesizer(applicationContext)
         speechSynthesizer.initialize { /* Spanish-voice availability is not yet surfaced in the UI. */ }
 
@@ -161,8 +157,6 @@ class MainActivity : ComponentActivity() {
             whisperTranscriber = whisperTranscriber,
             fragmentSearcher = fragmentSearcher,
             sessionMemory = SessionMemory(clock = Clock.systemUTC()),
-            promptBuilder = PromptBuilder(),
-            llamaEngine = llamaEngine,
             speechSynthesizer = speechSynthesizer,
             metricsLogger = LocalMetricsLogger(),
             scope = lifecycleScope,
@@ -180,17 +174,11 @@ class MainActivity : ComponentActivity() {
     }
 
     companion object {
-        // Neither model is bundled with the app (too large for the APK, and not yet trained/
-        // provisioned -- see T003's manuel.onnx note and T013/T015's "packaging is out of scope"
-        // clarifications). These paths are where a human/first-launch download step is expected to
-        // place them under internal storage before the assistant can function.
+        // Not bundled with the app (too large for the APK) -- this path is where a
+        // human/first-launch download step is expected to place it under internal storage before
+        // transcription can work. The llama.cpp/Qwen model this used to load is no longer wired
+        // up at all: see ConversationPipeline's doc comment for why the MVP now answers from
+        // matched lesson content directly instead of LLM generation.
         private const val WHISPER_MODEL_RELATIVE_PATH = "models/ggml-tiny.bin"
-
-        // Switched 3B -> 1B -> Qwen2.5 0.5B: even 1B generation was slow enough on phone CPU
-        // (no GPU delegate) to hurt real-time voice interaction. Qwen2.5-0.5B-Instruct is half
-        // the params of the 1B Llama and notably strong at Spanish for its size. PromptBuilder
-        // never used a chat template for either model (plain-text completion), so no prompt
-        // changes were needed to switch architectures.
-        private const val LLAMA_MODEL_RELATIVE_PATH = "models/qwen2.5-0.5b-instruct-q4_k_m.gguf"
     }
 }
