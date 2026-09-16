@@ -428,7 +428,9 @@
       "cuánto es 7 por 1",
       "cuánto da un número por uno",
       "cuánto da un número por cero",
-      "qué pasa si multiplico por uno"
+      "qué pasa si multiplico por uno",
+      "cuánto es un número por uno",
+      "cuánto es un número por cero"
     ],
     "respuesta": "Cualquier número multiplicado por uno da el mismo número: siete por uno es siete. Y cualquier número multiplicado por cero da cero: siete por cero es cero, y cinco por cero también es cero.",
     "fragmentos": [
@@ -1419,7 +1421,8 @@
       "cuándo una división tiene resto cero",
       "división entera",
       "qué pasa si la división no da justo",
-      "qué es una división entera"
+      "qué es una división entera",
+      "qué es una división no exacta"
     ],
     "respuesta": "Una división es exacta cuando el resto es cero, o sea, no sobra nada. Es no exacta, o entera, cuando sobra algo: una cantidad mayor que cero pero menor que el divisor.",
     "fragmentos": [
@@ -2527,7 +2530,8 @@
     "variantes": [
       "qué necesita un ser vivo para sobrevivir",
       "qué cosas necesitan los seres vivos",
-      "para vivir qué se necesita"
+      "para vivir qué se necesita",
+      "qué necesita un ser vivo"
     ],
     "respuesta": "Los seres vivos necesitan aire para respirar, agua, alimento y un lugar donde vivir.",
     "fragmentos": [
@@ -2948,7 +2952,8 @@
     "variantes": [
       "qué grupos de vertebrados hay",
       "los animales vertebrados en qué se dividen",
-      "cuántos grupos de vertebrados hay"
+      "cuántos grupos de vertebrados hay",
+      "qué animales son vertebrados"
     ],
     "respuesta": "Los mamíferos, las aves, los peces, los reptiles y los anfibios.",
     "fragmentos": [
@@ -3032,7 +3037,8 @@
     "variantes": [
       "qué animales son invertebrados",
       "ejemplos de animales invertebrados",
-      "los invertebrados qué características tienen"
+      "los invertebrados qué características tienen",
+      "qué es un invertebrado"
     ],
     "respuesta": "Son los animales que no tienen columna vertebral, como los insectos, las arañas, los moluscos y los gusanos.",
     "fragmentos": [
@@ -3074,7 +3080,9 @@
     "variantes": [
       "qué come un animal herbívoro",
       "ejemplos de animales herbívoros",
-      "herbívoro qué significa"
+      "herbívoro qué significa",
+      "qué come un herbívoro",
+      "qué es un herbívoro"
     ],
     "respuesta": "Es el animal que se alimenta solamente de plantas, como la vaca o el conejo.",
     "fragmentos": [
@@ -3088,7 +3096,9 @@
     "variantes": [
       "qué come un animal carnívoro",
       "ejemplos de animales carnívoros",
-      "carnívoro qué significa"
+      "carnívoro qué significa",
+      "qué come un carnívoro",
+      "qué es un carnívoro"
     ],
     "respuesta": "Es el animal que se alimenta de otros animales, como el león o el zorro.",
     "fragmentos": [
@@ -3102,7 +3112,9 @@
     "variantes": [
       "qué come un animal omnívoro",
       "ejemplos de animales omnívoros",
-      "omnívoro qué significa"
+      "omnívoro qué significa",
+      "qué come un omnívoro",
+      "qué es un omnívoro"
     ],
     "respuesta": "Es el animal que come tanto plantas como otros animales, como el cerdo o el ser humano.",
     "fragmentos": [
@@ -3130,7 +3142,8 @@
     "variantes": [
       "qué animales nacen de un huevo",
       "ejemplos de animales ovíparos",
-      "ovíparo qué significa"
+      "ovíparo qué significa",
+      "qué es un ovíparo"
     ],
     "respuesta": "Es el animal que nace de un huevo, como las aves y muchos reptiles y peces.",
     "fragmentos": [
@@ -3144,7 +3157,8 @@
     "variantes": [
       "qué animales nacen ya formados",
       "ejemplos de animales vivíparos",
-      "vivíparo qué significa"
+      "vivíparo qué significa",
+      "qué es un vivíparo"
     ],
     "respuesta": "Es el animal que nace ya formado del cuerpo de la madre, como la mayoría de los mamíferos.",
     "fragmentos": [
@@ -3298,7 +3312,8 @@
     "variantes": [
       "qué tipos de plantas hay según el tallo",
       "árboles arbustos y hierbas qué son",
-      "cómo se clasifican las plantas"
+      "cómo se clasifican las plantas",
+      "qué tipos de plantas hay"
     ],
     "respuesta": "En árboles, que tienen tallo leñoso y duro; arbustos, con tallo leñoso más chico; y hierbas, con tallo blando y verde.",
     "fragmentos": [
@@ -3326,7 +3341,8 @@
     "variantes": [
       "qué gas liberan las plantas",
       "las plantas dan oxígeno",
-      "qué gas dan las plantas al aire"
+      "qué gas dan las plantas al aire",
+      "qué gas producen las plantas"
     ],
     "respuesta": "El oxígeno, que las plantas liberan durante la fotosíntesis.",
     "fragmentos": [
@@ -3508,7 +3524,9 @@
     "variantes": [
       "por qué algo flota en el agua",
       "por qué algo se hunde en el agua",
-      "qué hace que un objeto flote"
+      "qué hace que un objeto flote",
+      "por qué flota algo",
+      "por qué se hunde algo"
     ],
     "respuesta": "Depende de qué tan pesados sean en relación a su tamaño: los que son menos densos que el agua flotan, y los más densos se hunden.",
     "fragmentos": [
@@ -3662,9 +3680,11 @@
     "variantes": [
       "qué forma parte del sistema solar",
       "sistema solar qué es",
-      "qué hay en el sistema solar"
+      "qué hay en el sistema solar",
+      "cuántos planetas hay",
+      "cuántos planetas hay en el sistema solar"
     ],
-    "respuesta": "Es el conjunto formado por el sol y todos los planetas y otros astros que giran a su alrededor.",
+    "respuesta": "Es el conjunto formado por el sol y los ocho planetas y otros astros que giran a su alrededor.",
     "fragmentos": [
       "cnat-86"
     ]
@@ -3872,7 +3892,8 @@
     "variantes": [
       "en qué parte de Argentina está Córdoba",
       "dónde queda la provincia de Córdoba",
-      "Córdoba en qué región de Argentina está"
+      "Córdoba en qué región de Argentina está",
+      "dónde está Córdoba"
     ],
     "respuesta": "La provincia de Córdoba está ubicada en el centro de la República Argentina.",
     "fragmentos": [
@@ -3886,7 +3907,8 @@
     "variantes": [
       "cómo se llama la capital de Córdoba",
       "cuál es la ciudad capital de la provincia",
-      "capital de Córdoba cuál es"
+      "capital de Córdoba cuál es",
+      "cuál es la capital de Córdoba"
     ],
     "respuesta": "La capital de la provincia de Córdoba es la ciudad de Córdoba, también llamada Córdoba Capital.",
     "fragmentos": [
@@ -3928,7 +3950,9 @@
     "variantes": [
       "Córdoba a qué región pertenece",
       "en qué región argentina está Córdoba",
-      "región centro qué provincias tiene"
+      "región centro qué provincias tiene",
+      "en qué región está Córdoba",
+      "qué región es Córdoba"
     ],
     "respuesta": "Pertenece a la región centro del país.",
     "fragmentos": [
@@ -3956,7 +3980,8 @@
     "variantes": [
       "cómo le dicen a la gente de Córdoba",
       "gentilicio de Córdoba",
-      "cómo se les dice a los que nacen en Córdoba"
+      "cómo se les dice a los que nacen en Córdoba",
+      "cómo se llama la gente de Córdoba"
     ],
     "respuesta": "Se llaman cordobeses y cordobesas.",
     "fragmentos": [
@@ -3984,7 +4009,8 @@
     "variantes": [
       "en qué se divide la provincia de Córdoba",
       "cómo está dividida la provincia",
-      "organización territorial de Córdoba"
+      "organización territorial de Córdoba",
+      "cómo se divide Córdoba"
     ],
     "respuesta": "Se organiza en departamentos, que son divisiones territoriales más chicas dentro de la provincia.",
     "fragmentos": [
@@ -3998,7 +4024,8 @@
     "variantes": [
       "qué es un departamento en Córdoba",
       "para qué sirve un departamento provincial",
-      "departamento provincial qué es"
+      "departamento provincial qué es",
+      "qué es un departamento"
     ],
     "respuesta": "Es una parte del territorio provincial con su propio gobierno local, parecido a lo que en otros lugares se llama distrito o partido.",
     "fragmentos": [
@@ -4012,7 +4039,8 @@
     "variantes": [
       "cómo es el terreno de Córdoba",
       "el relieve cordobés cómo es",
-      "Córdoba tiene sierras y llanuras"
+      "Córdoba tiene sierras y llanuras",
+      "cómo es el relieve de Córdoba"
     ],
     "respuesta": "Combina llanuras en el este y sierras en el centro y el oeste de la provincia.",
     "fragmentos": [
@@ -4026,7 +4054,8 @@
     "variantes": [
       "cuál es el nombre de las sierras cordobesas",
       "las sierras de Córdoba cómo se llaman",
-      "nombre de las sierras cordobesas"
+      "nombre de las sierras cordobesas",
+      "cómo se llaman las sierras de Córdoba"
     ],
     "respuesta": "Se llaman Sierras Pampeanas.",
     "fragmentos": [
@@ -4040,7 +4069,8 @@
     "variantes": [
       "qué sierras tiene la provincia de Córdoba",
       "nombres de los cordones serranos de Córdoba",
-      "principales sierras de Córdoba"
+      "principales sierras de Córdoba",
+      "qué sierras hay en Córdoba"
     ],
     "respuesta": "La Sierra Chica, la Sierra Grande y las Sierras de Comechingones.",
     "fragmentos": [
@@ -4054,7 +4084,8 @@
     "variantes": [
       "cuál es la montaña más alta de Córdoba",
       "cuál es el cerro más alto de Córdoba",
-      "punto más alto de la provincia"
+      "punto más alto de la provincia",
+      "cuál es el punto más alto"
     ],
     "respuesta": "El cerro Champaquí, ubicado en las Sierras de Comechingones.",
     "fragmentos": [
@@ -4096,7 +4127,8 @@
     "variantes": [
       "qué valles tiene la provincia de Córdoba",
       "nombres de los valles cordobeses",
-      "valles más famosos de Córdoba"
+      "valles más famosos de Córdoba",
+      "qué valles hay en Córdoba"
     ],
     "respuesta": "El Valle de Punilla, el Valle de Calamuchita y el Valle de Traslasierra.",
     "fragmentos": [
@@ -4152,7 +4184,8 @@
     "variantes": [
       "cómo es la llanura cordobesa",
       "la llanura pampeana en Córdoba cómo es",
-      "dónde está la llanura en Córdoba"
+      "dónde está la llanura en Córdoba",
+      "cómo es la llanura de Córdoba"
     ],
     "respuesta": "Es una zona plana y muy fértil, ubicada al este y al sureste de la provincia, ideal para la agricultura.",
     "fragmentos": [
@@ -4222,7 +4255,8 @@
     "variantes": [
       "qué ríos tiene la provincia de Córdoba",
       "principales ríos cordobeses",
-      "nombres de los ríos de Córdoba"
+      "nombres de los ríos de Córdoba",
+      "qué ríos hay en Córdoba"
     ],
     "respuesta": "El río Suquía, el río Xanaes, el río Ctalamochita y el río Chocancharava.",
     "fragmentos": [
@@ -4334,7 +4368,8 @@
     "variantes": [
       "cuál es el lago más famoso de Córdoba",
       "embalse principal de la provincia",
-      "el lago San Roque dónde está"
+      "el lago San Roque dónde está",
+      "cuál es el embalse más conocido"
     ],
     "respuesta": "El Lago San Roque, ubicado cerca de Villa Carlos Paz.",
     "fragmentos": [
@@ -4362,7 +4397,8 @@
     "variantes": [
       "qué otros lagos artificiales hay en Córdoba",
       "embalses cordobeses además del San Roque",
-      "otros embalses de la provincia"
+      "otros embalses de la provincia",
+      "qué otros embalses hay en Córdoba"
     ],
     "respuesta": "El embalse Río Tercero, el embalse Los Molinos y el embalse Cruz del Eje, entre otros.",
     "fragmentos": [
@@ -4376,7 +4412,8 @@
     "variantes": [
       "utilidad de los embalses cordobeses",
       "para qué se usan los embalses",
-      "funciones de los embalses de Córdoba"
+      "funciones de los embalses de Córdoba",
+      "para qué sirven los embalses"
     ],
     "respuesta": "Sirven para proveer agua potable, para el riego de cultivos, para generar energía eléctrica y para el turismo.",
     "fragmentos": [
@@ -4418,7 +4455,8 @@
     "variantes": [
       "para qué sirve cuidar los ríos cordobeses",
       "por qué no hay que contaminar los ríos de Córdoba",
-      "cuidado de los ríos y lagos"
+      "cuidado de los ríos y lagos",
+      "por qué cuidar los ríos de Córdoba"
     ],
     "respuesta": "Porque son fuente de agua potable y de vida para las plantas, los animales y las personas.",
     "fragmentos": [
@@ -4642,7 +4680,8 @@
     "variantes": [
       "qué ciudad cordobesa fundaron los jesuitas",
       "Alta Gracia quién la fundó",
-      "ciudad jesuita con nombre de virtud"
+      "ciudad jesuita con nombre de virtud",
+      "qué ciudad fundaron los jesuitas"
     ],
     "respuesta": "Alta Gracia.",
     "fragmentos": [
@@ -4782,7 +4821,8 @@
     "variantes": [
       "quiénes vivían en Córdoba antes de los españoles",
       "pueblos indígenas de la región cordobesa",
-      "comechingones y sanavirones"
+      "comechingones y sanavirones",
+      "qué pueblos originarios había en Córdoba"
     ],
     "respuesta": "Los comechingones y los sanavirones.",
     "fragmentos": [
@@ -4880,7 +4920,8 @@
     "variantes": [
       "se fabrican aviones en Córdoba",
       "industria aeronáutica cordobesa",
-      "otra industria importante de Córdoba"
+      "otra industria importante de Córdoba",
+      "qué otra industria tiene Córdoba"
     ],
     "respuesta": "La industria aeronáutica, con fábricas de aviones.",
     "fragmentos": [
@@ -4936,7 +4977,8 @@
     "variantes": [
       "qué se hace con la soja de Córdoba",
       "para qué sirve la soja cultivada",
-      "destino de la producción de soja"
+      "destino de la producción de soja",
+      "para qué se usa la soja"
     ],
     "respuesta": "Se usa para alimento de animales, para hacer aceite y también se exporta a otros países.",
     "fragmentos": [
@@ -4950,7 +4992,8 @@
     "variantes": [
       "cuál es la universidad más antigua de Argentina",
       "universidad de la ciudad capital cordobesa",
-      "nombre de la universidad de Córdoba"
+      "nombre de la universidad de Córdoba",
+      "qué universidad hay en Córdoba"
     ],
     "respuesta": "La Universidad Nacional de Córdoba, la más antigua de la Argentina.",
     "fragmentos": [
@@ -5034,7 +5077,8 @@
     "variantes": [
       "qué árboles autóctonos tiene Córdoba",
       "árboles nativos cordobeses además del algarrobo",
-      "especies de árboles de Córdoba"
+      "especies de árboles de Córdoba",
+      "qué árboles nativos hay en Córdoba"
     ],
     "respuesta": "El molle, el espinillo y el tabaquillo.",
     "fragmentos": [
@@ -5104,7 +5148,8 @@
     "variantes": [
       "para qué sirve proteger los animales de Córdoba",
       "por qué hay que cuidar los animales nativos",
-      "importancia de la fauna cordobesa"
+      "importancia de la fauna cordobesa",
+      "por qué cuidar los animales de Córdoba"
     ],
     "respuesta": "Porque forma parte del equilibrio natural de las sierras, y muchas especies necesitan protección.",
     "fragmentos": [
@@ -5132,7 +5177,8 @@
     "variantes": [
       "quién fundó Córdoba",
       "cuándo se fundó la ciudad de Córdoba",
-      "fundador de la ciudad de Córdoba"
+      "fundador de la ciudad de Córdoba",
+      "cuándo se fundó Córdoba"
     ],
     "respuesta": "Fue fundada por Jerónimo Luis de Cabrera, en el año mil quinientos setenta y tres.",
     "fragmentos": [
@@ -5188,7 +5234,8 @@
     "variantes": [
       "cómo se llama el festival de Cosquín",
       "festival nacional que se hace en Cosquín",
-      "el festival de folklore de Cosquín"
+      "el festival de folklore de Cosquín",
+      "qué festival hay en Cosquín"
     ],
     "respuesta": "El Festival Nacional de Folklore.",
     "fragmentos": [
@@ -5244,7 +5291,8 @@
     "variantes": [
       "por qué la gente visita la provincia de Córdoba",
       "qué hace turística a la provincia de Córdoba",
-      "atractivos turísticos de Córdoba"
+      "atractivos turísticos de Córdoba",
+      "por qué Córdoba es turística"
     ],
     "respuesta": "Por sus sierras, sus lagos, su historia, su clima y sus fiestas populares.",
     "fragmentos": [
@@ -5258,7 +5306,8 @@
     "variantes": [
       "qué hace especial a la cultura cordobesa",
       "identidad cultural de Córdoba",
-      "qué caracteriza a Córdoba culturalmente"
+      "qué caracteriza a Córdoba culturalmente",
+      "qué distingue a Córdoba"
     ],
     "respuesta": "Su tonada particular, su historia universitaria y jesuítica, y sus tradiciones serranas y folklóricas.",
     "fragmentos": [

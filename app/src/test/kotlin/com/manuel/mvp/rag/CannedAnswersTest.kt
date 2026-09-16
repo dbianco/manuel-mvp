@@ -236,6 +236,12 @@ class CannedAnswersTest {
                 // The two older sets must keep resolving next to 200 new entries.
                 "Anita, ¿qué es sumar?" to "qa-06",
                 "¿Qué es un poliedro?" to "qa-133",
+                // Minimal-question shortcuts of otherwise long/compound questions -- a child
+                // shouldn't have to recite the full phrasing to get an answer.
+                "¿Quién fundó Córdoba?" to "qa-328",
+                "¿Cuándo se fundó Córdoba?" to "qa-328",
+                "¿Cuántos planetas hay?" to "qa-223",
+                "¿Qué come un herbívoro?" to "qa-181",
             )
 
         val failures = expected.mapNotNull { (question, expectedId) ->

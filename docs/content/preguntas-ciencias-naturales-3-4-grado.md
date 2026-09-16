@@ -304,7 +304,7 @@ Esta guía reúne 100 preguntas con sus respuestas explicadas en un lenguaje cla
 ## 8. El cielo, el sol, la luna y las estaciones
 
 ### Pregunta 86: ¿Qué es el sistema solar?
-**Respuesta:** Es el conjunto formado por el sol y todos los planetas y otros astros que giran a su alrededor.
+**Respuesta:** Es el conjunto formado por el sol y los ocho planetas y otros astros que giran a su alrededor.
 
 ### Pregunta 87: ¿Qué es el sol?
 **Respuesta:** Es una estrella que da luz y calor a la Tierra y a los demás planetas del sistema solar.
