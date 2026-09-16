@@ -39,10 +39,11 @@ class ContentDatabase private constructor(val connection: SQLiteConnection) : Au
         // to match one of the original few phrasings verbatim; 6 = 137 -> 337 entries (100 ciencias
         // naturales + 100 geografía de Córdoba); 7 = ~30 long/compound questions across all three
         // subjects got a minimal-question variante (dropped qualifiers like "de la provincia de",
-        // split "¿Quién fundó Córdoba y en qué año?" into its two parts) -- same schema, but the
-        // seed data is only loaded when the version changes, so the bump is what gets it onto
-        // installed phones.
-        private const val DATABASE_VERSION = 7
+        // split "¿Quién fundó Córdoba y en qué año?" into its two parts); 8 = removed qa-27's
+        // hardcoded "bértice"/"bértices" misspelled variantes now that VocabularyCorrector fixes
+        // that mishearing generically -- same schema, but the seed data is only loaded when the
+        // version changes, so the bump is what gets it onto installed phones.
+        private const val DATABASE_VERSION = 8
 
         private const val FRAGMENTS_ASSET_PATH = "content/matematica_lecciones.json"
         private const val ANSWERS_ASSET_PATH = "content/preguntas_respuestas.json"

@@ -53,10 +53,17 @@ internal object Fts5Query {
             .split(Regex("\\s+"))
             .map { token -> token.trim { !it.isLetterOrDigit() }.lowercase() }
             .filter { word -> word.isNotEmpty() && word !in STOPWORDS }
-            .map { word ->
-                Normalizer.normalize(word, Normalizer.Form.NFD).replace(Regex("\\p{M}"), "")
-            }
+            .map(::normalize)
             .toSet()
+
+    /**
+     * Lowercases [word] and strips its diacritics (so "triángulo" and "triangulo" compare equal,
+     * the same way FTS5's `remove_diacritics 2` tokenizer treats them). Shared with
+     * [VocabularyCorrector], which needs the exact same normalization to compare a transcribed
+     * word against the vocabulary built from this same content.
+     */
+    fun normalize(word: String): String =
+        Normalizer.normalize(word.lowercase(), Normalizer.Form.NFD).replace(Regex("\\p{M}"), "")
 
     /**
      * Spanish question words, articles, prepositions, pronouns, and common verb forms that carry

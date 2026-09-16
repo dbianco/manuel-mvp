@@ -27,6 +27,7 @@ import com.manuel.mvp.rag.AnswerSearcher
 import com.manuel.mvp.rag.ContentDao
 import com.manuel.mvp.rag.ContentDatabase
 import com.manuel.mvp.rag.FragmentSearcher
+import com.manuel.mvp.rag.VocabularyCorrector
 import com.manuel.mvp.session.SessionMemory
 import com.manuel.mvp.stt.NativeWhisperEngine
 import com.manuel.mvp.stt.WhisperTranscriber
@@ -151,6 +152,7 @@ class MainActivity : ComponentActivity() {
         val contentDao = ContentDao(contentDatabase.connection)
         val fragmentSearcher = FragmentSearcher(contentDao)
         val answerSearcher = AnswerSearcher(contentDao)
+        val vocabularyCorrector = VocabularyCorrector(VocabularyCorrector.buildVocabulary(contentDao))
 
         val whisperEngine = NativeWhisperEngine(File(filesDir, WHISPER_MODEL_RELATIVE_PATH).absolutePath)
         val whisperTranscriber = WhisperTranscriber(whisperEngine)
@@ -170,6 +172,7 @@ class MainActivity : ComponentActivity() {
             speechSynthesizer = speechSynthesizer,
             metricsLogger = LocalMetricsLogger(),
             scope = lifecycleScope,
+            vocabularyCorrector = vocabularyCorrector,
         )
         return PipelineBundle(pipeline, contentDatabase)
     }

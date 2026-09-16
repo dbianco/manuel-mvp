@@ -11,6 +11,7 @@ import com.manuel.mvp.metrics.TurnMetrics
 import com.manuel.mvp.metrics.WakeWordActivationOutcome
 import com.manuel.mvp.rag.AnswerSearcher
 import com.manuel.mvp.rag.FragmentSearcher
+import com.manuel.mvp.rag.VocabularyCorrector
 import com.manuel.mvp.session.SessionMemory
 import com.manuel.mvp.stt.TranscriptionOutcome
 import com.manuel.mvp.stt.WhisperTranscriber
@@ -64,6 +65,10 @@ class ConversationPipeline(
     private val scope: CoroutineScope,
     private val repeatPrompt: String = DEFAULT_REPEAT_PROMPT,
     private val noAnswerResponse: String = NO_ANSWER_RESPONSE,
+    // Defaults to an empty vocabulary (a no-op: every word is either too short to correct or has
+    // no candidate to correct it to) so a caller that doesn't build a real one -- there are none
+    // today, but this keeps the constructor source-compatible -- gets identical old behavior.
+    private val vocabularyCorrector: VocabularyCorrector = VocabularyCorrector(emptySet()),
 ) {
     private val _state = MutableStateFlow<PipelineState>(PipelineState.Disarmed)
 
@@ -215,10 +220,27 @@ class ConversationPipeline(
                     return@withContext
                 }
 
+                // whisper.cpp sometimes swaps/drops a single letter in a word it doesn't know well
+                // ("Córdoba" -> "cordoa", "vértice" -> "bértice"), which breaks the exact-token
+                // matching both searchers rely on even though a human would understand it fine --
+                // fix that against this app's own content vocabulary before searching. Search
+                // itself, and lastHeard above, still see/show the raw transcript: this only affects
+                // what gets searched for. Timed together with the search calls below (both are
+                // sub-millisecond at this content scale; a single "search" bucket in the log is
+                // simpler than a fourth timing field for something this cheap).
                 val searchStartMs = System.currentTimeMillis()
-                val cannedAnswer = answerSearcher.search(instruction).firstOrNull()
+                val correctedInstruction = vocabularyCorrector.correct(instruction)
+                if (correctedInstruction != instruction) {
+                    Log.d("ConversationPipeline", "Corrected instruction: \"$correctedInstruction\"")
+                }
+
+                val cannedAnswer = answerSearcher.search(correctedInstruction).firstOrNull()
                 val fragment =
-                    if (cannedAnswer == null) fragmentSearcher.search(instruction, limit = 1).firstOrNull() else null
+                    if (cannedAnswer == null) {
+                        fragmentSearcher.search(correctedInstruction, limit = 1).firstOrNull()
+                    } else {
+                        null
+                    }
                 val searchDurationMs = System.currentTimeMillis() - searchStartMs
 
                 // MVP simplification: speak a curated answer (or, failing that, the best-matching

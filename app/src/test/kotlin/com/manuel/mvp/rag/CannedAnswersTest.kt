@@ -307,7 +307,13 @@ class CannedAnswersTest {
                 " ¿Cuántos lados tienen cuadrado?" to "qa-24",
                 " que es dividir." to "qa-28",
                 " ¿Cómo se cuenta del 1 al 10?" to "qa-01",
-                " ¿Qué es un bértice?" to "qa-27",
+                // "¿Qué es un bértice?" used to be a hardcoded variante of qa-27 for exactly this
+                // b/v mishearing; VocabularyCorrector now fixes that generically (and any other
+                // single-letter STT slip), so the hardcoded misspelling was removed -- keeping it
+                // in the vocabulary was actively harmful: it tied with the *correctly* spelled
+                // "vértice" for other real mishearings like "mértice", blocking correction. See
+                // VocabularyCorrectionIntegrationTest for this case tested through the real
+                // correct-then-search pipeline path.
             )
 
         val failures = expected.mapNotNull { (question, expectedId) ->
