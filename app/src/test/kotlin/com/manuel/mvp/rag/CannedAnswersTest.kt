@@ -72,8 +72,10 @@ class CannedAnswersTest {
     }
 
     @Test
-    fun `asset has exactly 30 well-formed entries with unique ids`() {
-        assertEquals(30, entries.length())
+    fun `asset has exactly 129 well-formed entries with unique ids`() {
+        // 30 from the original inicial/primario lessons + 99 from the 3rd/4th-grade guide (110
+        // questions minus the 11 that duplicated ones already in the first set).
+        assertEquals(129, entries.length())
 
         val ids = mutableSetOf<String>()
         for (i in 0 until entries.length()) {
@@ -89,16 +91,84 @@ class CannedAnswersTest {
     }
 
     @Test
-    fun `every answer is grounded in a real lesson fragment id`() {
+    fun `every answer is grounded in a real lesson fragment or guide question`() {
+        // Two kinds of source: a fragment id from matematica_lecciones.json, or "guia34-NN" for
+        // question NN of docs/content/preguntas-matematica-3-4-grado.md (whose answers were
+        // rewritten for speech but not changed in substance).
         val fragmentIds = JSONArray(lessonsFile().readText(Charsets.UTF_8)).let { lessons ->
             (0 until lessons.length()).map { lessons.getJSONObject(it).getString("id") }.toSet()
         }
+        val guideQuestionNumbers =
+            Regex("^### Pregunta (\\d+):", RegexOption.MULTILINE)
+                .findAll(guideFile().readText(Charsets.UTF_8))
+                .map { it.groupValues[1] }
+                .toSet()
+        assertEquals(110, guideQuestionNumbers.size)
+
         for (i in 0 until entries.length()) {
             val entry = entries.getJSONObject(i)
-            for (fragmentId in entry.getJSONArray("fragmentos").strings()) {
-                assertTrue("${entry.getString("id")} cites unknown fragment $fragmentId", fragmentId in fragmentIds)
+            for (source in entry.getJSONArray("fragmentos").strings()) {
+                val guideNumber = Regex("guia34-(\\d+)").matchEntire(source)?.groupValues?.get(1)
+                val known = if (guideNumber != null) guideNumber in guideQuestionNumbers else source in fragmentIds
+                assertTrue("${entry.getString("id")} cites unknown source $source", known)
             }
         }
+    }
+
+    @Test
+    fun `every entry's own question resolves to that entry`() {
+        // The strongest collision check available without a phone: with 129 entries sharing a
+        // vocabulary (sumar, restar, dividir, cero, cuarto...), each canonical question must still
+        // rank its own entry first. When this fails, fix it in the content (a more specific
+        // `pregunta`, or extra `variantes`), not by special-casing the search.
+        val failures = (0 until entries.length()).mapNotNull { i ->
+            val entry = entries.getJSONObject(i)
+            val expectedId = entry.getString("id")
+            val actualId = searcher.search(entry.getString("pregunta")).firstOrNull()?.id
+            if (actualId == expectedId) null else "\"${entry.getString("pregunta")}\" -> $actualId (expected $expectedId)"
+        }
+        assertTrue("Mismatches:\n" + failures.joinToString("\n"), failures.isEmpty())
+    }
+
+    @Test
+    fun `3rd and 4th grade paraphrases resolve to the intended answers`() {
+        val expected =
+            listOf(
+                "¿Qué es una decena?" to "qa-33",
+                "¿Cómo se lee 4528?" to "qa-34",
+                "¿Qué es redondear?" to "qa-38",
+                "¿Cuánto es 45 más 32?" to "qa-44",
+                "¿Cuánto es 85 menos 32?" to "qa-51",
+                "¿Puedo restar al revés?" to "qa-53",
+                "¿Cómo se calcula el vuelto?" to "qa-55",
+                "¿Qué es el doble?" to "qa-64",
+                "¿Cuánto es cinco por cien?" to "qa-65",
+                "¿Es lo mismo cinco por siete que siete por cinco?" to "qa-67",
+                "¿Qué es la propiedad conmutativa de la suma?" to "qa-09",
+                "¿Qué es el dividendo?" to "qa-73",
+                "¿Cuánto es treinta y cinco dividido cinco?" to "qa-74",
+                "¿Qué pasa si divido por cero?" to "qa-83",
+                "¿Qué es el numerador?" to "qa-87",
+                "¿Qué es la mitad?" to "qa-88",
+                "¿Cuántos cuartos hay en un entero?" to "qa-90",
+                "¿Qué es un número con coma?" to "qa-98",
+                "¿Qué es un rombo?" to "qa-112",
+                "¿Cuántas caras tiene un cubo?" to "qa-116",
+                "¿Por qué la pelota rueda y la caja no?" to "qa-119",
+                "¿Cuántos gramos tiene un kilo?" to "qa-124",
+                "¿Cuántos minutos tiene una hora?" to "qa-126",
+                "¿Qué es el perímetro?" to "qa-127",
+                // The original set must keep working next to the new one.
+                "Anita, ¿qué es sumar?" to "qa-06",
+                "Anita, ¿cuántos lados tiene un triángulo?" to "qa-23",
+                "Anita, ¿qué es un vértice?" to "qa-27",
+            )
+
+        val failures = expected.mapNotNull { (question, expectedId) ->
+            val actualId = searcher.search(question).firstOrNull()?.id
+            if (actualId == expectedId) null else "\"$question\" -> $actualId (expected $expectedId)"
+        }
+        assertTrue("Mismatches:\n" + failures.joinToString("\n"), failures.isEmpty())
     }
 
     @Test
@@ -197,9 +267,11 @@ class CannedAnswersTest {
         // repo-root fallback keeps this runnable from an IDE that uses the project root instead.
         fun assetFile(): File = firstExisting("src/main/assets/content/preguntas_respuestas.json")
         fun lessonsFile(): File = firstExisting("src/main/assets/content/matematica_lecciones.json")
+        fun guideFile(): File = firstExisting("../docs/content/preguntas-matematica-3-4-grado.md")
 
         private fun firstExisting(relativePath: String): File =
-            listOf(File(relativePath), File("app", relativePath)).firstOrNull { it.exists() }
+            listOf(File(relativePath), File("app", relativePath), File(relativePath.removePrefix("../")))
+                .firstOrNull { it.exists() }
                 ?: error("asset not found: $relativePath (cwd=${File(".").absolutePath})")
 
         fun JSONArray.strings(): List<String> = (0 until length()).map { getString(it) }

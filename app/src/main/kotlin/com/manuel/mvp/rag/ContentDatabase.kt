@@ -33,8 +33,10 @@ class ContentDatabase private constructor(val connection: SQLiteConnection) : Au
     companion object {
         private const val DATABASE_NAME = "manuel_content.db"
 
-        // Version history: 1 = `fragments` only; 2 = added `respuestas`.
-        private const val DATABASE_VERSION = 2
+        // Version history: 1 = `fragments` only; 2 = added `respuestas`; 3 = `respuestas` grew
+        // from 30 to 129 entries (the 3rd/4th-grade guide) -- same schema, but the seed data is
+        // only loaded when the version changes, so the bump is what gets it onto installed phones.
+        private const val DATABASE_VERSION = 3
 
         private const val FRAGMENTS_ASSET_PATH = "content/matematica_lecciones.json"
         private const val ANSWERS_ASSET_PATH = "content/preguntas_respuestas.json"

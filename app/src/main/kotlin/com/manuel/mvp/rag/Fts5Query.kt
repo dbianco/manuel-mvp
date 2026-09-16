@@ -1,5 +1,7 @@
 package com.manuel.mvp.rag
 
+import java.text.Normalizer
+
 /**
  * Turns free-form (whisper-transcribed) question text into a safe FTS5 `MATCH` operand, shared
  * by [AnswerSearcher] and [FragmentSearcher] so both match the same way.
@@ -40,6 +42,23 @@ internal object Fts5Query {
     }
 
     /**
+     * The content words of [text] as a set of comparable keys: lowercased, punctuation stripped,
+     * diacritics removed (so "triángulo" and whisper's occasional "triangulo" compare equal, the
+     * same way FTS5's `remove_diacritics 2` treats them), stopwords dropped. Used by
+     * [AnswerSearcher] to compare a query against each candidate's own phrasings in Kotlin, after
+     * FTS5 has produced the candidates.
+     */
+    fun contentWords(text: String): Set<String> =
+        text.trim()
+            .split(Regex("\\s+"))
+            .map { token -> token.trim { !it.isLetterOrDigit() }.lowercase() }
+            .filter { word -> word.isNotEmpty() && word !in STOPWORDS }
+            .map { word ->
+                Normalizer.normalize(word, Normalizer.Form.NFD).replace(Regex("\\p{M}"), "")
+            }
+            .toSet()
+
+    /**
      * Spanish question words, articles, prepositions, pronouns, and common verb forms that carry
      * little topic-specific meaning on their own. Not exhaustive by design: covers what actually
      * shows up in `manuel-mvp-test-protocol.md`'s questions plus the most common Spanish function
@@ -56,10 +75,20 @@ internal object Fts5Query {
         "es", "son", "esta", "está", "estan", "están", "ser", "hay", "tiene", "tienen",
         "tener", "hace", "hacen", "hacer", "hice", "hizo", "hago", "sirve", "sirven", "servir",
         "puedo", "podes", "podés", "puede", "pueden", "se", "me", "te", "le", "les", "su", "sus",
-        "mi", "mis", "tu", "tus", "yo", "vos", "nos", "con", "sin", "por", "para", "si", "sí",
+        // "por" is deliberately NOT a stopword: in this domain it carries meaning ("tres por
+        // cuatro" is a multiplication, "dividir por cero" is not "dividir cero"), and dropping it
+        // made those two division questions indistinguishable.
+        "mi", "mis", "tu", "tus", "yo", "vos", "nos", "con", "sin", "para", "si", "sí",
         "no", "ni", "pero", "eso", "esto", "esa", "ese", "esas", "esos", "lo", "algo", "cosa",
         "otro", "otra", "todo", "toda", "todos", "todas", "ya", "muy", "ahora", "bien",
         "explicame", "explícame", "dime", "decime", "contame", "cuéntame", "ayudame", "ayúdame",
         "dame", "mostrame", "muéstrame",
+        // Added with the 3rd/4th-grade set: verbs that open most of its questions ("¿qué
+        // significa...?", "¿cómo sabemos...?", "¿qué pasa cuando...?") and would otherwise make
+        // every question in the set look alike to the ranking.
+        "significa", "significan", "quiere", "decir", "pasa", "ocurre", "sabemos", "sé",
+        "podemos", "usamos", "hacemos", "hago", "tengo", "tenés", "tenemos", "hay",
+        "conviene", "llama", "llaman", "entre", "sobre", "cualquier", "también", "vez", "veces",
+        "dice", "dicen", "explicar", "explicá", "che",
     )
 }
