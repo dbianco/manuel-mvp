@@ -36,6 +36,13 @@ import androidx.compose.ui.unit.dp
  * real-device testing showed the trained wake-word model misses real speech often enough to
  * frustrate normal use; [onHablarAhoraClick] defaults to a no-op so existing callers/tests that
  * don't care about this fallback don't need to change.
+ *
+ * Below the buttons, [lastHeard] (`ConversationPipeline.lastHeard`) shows the most recent thing
+ * whisper transcribed through the microphone -- added so a developer or teacher testing the app
+ * on a real phone can see what it actually heard without reading logcat. It defaults to `null`
+ * (nothing shown yet) so existing callers/tests don't need to change; it is not spoken-question
+ * "history", just the single latest attempt, updated on every turn including silence/low-confidence
+ * ones (see `ConversationPipeline.lastHeard`'s doc for exactly what populates it).
  */
 @Composable
 fun MainScreen(
@@ -43,6 +50,7 @@ fun MainScreen(
     onEscucharClick: () -> Unit,
     onDejarDeEscucharClick: () -> Unit,
     onHablarAhoraClick: () -> Unit = {},
+    lastHeard: String? = null,
     modifier: Modifier = Modifier,
 ) {
     Surface(modifier = modifier.fillMaxSize()) {
@@ -77,6 +85,12 @@ fun MainScreen(
             ) {
                 Text(HABLAR_AHORA_LABEL)
             }
+            Spacer(modifier = Modifier.height(24.dp))
+            Text(
+                text = lastHeard?.let { "Última pregunta escuchada:\n“$it”" } ?: LAST_HEARD_EMPTY_LABEL,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.semantics { contentDescription = LAST_HEARD_CONTENT_DESCRIPTION },
+            )
         }
     }
 }
@@ -93,3 +107,5 @@ private fun statusText(state: AssistantState): String = when (state) {
 const val ESCUCHAR_LABEL = "Escuchar"
 const val DEJAR_DE_ESCUCHAR_LABEL = "Dejar de escuchar"
 const val HABLAR_AHORA_LABEL = "Hablar ahora"
+const val LAST_HEARD_EMPTY_LABEL = "Todavía no escuché ninguna pregunta"
+const val LAST_HEARD_CONTENT_DESCRIPTION = "Última pregunta escuchada"

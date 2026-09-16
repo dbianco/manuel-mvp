@@ -70,6 +70,20 @@ class ConversationPipeline(
     /** The assistant's current visible state (FR-001), for the UI layer to observe. */
     val state: StateFlow<PipelineState> = _state.asStateFlow()
 
+    private val _lastHeard = MutableStateFlow<String?>(null)
+
+    /**
+     * The most recent thing whisper heard through the microphone -- shown below the buttons
+     * (`MainScreen`) so a tester can see what the app actually transcribed without reading logcat.
+     * Set for every outcome of a capture attempt, not just successful ones, since "what did it
+     * mishear" is exactly what's useful while tuning wake-word/answer matching: [PLACEHOLDER_SILENCE]
+     * when no speech was captured at all, the raw (rejected) text when transcribed but below the
+     * confidence threshold, and the accepted text otherwise -- in all three cases this is *only*
+     * what whisper heard, independent of whether an answer was found for it. `null` until the
+     * first turn completes.
+     */
+    val lastHeard: StateFlow<String?> = _lastHeard.asStateFlow()
+
     private var detectionCollectionJob: Job? = null
 
     /**
@@ -157,6 +171,7 @@ class ConversationPipeline(
                     // FR-004: silence/noise/cutoff -- no clear instruction, silently return to waiting.
                     // (Silent for the user; logged so on-device runs that "do nothing" are diagnosable.)
                     Log.d("ConversationPipeline", "No speech captured (capture=${captureDurationMs}ms)")
+                    _lastHeard.value = PLACEHOLDER_SILENCE
                     metricsLogger.recordWakeWordActivation(WakeWordActivationOutcome.POSSIBLE_FALSE_POSITIVE)
                     _state.value = PipelineState.Armed
                     return@withContext
@@ -171,11 +186,15 @@ class ConversationPipeline(
                 val transcribedText = when (transcriptionOutcome) {
                     is TranscriptionOutcome.RepeatRequested -> {
                         // FR-005: low confidence -- ask the user to repeat, not a silent discard.
+                        // Still shown via lastHeard: a rejected transcript is exactly what's useful
+                        // to see while tuning matching, even though it's never acted on as an
+                        // instruction.
                         Log.d(
                             "ConversationPipeline",
-                            "Transcription rejected (low confidence), asking to repeat " +
+                            "Transcription rejected (low confidence): \"${transcriptionOutcome.text}\" " +
                                 "(capture=${captureDurationMs}ms transcribe=${transcriptionDurationMs}ms)",
                         )
+                        _lastHeard.value = transcriptionOutcome.text.ifBlank { PLACEHOLDER_SILENCE }
                         metricsLogger.recordWakeWordActivation(WakeWordActivationOutcome.POSSIBLE_FALSE_POSITIVE)
                         _state.value = PipelineState.Responding
                         speechSynthesizer.speak(repeatPrompt)
@@ -185,6 +204,7 @@ class ConversationPipeline(
                     is TranscriptionOutcome.Transcribed -> transcriptionOutcome.text
                 }
                 Log.d("ConversationPipeline", "Transcribed: \"$transcribedText\"")
+                _lastHeard.value = transcribedText.ifBlank { PLACEHOLDER_SILENCE }
 
                 val instruction = wakeWordListener.resolveInstruction(transcribedText)
                 Log.d("ConversationPipeline", "Resolved instruction: ${instruction?.let { "\"$it\"" }}")
@@ -256,6 +276,9 @@ class ConversationPipeline(
 
     companion object {
         const val DEFAULT_REPEAT_PROMPT = "¿Podés repetir la pregunta? No te escuché bien."
+
+        /** [lastHeard] placeholder for a turn where whisper produced no usable text at all. */
+        const val PLACEHOLDER_SILENCE = "(no se escuchó nada)"
 
         // FR-008's "no inventes una respuesta" rule, as a fixed spoken line instead of an
         // LLM-generated one -- reached whenever FragmentSearcher finds no matching lesson content.

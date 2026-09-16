@@ -69,6 +69,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             var assistantState by remember { mutableStateOf<AssistantState>(AssistantState.Disarmed) }
+            var lastHeard by remember { mutableStateOf<String?>(null) }
             var pipeline by remember { mutableStateOf<ConversationPipeline?>(null) }
             var contentDatabase by remember { mutableStateOf<ContentDatabase?>(null) }
 
@@ -87,6 +88,9 @@ class MainActivity : ComponentActivity() {
                     pipeline = built.pipeline
                     launch {
                         built.pipeline.state.collectLatest { assistantState = it.toAssistantState() }
+                    }
+                    launch {
+                        built.pipeline.lastHeard.collectLatest { lastHeard = it }
                     }
                 } catch (error: Exception) {
                     Log.e("MainActivity", "Pipeline init failed", error)
@@ -108,6 +112,7 @@ class MainActivity : ComponentActivity() {
                     },
                     onDejarDeEscucharClick = { pipeline?.disarm() },
                     onHablarAhoraClick = { pipeline?.triggerManualTurn() },
+                    lastHeard = lastHeard,
                 )
             }
 

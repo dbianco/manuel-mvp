@@ -11,10 +11,14 @@ data class TranscriptionResult(val text: String, val confidence: Float)
 /**
  * Outcome of [WhisperTranscriber.transcribe]: either an accepted transcription, or a request that
  * the user repeat the instruction because the transcription wasn't confident enough (FR-005).
+ *
+ * [RepeatRequested] still carries the raw, rejected [text] -- not acted on as an instruction (that
+ * is the whole point of rejecting it), but shown to a developer/tester so a turn that "didn't
+ * understand" is diagnosable from what whisper actually heard, not just that it gave up.
  */
 sealed class TranscriptionOutcome {
     data class Transcribed(val text: String) : TranscriptionOutcome()
-    object RepeatRequested : TranscriptionOutcome()
+    data class RepeatRequested(val text: String) : TranscriptionOutcome()
 }
 
 /**
@@ -45,7 +49,7 @@ class WhisperTranscriber(
         return if (result.confidence >= confidenceThreshold) {
             TranscriptionOutcome.Transcribed(result.text)
         } else {
-            TranscriptionOutcome.RepeatRequested
+            TranscriptionOutcome.RepeatRequested(result.text)
         }
     }
 

@@ -152,4 +152,30 @@ class MainScreenTest {
         composeTestRule.onNodeWithText("Dejar de escuchar").assertHasClickAction().performClick()
         assert(clicked)
     }
+
+    /** Scenario 9a: no [lastHeard] yet -- shows the empty-state label, not blank space. */
+    @Test
+    fun noLastHeard_showsEmptyStateLabel() {
+        composeTestRule.setContent {
+            MainScreen(state = AssistantState.Armed, onEscucharClick = {}, onDejarDeEscucharClick = {})
+        }
+
+        composeTestRule.onNode(hasContentDescription(LAST_HEARD_CONTENT_DESCRIPTION)).assertExists()
+        composeTestRule.onNode(hasText(LAST_HEARD_EMPTY_LABEL, substring = true)).assertExists()
+    }
+
+    /** Scenario 9b: a non-null [lastHeard] is shown verbatim below the buttons. */
+    @Test
+    fun lastHeard_showsMostRecentTranscript() {
+        composeTestRule.setContent {
+            MainScreen(
+                state = AssistantState.Armed,
+                onEscucharClick = {},
+                onDejarDeEscucharClick = {},
+                lastHeard = "¿qué es sumar?",
+            )
+        }
+
+        composeTestRule.onNode(hasText("¿qué es sumar?", substring = true)).assertExists()
+    }
 }

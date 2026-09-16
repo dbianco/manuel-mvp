@@ -64,7 +64,7 @@ class WhisperTranscriberTest {
 
         val outcome = transcriber.transcribe(ShortArray(0))
 
-        assertEquals(TranscriptionOutcome.RepeatRequested, outcome)
+        assertEquals(TranscriptionOutcome.RepeatRequested("quizás algo"), outcome)
     }
 
     /** Scenario 4: zero confidence requests a repeat, not an empty-string "success". */
@@ -75,7 +75,7 @@ class WhisperTranscriberTest {
 
         val outcome = transcriber.transcribe(ShortArray(0))
 
-        assertEquals(TranscriptionOutcome.RepeatRequested, outcome)
+        assertEquals(TranscriptionOutcome.RepeatRequested(""), outcome)
     }
 
     /** Scenario 5: the decision reflects the threshold configured at construction, not a hardcoded default. */
@@ -85,7 +85,10 @@ class WhisperTranscriberTest {
         val strictTranscriber = WhisperTranscriber(engine, confidenceThreshold = 0.9f)
         val lenientTranscriber = WhisperTranscriber(engine, confidenceThreshold = 0.4f)
 
-        assertEquals(TranscriptionOutcome.RepeatRequested, strictTranscriber.transcribe(ShortArray(0)))
+        assertEquals(
+            TranscriptionOutcome.RepeatRequested("resta de dos cifras"),
+            strictTranscriber.transcribe(ShortArray(0)),
+        )
         assertEquals(
             TranscriptionOutcome.Transcribed("resta de dos cifras"),
             lenientTranscriber.transcribe(ShortArray(0)),
