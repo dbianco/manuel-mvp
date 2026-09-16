@@ -72,12 +72,14 @@ class CannedAnswersTest {
     }
 
     @Test
-    fun `asset has exactly 137 well-formed entries with unique ids`() {
-        // 30 from the original inicial/primario lessons + 99 from the 3rd/4th-grade guide (110
-        // questions minus the 11 that duplicated ones already in the first set) + 8 follow-up
+    fun `asset has exactly 337 well-formed entries with unique ids`() {
+        // 30 from the original inicial/primario lessons + 99 from the 3rd/4th-grade math guide
+        // (110 questions minus the 11 that duplicated ones already in the first set) + 8 follow-up
         // entries (angles, aristas/caras, poliedros, cuerpos redondos, cuadrilátero, mitad,
-        // comparing fractions) grounded in guide answers that already mentioned those terms.
-        assertEquals(137, entries.length())
+        // comparing fractions) grounded in guide answers that already mentioned those terms +
+        // 100 ciencias naturales + 100 geografía de Córdoba (one entry per guide question, 1:1,
+        // since those two guides have no overlap with anything already covered).
+        assertEquals(337, entries.length())
 
         val ids = mutableSetOf<String>()
         for (i in 0 until entries.length()) {
@@ -94,24 +96,32 @@ class CannedAnswersTest {
 
     @Test
     fun `every answer is grounded in a real lesson fragment or guide question`() {
-        // Two kinds of source: a fragment id from matematica_lecciones.json, or "guia34-NN" for
-        // question NN of docs/content/preguntas-matematica-3-4-grado.md (whose answers were
-        // rewritten for speech but not changed in substance).
+        // Four kinds of source: a fragment id from matematica_lecciones.json, or "<prefix>-NN" for
+        // question NN of one of three markdown guides under docs/content/ (whose answers were
+        // rewritten for speech but not changed in substance): "guia34" (math, 3rd/4th grade),
+        // "cnat" (ciencias naturales), "geocba" (geografía de Córdoba).
         val fragmentIds = JSONArray(lessonsFile().readText(Charsets.UTF_8)).let { lessons ->
             (0 until lessons.length()).map { lessons.getJSONObject(it).getString("id") }.toSet()
         }
-        val guideQuestionNumbers =
-            Regex("^### Pregunta (\\d+):", RegexOption.MULTILINE)
-                .findAll(guideFile().readText(Charsets.UTF_8))
-                .map { it.groupValues[1] }
-                .toSet()
-        assertEquals(110, guideQuestionNumbers.size)
+        val mathGuideNumbers = questionNumbersIn(mathGuideFile())
+        val cienciasGuideNumbers = questionNumbersIn(cienciasGuideFile())
+        val geografiaGuideNumbers = questionNumbersIn(geografiaGuideFile())
+        assertEquals(110, mathGuideNumbers.size)
+        assertEquals(100, cienciasGuideNumbers.size)
+        assertEquals(100, geografiaGuideNumbers.size)
 
         for (i in 0 until entries.length()) {
             val entry = entries.getJSONObject(i)
             for (source in entry.getJSONArray("fragmentos").strings()) {
-                val guideNumber = Regex("guia34-(\\d+)").matchEntire(source)?.groupValues?.get(1)
-                val known = if (guideNumber != null) guideNumber in guideQuestionNumbers else source in fragmentIds
+                val known =
+                    when (val number = Regex("^(guia34|cnat|geocba)-(\\d+)$").matchEntire(source)?.groupValues) {
+                        null -> source in fragmentIds
+                        else -> when (number[1]) {
+                            "guia34" -> number[2] in mathGuideNumbers
+                            "cnat" -> number[2] in cienciasGuideNumbers
+                            else -> number[2] in geografiaGuideNumbers
+                        }
+                    }
                 assertTrue("${entry.getString("id")} cites unknown source $source", known)
             }
         }
@@ -119,10 +129,11 @@ class CannedAnswersTest {
 
     @Test
     fun `every entry's own question resolves to that entry`() {
-        // The strongest collision check available without a phone: with 129 entries sharing a
-        // vocabulary (sumar, restar, dividir, cero, cuarto...), each canonical question must still
-        // rank its own entry first. When this fails, fix it in the content (a more specific
-        // `pregunta`, or extra `variantes`), not by special-casing the search.
+        // The strongest collision check available without a phone: with 337 entries across three
+        // subjects sharing a lot of everyday vocabulary (sumar, restar, dividir, cero, cuarto,
+        // río, planta...), each canonical question must still rank its own entry first. When this
+        // fails, fix it in the content (a more specific `pregunta`, or extra `variantes`), not by
+        // special-casing the search.
         val failures = (0 until entries.length()).mapNotNull { i ->
             val entry = entries.getJSONObject(i)
             val expectedId = entry.getString("id")
@@ -182,6 +193,49 @@ class CannedAnswersTest {
                 "¿Qué son los cuadriláteros?" to "qa-135",
                 "¿Cuánto es la mitad de diez?" to "qa-136",
                 "¿Qué es más grande un medio o un cuarto?" to "qa-137",
+            )
+
+        val failures = expected.mapNotNull { (question, expectedId) ->
+            val actualId = searcher.search(question).firstOrNull()?.id
+            if (actualId == expectedId) null else "\"$question\" -> $actualId (expected $expectedId)"
+        }
+        assertTrue("Mismatches:\n" + failures.joinToString("\n"), failures.isEmpty())
+    }
+
+    @Test
+    fun `ciencias naturales and geografia de Cordoba paraphrases resolve to the intended answers`() {
+        val expected =
+            listOf(
+                // Ciencias naturales.
+                // Not "¿Qué son los seres vivos?" -- that plural phrasing is a genuine tie between
+                // qa-138's own definition and qa-139's "características" (both match a variante
+                // exactly), which is a real ambiguity in the content, not a bug in the search.
+                "¿Cómo sabemos que algo es un ser vivo?" to "qa-138",
+                "¿Con qué vemos?" to "qa-149",
+                "¿Para qué sirve el corazón?" to "qa-159",
+                "¿Qué come un animal herbívoro?" to "qa-181",
+                "¿Cómo hacen las plantas su alimento?" to "qa-192",
+                "¿Cómo es un gas?" to "qa-205",
+                "¿Por qué necesitamos el agua?" to "qa-213",
+                "¿De qué se compone el aire?" to "qa-219",
+                "¿Qué produce el día y la noche?" to "qa-225",
+                "¿Qué son las fases de la luna?" to "qa-230",
+                "¿Para qué sirve reciclar?" to "qa-234",
+                // Geografía de Córdoba.
+                "¿Dónde queda la provincia de Córdoba?" to "qa-238",
+                "¿Cómo se llama la capital de Córdoba?" to "qa-239",
+                "¿Cuál es la montaña más alta de Córdoba?" to "qa-251",
+                "¿Qué pueblos hay en el Valle de Punilla?" to "qa-255",
+                "¿Cómo se llama también el río Suquía?" to "qa-264",
+                "¿Cuál es el lago más famoso de Córdoba?" to "qa-271",
+                "¿Cuál es la puerta de las sierras cordobesas?" to "qa-288",
+                "¿Córdoba es la mayor productora de maní?" to "qa-307",
+                "¿Cuál es el árbol típico de las sierras cordobesas?" to "qa-320",
+                "¿Quién fundó Córdoba?" to "qa-328",
+                "¿Cómo se llama el festival de folklore de Cosquín?" to "qa-332",
+                // The two older sets must keep resolving next to 200 new entries.
+                "Anita, ¿qué es sumar?" to "qa-06",
+                "¿Qué es un poliedro?" to "qa-133",
             )
 
         val failures = expected.mapNotNull { (question, expectedId) ->
@@ -262,10 +316,12 @@ class CannedAnswersTest {
         val unanswerable =
             listOf(
                 // Section 2.3: outside the lesson content -- must not invent an answer (FR-008).
+                // ("¿Cuántos planetas hay en el sistema solar?" moved out of this list: ciencias
+                // naturales now covers "el sistema solar" as a topic, on purpose -- see the
+                // ciencias-naturales/geografía test above.)
                 "Manuel, ¿quién descubrió América?",
                 "Manuel, ¿cómo se dice 'hola' en inglés?",
                 "Manuel, ¿qué hora es?",
-                "Manuel, ¿cuántos planetas hay en el sistema solar?",
                 "Manuel, contame un chiste",
                 // Section 2.4: ambiguous or incomplete.
                 "Manuel, ¿y eso?",
@@ -287,7 +343,16 @@ class CannedAnswersTest {
         // repo-root fallback keeps this runnable from an IDE that uses the project root instead.
         fun assetFile(): File = firstExisting("src/main/assets/content/preguntas_respuestas.json")
         fun lessonsFile(): File = firstExisting("src/main/assets/content/matematica_lecciones.json")
-        fun guideFile(): File = firstExisting("../docs/content/preguntas-matematica-3-4-grado.md")
+        fun mathGuideFile(): File = firstExisting("../docs/content/preguntas-matematica-3-4-grado.md")
+        fun cienciasGuideFile(): File = firstExisting("../docs/content/preguntas-ciencias-naturales-3-4-grado.md")
+        fun geografiaGuideFile(): File = firstExisting("../docs/content/preguntas-geografia-cordoba.md")
+
+        /** The set of "### Pregunta N:" numbers (as strings) found in a guide markdown file. */
+        fun questionNumbersIn(file: File): Set<String> =
+            Regex("^### Pregunta (\\d+):", RegexOption.MULTILINE)
+                .findAll(file.readText(Charsets.UTF_8))
+                .map { it.groupValues[1] }
+                .toSet()
 
         private fun firstExisting(relativePath: String): File =
             listOf(File(relativePath), File("app", relativePath), File(relativePath.removePrefix("../")))

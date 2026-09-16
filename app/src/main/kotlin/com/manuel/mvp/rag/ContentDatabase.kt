@@ -34,11 +34,12 @@ class ContentDatabase private constructor(val connection: SQLiteConnection) : Au
         private const val DATABASE_NAME = "manuel_content.db"
 
         // Version history: 1 = `fragments` only; 2 = added `respuestas`; 3 = `respuestas` grew
-        // from 30 to 129 entries (the 3rd/4th-grade guide); 4 = 129 -> 137 entries; 5 = every
+        // from 30 to 129 entries (the 3rd/4th-grade math guide); 4 = 129 -> 137 entries; 5 = every
         // entry got 1-3 more `variantes` (~170 phrasings total) so a spoken question doesn't need
-        // to match one of the original few phrasings verbatim -- same schema, but the seed data is
-        // only loaded when the version changes, so the bump is what gets it onto installed phones.
-        private const val DATABASE_VERSION = 5
+        // to match one of the original few phrasings verbatim; 6 = 137 -> 337 entries (100 ciencias
+        // naturales + 100 geografía de Córdoba) -- same schema, but the seed data is only loaded
+        // when the version changes, so the bump is what gets it onto installed phones.
+        private const val DATABASE_VERSION = 6
 
         private const val FRAGMENTS_ASSET_PATH = "content/matematica_lecciones.json"
         private const val ANSWERS_ASSET_PATH = "content/preguntas_respuestas.json"

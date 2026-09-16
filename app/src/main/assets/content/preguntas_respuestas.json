@@ -2461,5 +2461,2808 @@
     "fragmentos": [
       "guia34-67"
     ]
+  },
+  {
+    "id": "qa-138",
+    "tema": "Qué es un ser vivo",
+    "pregunta": "¿Qué es un ser vivo?",
+    "variantes": [
+      "cómo sabemos que algo es un ser vivo",
+      "qué es un ser vivo en ciencias naturales",
+      "los seres vivos qué son"
+    ],
+    "respuesta": "Un ser vivo es algo que nace, crece, se alimenta, respira, se reproduce y muere. Las personas, los animales y las plantas son seres vivos.",
+    "fragmentos": [
+      "cnat-1"
+    ]
+  },
+  {
+    "id": "qa-139",
+    "tema": "Características de los seres vivos",
+    "pregunta": "¿Cuáles son las características de los seres vivos?",
+    "variantes": [
+      "qué características tienen los seres vivos",
+      "qué características comparten los seres vivos",
+      "qué cosas hacen los seres vivos",
+      "qué tienen en común los seres vivos"
+    ],
+    "respuesta": "Los seres vivos nacen, crecen, se alimentan, respiran, se reproducen, responden a lo que pasa a su alrededor y, al final, mueren.",
+    "fragmentos": [
+      "cnat-2"
+    ]
+  },
+  {
+    "id": "qa-140",
+    "tema": "Qué es un ser inerte",
+    "pregunta": "¿Qué es un ser inerte?",
+    "variantes": [
+      "qué es algo no vivo",
+      "qué es un objeto sin vida",
+      "una piedra es un ser vivo",
+      "qué es un ser no vivo"
+    ],
+    "respuesta": "Un ser inerte es algo que no tiene vida: no nace, no crece, no se alimenta ni se reproduce. Una piedra o el agua son seres inertes.",
+    "fragmentos": [
+      "cnat-3"
+    ]
+  },
+  {
+    "id": "qa-141",
+    "tema": "Diferencia entre ser vivo y no vivo",
+    "pregunta": "¿Cómo se diferencia un ser vivo de uno no vivo?",
+    "variantes": [
+      "qué diferencia hay entre un ser vivo y uno inerte",
+      "cómo sé si algo es un ser vivo o no",
+      "cómo distingo un ser vivo de un objeto"
+    ],
+    "respuesta": "Los seres vivos nacen, crecen, se alimentan y se reproducen. Los seres no vivos, como una silla o una piedra, no hacen ninguna de esas cosas.",
+    "fragmentos": [
+      "cnat-4"
+    ]
+  },
+  {
+    "id": "qa-142",
+    "tema": "Qué necesitan los seres vivos",
+    "pregunta": "¿Qué necesitan los seres vivos para vivir?",
+    "variantes": [
+      "qué necesita un ser vivo para sobrevivir",
+      "qué cosas necesitan los seres vivos",
+      "para vivir qué se necesita"
+    ],
+    "respuesta": "Los seres vivos necesitan aire para respirar, agua, alimento y un lugar donde vivir.",
+    "fragmentos": [
+      "cnat-5"
+    ]
+  },
+  {
+    "id": "qa-143",
+    "tema": "Qué es la reproducción",
+    "pregunta": "¿Qué es la reproducción?",
+    "variantes": [
+      "qué significa reproducirse",
+      "para qué sirve la reproducción",
+      "cómo se reproducen los seres vivos"
+    ],
+    "respuesta": "La reproducción es el proceso por el cual los seres vivos generan nuevos seres parecidos a ellos, para que la especie siga existiendo.",
+    "fragmentos": [
+      "cnat-6"
+    ]
+  },
+  {
+    "id": "qa-144",
+    "tema": "Qué es el crecimiento",
+    "pregunta": "¿Qué es el crecimiento?",
+    "variantes": [
+      "qué significa crecer",
+      "cómo crecen los seres vivos",
+      "qué es crecer para un ser vivo"
+    ],
+    "respuesta": "El crecimiento es el aumento de tamaño y el desarrollo de un ser vivo desde que nace hasta que es adulto.",
+    "fragmentos": [
+      "cnat-7"
+    ]
+  },
+  {
+    "id": "qa-145",
+    "tema": "Qué es un hábitat",
+    "pregunta": "¿Qué es un hábitat?",
+    "variantes": [
+      "qué es el hábitat de un animal",
+      "dónde vive un ser vivo",
+      "qué significa hábitat"
+    ],
+    "respuesta": "Un hábitat es el lugar donde vive un ser vivo y donde encuentra todo lo que necesita para sobrevivir: alimento, agua y refugio.",
+    "fragmentos": [
+      "cnat-8"
+    ]
+  },
+  {
+    "id": "qa-146",
+    "tema": "Clasificación de los seres vivos",
+    "pregunta": "¿Cómo se clasifican los seres vivos?",
+    "variantes": [
+      "en qué grupos se dividen los seres vivos",
+      "cuáles son los grupos de seres vivos",
+      "qué grupos de seres vivos hay"
+    ],
+    "respuesta": "Se clasifican en grandes grupos: animales, plantas, hongos y microorganismos.",
+    "fragmentos": [
+      "cnat-9"
+    ]
+  },
+  {
+    "id": "qa-147",
+    "tema": "Qué son los microorganismos",
+    "pregunta": "¿Qué son los microorganismos?",
+    "variantes": [
+      "qué es un microorganismo",
+      "por qué no se ven los microorganismos",
+      "microbios qué son"
+    ],
+    "respuesta": "Los microorganismos son seres vivos tan chiquitos que no se pueden ver a simple vista. Hace falta un microscopio para poder observarlos.",
+    "fragmentos": [
+      "cnat-10"
+    ]
+  },
+  {
+    "id": "qa-148",
+    "tema": "Los cinco sentidos",
+    "pregunta": "¿Cuáles son los cinco sentidos del cuerpo humano?",
+    "variantes": [
+      "cuáles son los sentidos",
+      "qué sentidos tiene el cuerpo",
+      "cuántos sentidos tenemos",
+      "los cinco sentidos cuáles son"
+    ],
+    "respuesta": "Son la vista, el oído, el olfato, el gusto y el tacto.",
+    "fragmentos": [
+      "cnat-11"
+    ]
+  },
+  {
+    "id": "qa-149",
+    "tema": "El órgano de la vista",
+    "pregunta": "¿Qué órgano usamos para ver?",
+    "variantes": [
+      "con qué vemos",
+      "cuál es el órgano de la vista",
+      "qué parte del cuerpo usamos para ver"
+    ],
+    "respuesta": "Usamos los ojos, que son el órgano del sentido de la vista.",
+    "fragmentos": [
+      "cnat-12"
+    ]
+  },
+  {
+    "id": "qa-150",
+    "tema": "El órgano del oído",
+    "pregunta": "¿Qué órgano usamos para oír?",
+    "variantes": [
+      "con qué oímos",
+      "cuál es el órgano del oído",
+      "qué parte del cuerpo usamos para escuchar"
+    ],
+    "respuesta": "Usamos los oídos, que son el órgano del sentido del oído.",
+    "fragmentos": [
+      "cnat-13"
+    ]
+  },
+  {
+    "id": "qa-151",
+    "tema": "El órgano del olfato",
+    "pregunta": "¿Qué órgano usamos para oler?",
+    "variantes": [
+      "con qué olemos",
+      "cuál es el órgano del olfato",
+      "qué parte del cuerpo usamos para oler"
+    ],
+    "respuesta": "Usamos la nariz, que es el órgano del sentido del olfato.",
+    "fragmentos": [
+      "cnat-14"
+    ]
+  },
+  {
+    "id": "qa-152",
+    "tema": "El órgano del gusto",
+    "pregunta": "¿Qué órgano usamos para saborear los alimentos?",
+    "variantes": [
+      "con qué saboreamos la comida",
+      "cuál es el órgano del gusto",
+      "qué parte del cuerpo usamos para probar sabores"
+    ],
+    "respuesta": "Usamos la lengua, que es el órgano del sentido del gusto.",
+    "fragmentos": [
+      "cnat-15"
+    ]
+  },
+  {
+    "id": "qa-153",
+    "tema": "El órgano del tacto",
+    "pregunta": "¿Qué órgano usamos para tocar y sentir texturas?",
+    "variantes": [
+      "con qué tocamos las cosas",
+      "cuál es el órgano del tacto",
+      "qué parte del cuerpo nos deja sentir texturas"
+    ],
+    "respuesta": "Usamos la piel, que cubre todo el cuerpo y es el órgano del sentido del tacto.",
+    "fragmentos": [
+      "cnat-16"
+    ]
+  },
+  {
+    "id": "qa-154",
+    "tema": "Sistemas del cuerpo humano",
+    "pregunta": "¿Cuáles son los sistemas principales del cuerpo humano?",
+    "variantes": [
+      "qué sistemas tiene el cuerpo humano",
+      "cuántos sistemas tiene el cuerpo",
+      "los sistemas del cuerpo cuáles son"
+    ],
+    "respuesta": "El sistema óseo, que son los huesos, el muscular, el digestivo, el respiratorio, el circulatorio y el nervioso.",
+    "fragmentos": [
+      "cnat-17"
+    ]
+  },
+  {
+    "id": "qa-155",
+    "tema": "Qué es el esqueleto",
+    "pregunta": "¿Qué es el esqueleto?",
+    "variantes": [
+      "para qué sirve el esqueleto",
+      "qué son los huesos del cuerpo",
+      "el esqueleto qué hace"
+    ],
+    "respuesta": "El esqueleto es el conjunto de huesos del cuerpo. Sostiene el cuerpo, le da forma y protege a los órganos internos.",
+    "fragmentos": [
+      "cnat-18"
+    ]
+  },
+  {
+    "id": "qa-156",
+    "tema": "Para qué sirven los músculos",
+    "pregunta": "¿Para qué sirven los músculos?",
+    "variantes": [
+      "qué función cumplen los músculos",
+      "cómo nos movemos gracias a los músculos",
+      "qué hacen los músculos"
+    ],
+    "respuesta": "Los músculos sirven para movernos. Se contraen y se relajan, y así podemos caminar, agarrar cosas y mover el cuerpo.",
+    "fragmentos": [
+      "cnat-19"
+    ]
+  },
+  {
+    "id": "qa-157",
+    "tema": "El sistema digestivo",
+    "pregunta": "¿Qué hace el sistema digestivo?",
+    "variantes": [
+      "para qué sirve el sistema digestivo",
+      "qué función tiene el sistema digestivo",
+      "cómo funciona la digestión"
+    ],
+    "respuesta": "El sistema digestivo transforma los alimentos que comemos en nutrientes que el cuerpo puede usar para funcionar.",
+    "fragmentos": [
+      "cnat-20"
+    ]
+  },
+  {
+    "id": "qa-158",
+    "tema": "El sistema respiratorio",
+    "pregunta": "¿Qué hace el sistema respiratorio?",
+    "variantes": [
+      "para qué sirve el sistema respiratorio",
+      "cómo funciona la respiración",
+      "qué órganos forman el sistema respiratorio"
+    ],
+    "respuesta": "El sistema respiratorio permite respirar: toma el oxígeno del aire y expulsa el dióxido de carbono que el cuerpo no necesita.",
+    "fragmentos": [
+      "cnat-21"
+    ]
+  },
+  {
+    "id": "qa-159",
+    "tema": "Qué hace el corazón",
+    "pregunta": "¿Qué hace el corazón?",
+    "variantes": [
+      "para qué sirve el corazón",
+      "cuál es la función del corazón",
+      "qué órgano bombea la sangre"
+    ],
+    "respuesta": "El corazón bombea la sangre para que circule por todo el cuerpo, llevando oxígeno y nutrientes a cada parte.",
+    "fragmentos": [
+      "cnat-22"
+    ]
+  },
+  {
+    "id": "qa-160",
+    "tema": "Qué es la sangre",
+    "pregunta": "¿Qué es la sangre?",
+    "variantes": [
+      "para qué sirve la sangre",
+      "qué función cumple la sangre",
+      "qué lleva la sangre por el cuerpo"
+    ],
+    "respuesta": "La sangre es un líquido que circula por todo el cuerpo, llevando oxígeno y nutrientes a los órganos y a los tejidos.",
+    "fragmentos": [
+      "cnat-23"
+    ]
+  },
+  {
+    "id": "qa-161",
+    "tema": "Qué hace el cerebro",
+    "pregunta": "¿Qué hace el cerebro?",
+    "variantes": [
+      "para qué sirve el cerebro",
+      "cuál es la función del cerebro",
+      "qué órgano controla el cuerpo"
+    ],
+    "respuesta": "El cerebro es el centro de control del cuerpo: piensa, siente y manda las órdenes para que el resto del cuerpo funcione.",
+    "fragmentos": [
+      "cnat-24"
+    ]
+  },
+  {
+    "id": "qa-162",
+    "tema": "Partes del cuerpo humano",
+    "pregunta": "¿Cuáles son las partes principales del cuerpo humano?",
+    "variantes": [
+      "cómo se divide el cuerpo humano",
+      "qué partes tiene el cuerpo",
+      "las partes del cuerpo cuáles son"
+    ],
+    "respuesta": "La cabeza, el tronco y las extremidades, que son los brazos y las piernas.",
+    "fragmentos": [
+      "cnat-25"
+    ]
+  },
+  {
+    "id": "qa-163",
+    "tema": "Importancia de alimentarse bien",
+    "pregunta": "¿Por qué es importante alimentarse bien?",
+    "variantes": [
+      "para qué sirve comer bien",
+      "por qué hay que comer sano",
+      "qué pasa si no me alimento bien"
+    ],
+    "respuesta": "Porque una buena alimentación ayuda a crecer sanos y fuertes, y da la energía necesaria para hacer todas las actividades del día.",
+    "fragmentos": [
+      "cnat-26"
+    ]
+  },
+  {
+    "id": "qa-164",
+    "tema": "Qué es una dieta equilibrada",
+    "pregunta": "¿Qué es una dieta equilibrada?",
+    "variantes": [
+      "qué es comer variado",
+      "qué es una alimentación equilibrada",
+      "cómo tiene que ser una buena dieta"
+    ],
+    "respuesta": "Es comer de manera variada: frutas, verduras, cereales, lácteos y carnes, en las cantidades adecuadas para cada persona.",
+    "fragmentos": [
+      "cnat-27"
+    ]
+  },
+  {
+    "id": "qa-165",
+    "tema": "Qué son los nutrientes",
+    "pregunta": "¿Qué son los nutrientes?",
+    "variantes": [
+      "para qué sirven los nutrientes",
+      "qué es un nutriente",
+      "qué le dan los alimentos al cuerpo"
+    ],
+    "respuesta": "Los nutrientes son las sustancias que están en los alimentos y que el cuerpo usa para crecer, funcionar y tener energía.",
+    "fragmentos": [
+      "cnat-28"
+    ]
+  },
+  {
+    "id": "qa-166",
+    "tema": "Para qué sirven las vitaminas",
+    "pregunta": "¿Para qué sirven las vitaminas?",
+    "variantes": [
+      "qué son las vitaminas",
+      "por qué son importantes las vitaminas",
+      "qué función tienen las vitaminas"
+    ],
+    "respuesta": "Las vitaminas ayudan a que el cuerpo funcione bien y se defienda mejor de las enfermedades.",
+    "fragmentos": [
+      "cnat-29"
+    ]
+  },
+  {
+    "id": "qa-167",
+    "tema": "Por qué lavarse las manos",
+    "pregunta": "¿Por qué hay que lavarse las manos antes de comer?",
+    "variantes": [
+      "para qué sirve lavarse las manos",
+      "por qué es importante la higiene de manos",
+      "qué pasa si no me lavo las manos"
+    ],
+    "respuesta": "Hay que lavarse las manos para sacar los gérmenes que pueden estar en ellas y así evitar enfermarse.",
+    "fragmentos": [
+      "cnat-30"
+    ]
+  },
+  {
+    "id": "qa-168",
+    "tema": "Qué son los hábitos saludables",
+    "pregunta": "¿Qué son los hábitos saludables?",
+    "variantes": [
+      "qué es un hábito saludable",
+      "cuáles son los hábitos saludables",
+      "costumbres buenas para la salud"
+    ],
+    "respuesta": "Son costumbres buenas para la salud, como comer variado, dormir bien, hacer ejercicio y mantener la higiene.",
+    "fragmentos": [
+      "cnat-31"
+    ]
+  },
+  {
+    "id": "qa-169",
+    "tema": "Importancia de dormir bien",
+    "pregunta": "¿Por qué es importante dormir bien?",
+    "variantes": [
+      "para qué sirve dormir",
+      "qué pasa si duermo poco",
+      "por qué hay que descansar bien"
+    ],
+    "respuesta": "Porque mientras dormimos el cuerpo descansa, se recupera y sigue creciendo.",
+    "fragmentos": [
+      "cnat-32"
+    ]
+  },
+  {
+    "id": "qa-170",
+    "tema": "Importancia de la actividad física",
+    "pregunta": "¿Por qué hay que hacer actividad física?",
+    "variantes": [
+      "para qué sirve hacer ejercicio",
+      "por qué es bueno hacer deporte",
+      "qué beneficios tiene la actividad física"
+    ],
+    "respuesta": "Porque fortalece el cuerpo, el corazón y los músculos, y ayuda a mantenerse sano.",
+    "fragmentos": [
+      "cnat-33"
+    ]
+  },
+  {
+    "id": "qa-171",
+    "tema": "Animales vertebrados e invertebrados",
+    "pregunta": "¿Cómo se clasifican los animales según si tienen columna vertebral?",
+    "variantes": [
+      "qué es un animal vertebrado",
+      "qué es un animal invertebrado",
+      "vertebrados e invertebrados qué son"
+    ],
+    "respuesta": "Se clasifican en vertebrados, que tienen columna vertebral, e invertebrados, que no la tienen.",
+    "fragmentos": [
+      "cnat-34"
+    ]
+  },
+  {
+    "id": "qa-172",
+    "tema": "Grupos de animales vertebrados",
+    "pregunta": "¿Cuáles son los grupos de animales vertebrados?",
+    "variantes": [
+      "qué grupos de vertebrados hay",
+      "los animales vertebrados en qué se dividen",
+      "cuántos grupos de vertebrados hay"
+    ],
+    "respuesta": "Los mamíferos, las aves, los peces, los reptiles y los anfibios.",
+    "fragmentos": [
+      "cnat-35"
+    ]
+  },
+  {
+    "id": "qa-173",
+    "tema": "Qué es un mamífero",
+    "pregunta": "¿Qué es un mamífero?",
+    "variantes": [
+      "qué animales son mamíferos",
+      "cómo se reconoce un mamífero",
+      "características de los mamíferos"
+    ],
+    "respuesta": "Un mamífero es un animal vertebrado que generalmente tiene pelo y alimenta a sus crías con leche.",
+    "fragmentos": [
+      "cnat-36"
+    ]
+  },
+  {
+    "id": "qa-174",
+    "tema": "Qué es un ave",
+    "pregunta": "¿Qué es un ave?",
+    "variantes": [
+      "qué animales son aves",
+      "cómo se reconoce un ave",
+      "características de las aves"
+    ],
+    "respuesta": "Un ave es un animal vertebrado que tiene plumas, pico y dos patas. La mayoría de las aves pueden volar.",
+    "fragmentos": [
+      "cnat-37"
+    ]
+  },
+  {
+    "id": "qa-175",
+    "tema": "Qué es un pez",
+    "pregunta": "¿Qué es un pez?",
+    "variantes": [
+      "qué animales son peces",
+      "cómo se reconoce un pez",
+      "características de los peces"
+    ],
+    "respuesta": "Un pez es un animal vertebrado que vive en el agua y respira a través de branquias.",
+    "fragmentos": [
+      "cnat-38"
+    ]
+  },
+  {
+    "id": "qa-176",
+    "tema": "Qué es un reptil",
+    "pregunta": "¿Qué es un reptil?",
+    "variantes": [
+      "qué animales son reptiles",
+      "cómo se reconoce un reptil",
+      "características de los reptiles"
+    ],
+    "respuesta": "Un reptil es un animal vertebrado de piel cubierta de escamas, que se arrastra o camina muy pegado al suelo.",
+    "fragmentos": [
+      "cnat-39"
+    ]
+  },
+  {
+    "id": "qa-177",
+    "tema": "Qué es un anfibio",
+    "pregunta": "¿Qué es un anfibio?",
+    "variantes": [
+      "qué animales son anfibios",
+      "cómo se reconoce un anfibio",
+      "la rana es un anfibio"
+    ],
+    "respuesta": "Un anfibio es un animal que vive una parte de su vida en el agua y otra parte en la tierra, como la rana o el sapo.",
+    "fragmentos": [
+      "cnat-40"
+    ]
+  },
+  {
+    "id": "qa-178",
+    "tema": "Qué son los invertebrados",
+    "pregunta": "¿Qué son los animales invertebrados?",
+    "variantes": [
+      "qué animales son invertebrados",
+      "ejemplos de animales invertebrados",
+      "los invertebrados qué características tienen"
+    ],
+    "respuesta": "Son los animales que no tienen columna vertebral, como los insectos, las arañas, los moluscos y los gusanos.",
+    "fragmentos": [
+      "cnat-41"
+    ]
+  },
+  {
+    "id": "qa-179",
+    "tema": "Qué es un insecto",
+    "pregunta": "¿Qué es un insecto?",
+    "variantes": [
+      "cuántas patas tiene un insecto",
+      "cómo se reconoce un insecto",
+      "características de los insectos"
+    ],
+    "respuesta": "Un insecto es un animal invertebrado que tiene seis patas y el cuerpo dividido en tres partes.",
+    "fragmentos": [
+      "cnat-42"
+    ]
+  },
+  {
+    "id": "qa-180",
+    "tema": "Clasificación de animales según lo que comen",
+    "pregunta": "¿Cómo se clasifican los animales según lo que comen?",
+    "variantes": [
+      "qué tipos de animales hay según su alimentación",
+      "herbívoros carnívoros y omnívoros qué son",
+      "cómo se clasifican los animales por su comida"
+    ],
+    "respuesta": "Se clasifican en herbívoros, que comen plantas; carnívoros, que comen otros animales; y omnívoros, que comen de todo.",
+    "fragmentos": [
+      "cnat-43"
+    ]
+  },
+  {
+    "id": "qa-181",
+    "tema": "Qué es un animal herbívoro",
+    "pregunta": "¿Qué es un animal herbívoro?",
+    "variantes": [
+      "qué come un animal herbívoro",
+      "ejemplos de animales herbívoros",
+      "herbívoro qué significa"
+    ],
+    "respuesta": "Es el animal que se alimenta solamente de plantas, como la vaca o el conejo.",
+    "fragmentos": [
+      "cnat-44"
+    ]
+  },
+  {
+    "id": "qa-182",
+    "tema": "Qué es un animal carnívoro",
+    "pregunta": "¿Qué es un animal carnívoro?",
+    "variantes": [
+      "qué come un animal carnívoro",
+      "ejemplos de animales carnívoros",
+      "carnívoro qué significa"
+    ],
+    "respuesta": "Es el animal que se alimenta de otros animales, como el león o el zorro.",
+    "fragmentos": [
+      "cnat-45"
+    ]
+  },
+  {
+    "id": "qa-183",
+    "tema": "Qué es un animal omnívoro",
+    "pregunta": "¿Qué es un animal omnívoro?",
+    "variantes": [
+      "qué come un animal omnívoro",
+      "ejemplos de animales omnívoros",
+      "omnívoro qué significa"
+    ],
+    "respuesta": "Es el animal que come tanto plantas como otros animales, como el cerdo o el ser humano.",
+    "fragmentos": [
+      "cnat-46"
+    ]
+  },
+  {
+    "id": "qa-184",
+    "tema": "Animales ovíparos y vivíparos",
+    "pregunta": "¿Cómo se clasifican los animales según cómo nacen?",
+    "variantes": [
+      "qué es un animal ovíparo y qué es un vivíparo",
+      "ovíparos y vivíparos qué son",
+      "cómo nacen los animales"
+    ],
+    "respuesta": "Se clasifican en ovíparos, que nacen de un huevo, y vivíparos, que nacen ya formados del cuerpo de la madre.",
+    "fragmentos": [
+      "cnat-47"
+    ]
+  },
+  {
+    "id": "qa-185",
+    "tema": "Qué es un animal ovíparo",
+    "pregunta": "¿Qué es un animal ovíparo?",
+    "variantes": [
+      "qué animales nacen de un huevo",
+      "ejemplos de animales ovíparos",
+      "ovíparo qué significa"
+    ],
+    "respuesta": "Es el animal que nace de un huevo, como las aves y muchos reptiles y peces.",
+    "fragmentos": [
+      "cnat-48"
+    ]
+  },
+  {
+    "id": "qa-186",
+    "tema": "Qué es un animal vivíparo",
+    "pregunta": "¿Qué es un animal vivíparo?",
+    "variantes": [
+      "qué animales nacen ya formados",
+      "ejemplos de animales vivíparos",
+      "vivíparo qué significa"
+    ],
+    "respuesta": "Es el animal que nace ya formado del cuerpo de la madre, como la mayoría de los mamíferos.",
+    "fragmentos": [
+      "cnat-49"
+    ]
+  },
+  {
+    "id": "qa-187",
+    "tema": "Qué es la metamorfosis",
+    "pregunta": "¿Qué es la metamorfosis?",
+    "variantes": [
+      "qué animales tienen metamorfosis",
+      "cómo cambia una oruga en mariposa",
+      "metamorfosis qué significa"
+    ],
+    "respuesta": "Es el cambio de forma que tienen algunos animales al crecer, como la rana, que empieza siendo renacuajo, o la mariposa, que empieza siendo oruga.",
+    "fragmentos": [
+      "cnat-50"
+    ]
+  },
+  {
+    "id": "qa-188",
+    "tema": "Partes de una planta",
+    "pregunta": "¿Cuáles son las partes principales de una planta?",
+    "variantes": [
+      "qué partes tiene una planta",
+      "cómo está formada una planta",
+      "las partes de una planta cuáles son"
+    ],
+    "respuesta": "La raíz, el tallo, las hojas, las flores y los frutos.",
+    "fragmentos": [
+      "cnat-51"
+    ]
+  },
+  {
+    "id": "qa-189",
+    "tema": "Para qué sirve la raíz",
+    "pregunta": "¿Para qué sirve la raíz de una planta?",
+    "variantes": [
+      "qué función cumple la raíz",
+      "para qué sirve la raíz",
+      "qué hace la raíz de una planta"
+    ],
+    "respuesta": "La raíz sostiene la planta en la tierra y absorbe el agua y los nutrientes del suelo.",
+    "fragmentos": [
+      "cnat-52"
+    ]
+  },
+  {
+    "id": "qa-190",
+    "tema": "Para qué sirve el tallo",
+    "pregunta": "¿Para qué sirve el tallo de una planta?",
+    "variantes": [
+      "qué función cumple el tallo",
+      "para qué sirve el tallo",
+      "qué hace el tallo de una planta"
+    ],
+    "respuesta": "El tallo sostiene la planta y transporta el agua y los nutrientes desde la raíz hasta las hojas.",
+    "fragmentos": [
+      "cnat-53"
+    ]
+  },
+  {
+    "id": "qa-191",
+    "tema": "Para qué sirven las hojas",
+    "pregunta": "¿Para qué sirven las hojas de una planta?",
+    "variantes": [
+      "qué función cumplen las hojas",
+      "para qué sirven las hojas",
+      "qué hacen las hojas de una planta"
+    ],
+    "respuesta": "Las hojas fabrican el alimento de la planta usando la luz del sol, en un proceso llamado fotosíntesis.",
+    "fragmentos": [
+      "cnat-54"
+    ]
+  },
+  {
+    "id": "qa-192",
+    "tema": "Qué es la fotosíntesis",
+    "pregunta": "¿Qué es la fotosíntesis?",
+    "variantes": [
+      "cómo hacen las plantas su alimento",
+      "para qué sirve la fotosíntesis",
+      "cómo funciona la fotosíntesis"
+    ],
+    "respuesta": "La fotosíntesis es el proceso por el cual las plantas fabrican su propio alimento usando la luz del sol, el agua y el aire.",
+    "fragmentos": [
+      "cnat-55"
+    ]
+  },
+  {
+    "id": "qa-193",
+    "tema": "Qué necesitan las plantas",
+    "pregunta": "¿Qué necesitan las plantas para vivir?",
+    "variantes": [
+      "qué cosas necesita una planta",
+      "para vivir qué necesita una planta",
+      "qué le hace falta a una planta"
+    ],
+    "respuesta": "Las plantas necesitan luz, agua, aire y los nutrientes que toman de la tierra.",
+    "fragmentos": [
+      "cnat-56"
+    ]
+  },
+  {
+    "id": "qa-194",
+    "tema": "Para qué sirve la flor",
+    "pregunta": "¿Para qué sirve la flor de una planta?",
+    "variantes": [
+      "qué función cumple la flor",
+      "para qué sirve la flor",
+      "qué hace la flor de una planta"
+    ],
+    "respuesta": "La flor es la parte reproductora de la planta. De ella nace el fruto, que contiene las semillas.",
+    "fragmentos": [
+      "cnat-57"
+    ]
+  },
+  {
+    "id": "qa-195",
+    "tema": "Qué es un fruto",
+    "pregunta": "¿Qué es un fruto?",
+    "variantes": [
+      "para qué sirve el fruto",
+      "qué contiene un fruto",
+      "fruto qué es en una planta"
+    ],
+    "respuesta": "Es la parte de la planta que contiene las semillas y las protege.",
+    "fragmentos": [
+      "cnat-58"
+    ]
+  },
+  {
+    "id": "qa-196",
+    "tema": "Qué es una semilla",
+    "pregunta": "¿Qué es una semilla?",
+    "variantes": [
+      "para qué sirve una semilla",
+      "qué nace de una semilla",
+      "semilla qué es"
+    ],
+    "respuesta": "Es la parte de la planta de la que puede nacer una nueva planta.",
+    "fragmentos": [
+      "cnat-59"
+    ]
+  },
+  {
+    "id": "qa-197",
+    "tema": "Clasificación de las plantas según el tallo",
+    "pregunta": "¿Cómo se clasifican las plantas según su tallo?",
+    "variantes": [
+      "qué tipos de plantas hay según el tallo",
+      "árboles arbustos y hierbas qué son",
+      "cómo se clasifican las plantas"
+    ],
+    "respuesta": "En árboles, que tienen tallo leñoso y duro; arbustos, con tallo leñoso más chico; y hierbas, con tallo blando y verde.",
+    "fragmentos": [
+      "cnat-60"
+    ]
+  },
+  {
+    "id": "qa-198",
+    "tema": "Diferencia entre árbol y hierba",
+    "pregunta": "¿Qué diferencia hay entre un árbol y una hierba?",
+    "variantes": [
+      "en qué se diferencian un árbol y una hierba",
+      "árbol o hierba cuál es más blanda",
+      "cómo distingo un árbol de una hierba"
+    ],
+    "respuesta": "El árbol tiene un tronco duro y leñoso, mientras que la hierba tiene un tallo blando y verde.",
+    "fragmentos": [
+      "cnat-61"
+    ]
+  },
+  {
+    "id": "qa-199",
+    "tema": "El oxígeno de las plantas",
+    "pregunta": "¿Qué gas producen las plantas que los demás seres vivos necesitan para respirar?",
+    "variantes": [
+      "qué gas liberan las plantas",
+      "las plantas dan oxígeno",
+      "qué gas dan las plantas al aire"
+    ],
+    "respuesta": "El oxígeno, que las plantas liberan durante la fotosíntesis.",
+    "fragmentos": [
+      "cnat-62"
+    ]
+  },
+  {
+    "id": "qa-200",
+    "tema": "Importancia de las plantas",
+    "pregunta": "¿Por qué son importantes las plantas para los demás seres vivos?",
+    "variantes": [
+      "para qué sirven las plantas",
+      "por qué necesitamos a las plantas",
+      "qué le dan las plantas a los animales"
+    ],
+    "respuesta": "Porque dan oxígeno para respirar, alimento y refugio a muchos animales.",
+    "fragmentos": [
+      "cnat-63"
+    ]
+  },
+  {
+    "id": "qa-201",
+    "tema": "Qué es la materia",
+    "pregunta": "¿Qué es la materia?",
+    "variantes": [
+      "qué significa materia en ciencias",
+      "de qué está hecho todo",
+      "materia qué es"
+    ],
+    "respuesta": "La materia es todo lo que ocupa un lugar en el espacio y tiene peso. Todo lo que nos rodea está hecho de materia.",
+    "fragmentos": [
+      "cnat-64"
+    ]
+  },
+  {
+    "id": "qa-202",
+    "tema": "Los estados de la materia",
+    "pregunta": "¿Cuáles son los tres estados de la materia?",
+    "variantes": [
+      "qué estados tiene la materia",
+      "cuántos estados de la materia hay",
+      "sólido líquido y gaseoso"
+    ],
+    "respuesta": "Sólido, líquido y gaseoso.",
+    "fragmentos": [
+      "cnat-65"
+    ]
+  },
+  {
+    "id": "qa-203",
+    "tema": "Características de un sólido",
+    "pregunta": "¿Qué características tiene un sólido?",
+    "variantes": [
+      "cómo es un sólido",
+      "qué es un sólido",
+      "ejemplos de sólidos"
+    ],
+    "respuesta": "Tiene forma y volumen propios, y no cambia de forma fácilmente, como una piedra o un lápiz.",
+    "fragmentos": [
+      "cnat-66"
+    ]
+  },
+  {
+    "id": "qa-204",
+    "tema": "Características de un líquido",
+    "pregunta": "¿Qué características tiene un líquido?",
+    "variantes": [
+      "cómo es un líquido",
+      "qué es un líquido",
+      "ejemplos de líquidos"
+    ],
+    "respuesta": "Tiene volumen propio pero toma la forma del recipiente que lo contiene, como el agua.",
+    "fragmentos": [
+      "cnat-67"
+    ]
+  },
+  {
+    "id": "qa-205",
+    "tema": "Características de un gas",
+    "pregunta": "¿Qué características tiene un gas?",
+    "variantes": [
+      "cómo es un gas",
+      "qué es un gas",
+      "ejemplos de gases"
+    ],
+    "respuesta": "No tiene forma ni volumen propios: ocupa todo el espacio disponible, como el aire.",
+    "fragmentos": [
+      "cnat-68"
+    ]
+  },
+  {
+    "id": "qa-206",
+    "tema": "Qué es la evaporación",
+    "pregunta": "¿Qué es la evaporación?",
+    "variantes": [
+      "cuándo un líquido se evapora",
+      "evaporación qué significa",
+      "cómo se evapora el agua"
+    ],
+    "respuesta": "Es cuando un líquido se transforma en gas por efecto del calor.",
+    "fragmentos": [
+      "cnat-69"
+    ]
+  },
+  {
+    "id": "qa-207",
+    "tema": "Qué es la condensación",
+    "pregunta": "¿Qué es la condensación?",
+    "variantes": [
+      "cuándo un gas se condensa",
+      "condensación qué significa",
+      "cómo se condensa el vapor"
+    ],
+    "respuesta": "Es cuando un gas se transforma en líquido al enfriarse.",
+    "fragmentos": [
+      "cnat-70"
+    ]
+  },
+  {
+    "id": "qa-208",
+    "tema": "Qué es la solidificación",
+    "pregunta": "¿Qué es la solidificación?",
+    "variantes": [
+      "cuándo un líquido se solidifica",
+      "solidificación qué significa",
+      "cómo se congela el agua"
+    ],
+    "respuesta": "Es cuando un líquido se transforma en sólido al enfriarse, como el agua que se convierte en hielo.",
+    "fragmentos": [
+      "cnat-71"
+    ]
+  },
+  {
+    "id": "qa-209",
+    "tema": "Qué es la fusión",
+    "pregunta": "¿Qué es la fusión?",
+    "variantes": [
+      "cuándo un sólido se funde",
+      "fusión qué significa",
+      "cómo se derrite el hielo"
+    ],
+    "respuesta": "Es cuando un sólido se transforma en líquido por efecto del calor, como el hielo que se derrite.",
+    "fragmentos": [
+      "cnat-72"
+    ]
+  },
+  {
+    "id": "qa-210",
+    "tema": "Materiales naturales",
+    "pregunta": "¿Qué son los materiales naturales?",
+    "variantes": [
+      "ejemplos de materiales naturales",
+      "qué es un material natural",
+      "materiales que vienen de la naturaleza"
+    ],
+    "respuesta": "Son los que se obtienen directamente de la naturaleza, sin que el ser humano los fabrique, como la madera o el algodón.",
+    "fragmentos": [
+      "cnat-73"
+    ]
+  },
+  {
+    "id": "qa-211",
+    "tema": "Materiales artificiales",
+    "pregunta": "¿Qué son los materiales artificiales?",
+    "variantes": [
+      "ejemplos de materiales artificiales",
+      "qué es un material artificial",
+      "materiales que fabrica el ser humano"
+    ],
+    "respuesta": "Son los que fabrica el ser humano transformando materiales naturales, como el plástico o el vidrio.",
+    "fragmentos": [
+      "cnat-74"
+    ]
+  },
+  {
+    "id": "qa-212",
+    "tema": "Por qué flotan o se hunden los objetos",
+    "pregunta": "¿Por qué unos objetos flotan en el agua y otros se hunden?",
+    "variantes": [
+      "por qué algo flota en el agua",
+      "por qué algo se hunde en el agua",
+      "qué hace que un objeto flote"
+    ],
+    "respuesta": "Depende de qué tan pesados sean en relación a su tamaño: los que son menos densos que el agua flotan, y los más densos se hunden.",
+    "fragmentos": [
+      "cnat-75"
+    ]
+  },
+  {
+    "id": "qa-213",
+    "tema": "Importancia del agua",
+    "pregunta": "¿Por qué es importante el agua para los seres vivos?",
+    "variantes": [
+      "para qué sirve el agua a los seres vivos",
+      "por qué necesitamos el agua",
+      "qué pasaría sin agua"
+    ],
+    "respuesta": "Porque todos los seres vivos la necesitan para vivir, y forma parte de su propio cuerpo.",
+    "fragmentos": [
+      "cnat-76"
+    ]
+  },
+  {
+    "id": "qa-214",
+    "tema": "Qué es el ciclo del agua",
+    "pregunta": "¿Qué es el ciclo del agua?",
+    "variantes": [
+      "cómo funciona el ciclo del agua",
+      "el recorrido del agua en la naturaleza",
+      "ciclo del agua qué es"
+    ],
+    "respuesta": "Es el recorrido que hace el agua en la naturaleza: se evapora, forma nubes, cae como lluvia y vuelve a los ríos y mares.",
+    "fragmentos": [
+      "cnat-77"
+    ]
+  },
+  {
+    "id": "qa-215",
+    "tema": "La evaporación en el ciclo del agua",
+    "pregunta": "¿Qué pasa con el agua durante la evaporación en el ciclo del agua?",
+    "variantes": [
+      "cómo se evapora el agua de los ríos y mares",
+      "qué pasa con el agua del mar cuando hace calor",
+      "evaporación en el ciclo del agua"
+    ],
+    "respuesta": "El agua de los mares, ríos y lagos se calienta con el sol y sube hacia el cielo en forma de vapor.",
+    "fragmentos": [
+      "cnat-78"
+    ]
+  },
+  {
+    "id": "qa-216",
+    "tema": "Cómo se forman las nubes",
+    "pregunta": "¿Cómo se forman las nubes?",
+    "variantes": [
+      "de qué están hechas las nubes",
+      "por qué se forman las nubes",
+      "cómo aparecen las nubes en el cielo"
+    ],
+    "respuesta": "El vapor de agua sube, se enfría y se condensa formando pequeñas gotitas que juntas forman las nubes.",
+    "fragmentos": [
+      "cnat-79"
+    ]
+  },
+  {
+    "id": "qa-217",
+    "tema": "Qué es la precipitación",
+    "pregunta": "¿Qué es la precipitación?",
+    "variantes": [
+      "qué significa precipitación",
+      "por qué cae la lluvia",
+      "precipitación qué es"
+    ],
+    "respuesta": "Es cuando el agua de las nubes cae hacia la tierra en forma de lluvia, granizo o nieve.",
+    "fragmentos": [
+      "cnat-80"
+    ]
+  },
+  {
+    "id": "qa-218",
+    "tema": "Por qué cuidar el agua",
+    "pregunta": "¿Por qué hay que cuidar el agua?",
+    "variantes": [
+      "para qué sirve cuidar el agua",
+      "por qué es importante no desperdiciar agua",
+      "por qué hay que ahorrar agua"
+    ],
+    "respuesta": "Porque es un recurso que todos los seres vivos necesitan para vivir y no es infinito.",
+    "fragmentos": [
+      "cnat-81"
+    ]
+  },
+  {
+    "id": "qa-219",
+    "tema": "De qué está formado el aire",
+    "pregunta": "¿De qué está formado el aire?",
+    "variantes": [
+      "qué gases tiene el aire",
+      "de qué se compone el aire",
+      "el aire de qué está hecho"
+    ],
+    "respuesta": "El aire está formado por una mezcla de gases, principalmente nitrógeno y oxígeno.",
+    "fragmentos": [
+      "cnat-82"
+    ]
+  },
+  {
+    "id": "qa-220",
+    "tema": "Por qué es importante el aire",
+    "pregunta": "¿Por qué es importante el aire para los seres vivos?",
+    "variantes": [
+      "para qué sirve el aire",
+      "por qué necesitamos el aire",
+      "qué pasaría sin aire"
+    ],
+    "respuesta": "Porque los seres vivos lo necesitan para respirar.",
+    "fragmentos": [
+      "cnat-83"
+    ]
+  },
+  {
+    "id": "qa-221",
+    "tema": "Qué es el suelo",
+    "pregunta": "¿Qué es el suelo?",
+    "variantes": [
+      "qué función cumple el suelo",
+      "suelo qué es",
+      "dónde crecen las plantas"
+    ],
+    "respuesta": "Es la capa de la superficie de la Tierra donde crecen las plantas y viven muchos animales.",
+    "fragmentos": [
+      "cnat-84"
+    ]
+  },
+  {
+    "id": "qa-222",
+    "tema": "Por qué cuidar el suelo",
+    "pregunta": "¿Por qué es importante cuidar el suelo?",
+    "variantes": [
+      "para qué sirve cuidar el suelo",
+      "por qué no hay que contaminar el suelo",
+      "qué pasa si se daña el suelo"
+    ],
+    "respuesta": "Porque en el suelo crecen los alimentos y viven muchos seres vivos que forman parte del ambiente.",
+    "fragmentos": [
+      "cnat-85"
+    ]
+  },
+  {
+    "id": "qa-223",
+    "tema": "Qué es el sistema solar",
+    "pregunta": "¿Qué es el sistema solar?",
+    "variantes": [
+      "qué forma parte del sistema solar",
+      "sistema solar qué es",
+      "qué hay en el sistema solar"
+    ],
+    "respuesta": "Es el conjunto formado por el sol y todos los planetas y otros astros que giran a su alrededor.",
+    "fragmentos": [
+      "cnat-86"
+    ]
+  },
+  {
+    "id": "qa-224",
+    "tema": "Qué es el sol",
+    "pregunta": "¿Qué es el sol?",
+    "variantes": [
+      "qué le da luz a la Tierra",
+      "el sol qué es",
+      "de dónde viene la luz del día"
+    ],
+    "respuesta": "El sol es una estrella que da luz y calor a la Tierra y a los demás planetas del sistema solar.",
+    "fragmentos": [
+      "cnat-87"
+    ]
+  },
+  {
+    "id": "qa-225",
+    "tema": "Por qué hay día y noche",
+    "pregunta": "¿Por qué hay día y noche?",
+    "variantes": [
+      "qué produce el día y la noche",
+      "por qué de noche está oscuro",
+      "cómo se hace de noche"
+    ],
+    "respuesta": "Porque la Tierra gira sobre sí misma. La parte que mira hacia el sol tiene de día, y la que queda del otro lado tiene de noche.",
+    "fragmentos": [
+      "cnat-88"
+    ]
+  },
+  {
+    "id": "qa-226",
+    "tema": "Cuánto tarda la Tierra en girar sobre sí misma",
+    "pregunta": "¿Cuánto tarda la Tierra en dar una vuelta completa sobre sí misma?",
+    "variantes": [
+      "cuánto dura un día en la Tierra",
+      "cuánto gira la Tierra en un día",
+      "en cuánto tiempo gira la Tierra una vez"
+    ],
+    "respuesta": "Tarda aproximadamente veinticuatro horas, es decir, un día.",
+    "fragmentos": [
+      "cnat-89"
+    ]
+  },
+  {
+    "id": "qa-227",
+    "tema": "Por qué hay estaciones del año",
+    "pregunta": "¿Por qué hay estaciones del año?",
+    "variantes": [
+      "qué produce las estaciones del año",
+      "por qué cambia el clima en el año",
+      "por qué hay verano e invierno"
+    ],
+    "respuesta": "Porque la Tierra gira alrededor del sol y está un poco inclinada, así que la luz del sol llega distinto según la época del año.",
+    "fragmentos": [
+      "cnat-90"
+    ]
+  },
+  {
+    "id": "qa-228",
+    "tema": "Cuánto tarda la Tierra en dar la vuelta al sol",
+    "pregunta": "¿Cuánto tarda la Tierra en dar una vuelta completa alrededor del sol?",
+    "variantes": [
+      "cuánto dura un año en la Tierra",
+      "en cuánto tiempo la Tierra da la vuelta al sol",
+      "cuántos días tiene un año"
+    ],
+    "respuesta": "Tarda aproximadamente trescientos sesenta y cinco días, es decir, un año.",
+    "fragmentos": [
+      "cnat-91"
+    ]
+  },
+  {
+    "id": "qa-229",
+    "tema": "Qué es la luna",
+    "pregunta": "¿Qué es la luna?",
+    "variantes": [
+      "qué gira alrededor de la Tierra",
+      "la luna qué es",
+      "tiene luz propia la luna"
+    ],
+    "respuesta": "La luna es el satélite natural de la Tierra: gira alrededor de ella y no tiene luz propia, refleja la luz del sol.",
+    "fragmentos": [
+      "cnat-92"
+    ]
+  },
+  {
+    "id": "qa-230",
+    "tema": "Las fases de la luna",
+    "pregunta": "¿Por qué vemos la luna con distintas formas a lo largo del mes?",
+    "variantes": [
+      "qué son las fases de la luna",
+      "por qué cambia la forma de la luna",
+      "cómo son las fases de la luna"
+    ],
+    "respuesta": "Porque vemos distintas partes de la luna iluminadas por el sol según su posición. A eso se lo llama fases de la luna.",
+    "fragmentos": [
+      "cnat-93"
+    ]
+  },
+  {
+    "id": "qa-231",
+    "tema": "Qué es un ecosistema",
+    "pregunta": "¿Qué es un ecosistema?",
+    "variantes": [
+      "ecosistema qué significa",
+      "qué forma un ecosistema",
+      "ejemplo de ecosistema"
+    ],
+    "respuesta": "Es el conjunto formado por los seres vivos y el ambiente donde viven, relacionándose entre sí.",
+    "fragmentos": [
+      "cnat-94"
+    ]
+  },
+  {
+    "id": "qa-232",
+    "tema": "Qué es una cadena alimentaria",
+    "pregunta": "¿Qué es una cadena alimentaria?",
+    "variantes": [
+      "cómo funciona una cadena alimentaria",
+      "cadena alimentaria qué significa",
+      "quién se come a quién en la naturaleza"
+    ],
+    "respuesta": "Es la relación entre distintos seres vivos donde unos sirven de alimento a otros.",
+    "fragmentos": [
+      "cnat-95"
+    ]
+  },
+  {
+    "id": "qa-233",
+    "tema": "Qué es la contaminación",
+    "pregunta": "¿Qué es la contaminación?",
+    "variantes": [
+      "qué significa contaminar",
+      "cómo se contamina el ambiente",
+      "contaminación qué es"
+    ],
+    "respuesta": "Es cuando se ensucia o se daña el aire, el agua o el suelo con sustancias que hacen mal a los seres vivos.",
+    "fragmentos": [
+      "cnat-96"
+    ]
+  },
+  {
+    "id": "qa-234",
+    "tema": "Qué es el reciclaje",
+    "pregunta": "¿Qué es el reciclaje?",
+    "variantes": [
+      "para qué sirve reciclar",
+      "reciclaje qué significa",
+      "cómo se recicla"
+    ],
+    "respuesta": "Es el proceso de reutilizar materiales de la basura, como el papel o el plástico, para fabricar cosas nuevas.",
+    "fragmentos": [
+      "cnat-97"
+    ]
+  },
+  {
+    "id": "qa-235",
+    "tema": "Por qué separar la basura",
+    "pregunta": "¿Por qué es importante separar la basura?",
+    "variantes": [
+      "para qué sirve separar la basura",
+      "por qué hay que clasificar la basura",
+      "cómo ayuda separar la basura"
+    ],
+    "respuesta": "Porque separar los materiales permite reciclarlos y así se contamina menos el ambiente.",
+    "fragmentos": [
+      "cnat-98"
+    ]
+  },
+  {
+    "id": "qa-236",
+    "tema": "Qué son las energías renovables",
+    "pregunta": "¿Qué son las energías renovables?",
+    "variantes": [
+      "ejemplos de energías renovables",
+      "energía renovable qué significa",
+      "qué energías no se agotan"
+    ],
+    "respuesta": "Son las que vienen de fuentes que no se agotan, como la luz del sol o el viento.",
+    "fragmentos": [
+      "cnat-99"
+    ]
+  },
+  {
+    "id": "qa-237",
+    "tema": "Cómo cuidar el ambiente",
+    "pregunta": "¿Cómo podemos cuidar el medio ambiente?",
+    "variantes": [
+      "qué podemos hacer para cuidar el ambiente",
+      "cómo protegemos el medio ambiente",
+      "formas de cuidar el planeta"
+    ],
+    "respuesta": "Ahorrando agua y energía, reciclando, no tirando basura en cualquier lugar, y cuidando las plantas y los animales.",
+    "fragmentos": [
+      "cnat-100"
+    ]
+  },
+  {
+    "id": "qa-238",
+    "tema": "Ubicación de la provincia de Córdoba",
+    "pregunta": "¿Dónde está ubicada la provincia de Córdoba?",
+    "variantes": [
+      "en qué parte de Argentina está Córdoba",
+      "dónde queda la provincia de Córdoba",
+      "Córdoba en qué región de Argentina está"
+    ],
+    "respuesta": "La provincia de Córdoba está ubicada en el centro de la República Argentina.",
+    "fragmentos": [
+      "geocba-1"
+    ]
+  },
+  {
+    "id": "qa-239",
+    "tema": "Capital de la provincia de Córdoba",
+    "pregunta": "¿Cuál es la capital de la provincia de Córdoba?",
+    "variantes": [
+      "cómo se llama la capital de Córdoba",
+      "cuál es la ciudad capital de la provincia",
+      "capital de Córdoba cuál es"
+    ],
+    "respuesta": "La capital de la provincia de Córdoba es la ciudad de Córdoba, también llamada Córdoba Capital.",
+    "fragmentos": [
+      "geocba-2"
+    ]
+  },
+  {
+    "id": "qa-240",
+    "tema": "Por qué la llaman La Docta",
+    "pregunta": "¿Por qué a la ciudad de Córdoba se la llama la Docta?",
+    "variantes": [
+      "qué significa que Córdoba es la Docta",
+      "por qué le dicen la Docta a Córdoba",
+      "de dónde viene el nombre la Docta"
+    ],
+    "respuesta": "Porque en la ciudad de Córdoba está la Universidad Nacional de Córdoba, fundada en mil seiscientos trece y una de las más antiguas de toda América.",
+    "fragmentos": [
+      "geocba-3"
+    ]
+  },
+  {
+    "id": "qa-241",
+    "tema": "Provincias limítrofes con Córdoba",
+    "pregunta": "¿Con qué otras provincias limita Córdoba?",
+    "variantes": [
+      "qué provincias rodean a Córdoba",
+      "provincias vecinas de Córdoba",
+      "con qué provincias limita Córdoba"
+    ],
+    "respuesta": "Limita con Santiago del Estero y Catamarca al norte, Santa Fe al este, Buenos Aires y La Pampa al sur, y San Luis y La Rioja al oeste.",
+    "fragmentos": [
+      "geocba-4"
+    ]
+  },
+  {
+    "id": "qa-242",
+    "tema": "Región centro de Argentina",
+    "pregunta": "¿A qué región de Argentina pertenece la provincia de Córdoba?",
+    "variantes": [
+      "Córdoba a qué región pertenece",
+      "en qué región argentina está Córdoba",
+      "región centro qué provincias tiene"
+    ],
+    "respuesta": "Pertenece a la región centro del país.",
+    "fragmentos": [
+      "geocba-5"
+    ]
+  },
+  {
+    "id": "qa-243",
+    "tema": "Córdoba es mediterránea",
+    "pregunta": "¿Qué significa que Córdoba sea una provincia mediterránea?",
+    "variantes": [
+      "por qué Córdoba no tiene mar",
+      "qué es una provincia mediterránea",
+      "Córdoba tiene costa"
+    ],
+    "respuesta": "Significa que no tiene costa sobre el mar: está en el interior del país, rodeada de tierra por todos lados.",
+    "fragmentos": [
+      "geocba-6"
+    ]
+  },
+  {
+    "id": "qa-244",
+    "tema": "Cómo se llaman los habitantes de Córdoba",
+    "pregunta": "¿Cómo se llaman los habitantes de la provincia de Córdoba?",
+    "variantes": [
+      "cómo le dicen a la gente de Córdoba",
+      "gentilicio de Córdoba",
+      "cómo se les dice a los que nacen en Córdoba"
+    ],
+    "respuesta": "Se llaman cordobeses y cordobesas.",
+    "fragmentos": [
+      "geocba-7"
+    ]
+  },
+  {
+    "id": "qa-245",
+    "tema": "La tonada cordobesa",
+    "pregunta": "¿Qué es la tonada cordobesa?",
+    "variantes": [
+      "por qué los cordobeses hablan distinto",
+      "cómo hablan en Córdoba",
+      "qué es la tonada"
+    ],
+    "respuesta": "Es la forma particular de hablar y de cantar las palabras que tienen los cordobeses, muy reconocible en toda la Argentina.",
+    "fragmentos": [
+      "geocba-8"
+    ]
+  },
+  {
+    "id": "qa-246",
+    "tema": "Organización del territorio en departamentos",
+    "pregunta": "¿Cómo se organiza el territorio de la provincia de Córdoba?",
+    "variantes": [
+      "en qué se divide la provincia de Córdoba",
+      "cómo está dividida la provincia",
+      "organización territorial de Córdoba"
+    ],
+    "respuesta": "Se organiza en departamentos, que son divisiones territoriales más chicas dentro de la provincia.",
+    "fragmentos": [
+      "geocba-9"
+    ]
+  },
+  {
+    "id": "qa-247",
+    "tema": "Qué es un departamento",
+    "pregunta": "¿Qué es un departamento dentro de la provincia?",
+    "variantes": [
+      "qué es un departamento en Córdoba",
+      "para qué sirve un departamento provincial",
+      "departamento provincial qué es"
+    ],
+    "respuesta": "Es una parte del territorio provincial con su propio gobierno local, parecido a lo que en otros lugares se llama distrito o partido.",
+    "fragmentos": [
+      "geocba-10"
+    ]
+  },
+  {
+    "id": "qa-248",
+    "tema": "El relieve de la provincia de Córdoba",
+    "pregunta": "¿Cómo es el relieve de la provincia de Córdoba?",
+    "variantes": [
+      "cómo es el terreno de Córdoba",
+      "el relieve cordobés cómo es",
+      "Córdoba tiene sierras y llanuras"
+    ],
+    "respuesta": "Combina llanuras en el este y sierras en el centro y el oeste de la provincia.",
+    "fragmentos": [
+      "geocba-11"
+    ]
+  },
+  {
+    "id": "qa-249",
+    "tema": "Nombre de las sierras de Córdoba",
+    "pregunta": "¿Cómo se llaman las sierras de la provincia de Córdoba?",
+    "variantes": [
+      "cuál es el nombre de las sierras cordobesas",
+      "las sierras de Córdoba cómo se llaman",
+      "nombre de las sierras cordobesas"
+    ],
+    "respuesta": "Se llaman Sierras Pampeanas.",
+    "fragmentos": [
+      "geocba-12"
+    ]
+  },
+  {
+    "id": "qa-250",
+    "tema": "Cordones serranos de Córdoba",
+    "pregunta": "¿Cuáles son los principales cordones de sierras de Córdoba?",
+    "variantes": [
+      "qué sierras tiene la provincia de Córdoba",
+      "nombres de los cordones serranos de Córdoba",
+      "principales sierras de Córdoba"
+    ],
+    "respuesta": "La Sierra Chica, la Sierra Grande y las Sierras de Comechingones.",
+    "fragmentos": [
+      "geocba-13"
+    ]
+  },
+  {
+    "id": "qa-251",
+    "tema": "Punto más alto de Córdoba",
+    "pregunta": "¿Cuál es el punto más alto de la provincia de Córdoba?",
+    "variantes": [
+      "cuál es la montaña más alta de Córdoba",
+      "cuál es el cerro más alto de Córdoba",
+      "punto más alto de la provincia"
+    ],
+    "respuesta": "El cerro Champaquí, ubicado en las Sierras de Comechingones.",
+    "fragmentos": [
+      "geocba-14"
+    ]
+  },
+  {
+    "id": "qa-252",
+    "tema": "Altura del cerro Champaquí",
+    "pregunta": "¿Qué altura tiene aproximadamente el cerro Champaquí?",
+    "variantes": [
+      "cuántos metros tiene el Champaquí",
+      "altura del Champaquí",
+      "qué tan alto es el cerro Champaquí"
+    ],
+    "respuesta": "Tiene aproximadamente dos mil setecientos noventa metros sobre el nivel del mar.",
+    "fragmentos": [
+      "geocba-15"
+    ]
+  },
+  {
+    "id": "qa-253",
+    "tema": "Qué es un valle",
+    "pregunta": "¿Qué es un valle?",
+    "variantes": [
+      "valle qué significa",
+      "cómo se forma un valle",
+      "qué es un valle entre sierras"
+    ],
+    "respuesta": "Es una zona baja que queda entre dos sierras o montañas.",
+    "fragmentos": [
+      "geocba-16"
+    ]
+  },
+  {
+    "id": "qa-254",
+    "tema": "Valles conocidos de Córdoba",
+    "pregunta": "¿Cuáles son los valles más conocidos de la provincia de Córdoba?",
+    "variantes": [
+      "qué valles tiene la provincia de Córdoba",
+      "nombres de los valles cordobeses",
+      "valles más famosos de Córdoba"
+    ],
+    "respuesta": "El Valle de Punilla, el Valle de Calamuchita y el Valle de Traslasierra.",
+    "fragmentos": [
+      "geocba-17"
+    ]
+  },
+  {
+    "id": "qa-255",
+    "tema": "Localidades del Valle de Punilla",
+    "pregunta": "¿Qué localidades se encuentran en el Valle de Punilla?",
+    "variantes": [
+      "qué pueblos hay en el Valle de Punilla",
+      "ciudades del Valle de Punilla",
+      "localidades de Punilla"
+    ],
+    "respuesta": "Villa Carlos Paz, Cosquín y La Falda, entre otras.",
+    "fragmentos": [
+      "geocba-18"
+    ]
+  },
+  {
+    "id": "qa-256",
+    "tema": "Localidades del Valle de Calamuchita",
+    "pregunta": "¿Qué localidades se encuentran en el Valle de Calamuchita?",
+    "variantes": [
+      "qué pueblos hay en Calamuchita",
+      "ciudades del Valle de Calamuchita",
+      "localidades de Calamuchita"
+    ],
+    "respuesta": "Villa General Belgrano y Santa Rosa de Calamuchita, entre otras.",
+    "fragmentos": [
+      "geocba-19"
+    ]
+  },
+  {
+    "id": "qa-257",
+    "tema": "Localidades del Valle de Traslasierra",
+    "pregunta": "¿Qué localidades se encuentran en el Valle de Traslasierra?",
+    "variantes": [
+      "qué pueblos hay en Traslasierra",
+      "ciudades del Valle de Traslasierra",
+      "localidades de Traslasierra"
+    ],
+    "respuesta": "Mina Clavero y Villa Dolores, entre otras.",
+    "fragmentos": [
+      "geocba-20"
+    ]
+  },
+  {
+    "id": "qa-258",
+    "tema": "La llanura pampeana en Córdoba",
+    "pregunta": "¿Cómo es la llanura pampeana en la provincia de Córdoba?",
+    "variantes": [
+      "cómo es la llanura cordobesa",
+      "la llanura pampeana en Córdoba cómo es",
+      "dónde está la llanura en Córdoba"
+    ],
+    "respuesta": "Es una zona plana y muy fértil, ubicada al este y al sureste de la provincia, ideal para la agricultura.",
+    "fragmentos": [
+      "geocba-21"
+    ]
+  },
+  {
+    "id": "qa-259",
+    "tema": "Qué son las Salinas Grandes",
+    "pregunta": "¿Qué son las Salinas Grandes?",
+    "variantes": [
+      "dónde están las Salinas Grandes",
+      "Salinas Grandes qué son",
+      "por qué hay sal en el noroeste de Córdoba"
+    ],
+    "respuesta": "Son una gran extensión de tierra cubierta de sal, ubicada en el noroeste de la provincia de Córdoba.",
+    "fragmentos": [
+      "geocba-22"
+    ]
+  },
+  {
+    "id": "qa-260",
+    "tema": "Formación de las Salinas Grandes",
+    "pregunta": "¿Por qué se formaron las Salinas Grandes?",
+    "variantes": [
+      "de dónde viene la sal de las Salinas Grandes",
+      "cómo se formó la sal en el noroeste",
+      "por qué hay sal en esa zona"
+    ],
+    "respuesta": "Porque en esa zona hubo antiguamente un mar o un lago que se fue secando y dejó la sal en la superficie.",
+    "fragmentos": [
+      "geocba-23"
+    ]
+  },
+  {
+    "id": "qa-261",
+    "tema": "Clima de las Salinas Grandes",
+    "pregunta": "¿Cómo es el clima en la zona de las Salinas Grandes?",
+    "variantes": [
+      "es seco el noroeste de Córdoba",
+      "clima de las salinas cómo es",
+      "es árida esa zona de Córdoba"
+    ],
+    "respuesta": "Es una zona más árida y seca que el resto de la provincia.",
+    "fragmentos": [
+      "geocba-24"
+    ]
+  },
+  {
+    "id": "qa-262",
+    "tema": "Qué son las sierras",
+    "pregunta": "¿Qué son las sierras?",
+    "variantes": [
+      "sierra qué significa",
+      "cómo se forman las sierras",
+      "diferencia entre sierra y montaña"
+    ],
+    "respuesta": "Son elevaciones del terreno, más bajas que las montañas, formadas por rocas muy antiguas.",
+    "fragmentos": [
+      "geocba-25"
+    ]
+  },
+  {
+    "id": "qa-263",
+    "tema": "Ríos importantes de Córdoba",
+    "pregunta": "¿Cuáles son los ríos más importantes de la provincia de Córdoba?",
+    "variantes": [
+      "qué ríos tiene la provincia de Córdoba",
+      "principales ríos cordobeses",
+      "nombres de los ríos de Córdoba"
+    ],
+    "respuesta": "El río Suquía, el río Xanaes, el río Ctalamochita y el río Chocancharava.",
+    "fragmentos": [
+      "geocba-26"
+    ]
+  },
+  {
+    "id": "qa-264",
+    "tema": "Otro nombre del río Suquía",
+    "pregunta": "¿Qué otro nombre recibe el río Suquía?",
+    "variantes": [
+      "cómo se llama también el río Suquía",
+      "río Primero es el Suquía",
+      "el Suquía también se llama"
+    ],
+    "respuesta": "También se lo conoce como río Primero.",
+    "fragmentos": [
+      "geocba-27"
+    ]
+  },
+  {
+    "id": "qa-265",
+    "tema": "Otro nombre del río Xanaes",
+    "pregunta": "¿Qué otro nombre recibe el río Xanaes?",
+    "variantes": [
+      "cómo se llama también el río Xanaes",
+      "río Segundo es el Xanaes",
+      "el Xanaes también se llama"
+    ],
+    "respuesta": "También se lo conoce como río Segundo.",
+    "fragmentos": [
+      "geocba-28"
+    ]
+  },
+  {
+    "id": "qa-266",
+    "tema": "Otro nombre del río Ctalamochita",
+    "pregunta": "¿Qué otro nombre recibe el río Ctalamochita?",
+    "variantes": [
+      "cómo se llama también el río Ctalamochita",
+      "río Tercero es el Ctalamochita",
+      "el Ctalamochita también se llama"
+    ],
+    "respuesta": "También se lo conoce como río Tercero.",
+    "fragmentos": [
+      "geocba-29"
+    ]
+  },
+  {
+    "id": "qa-267",
+    "tema": "Otro nombre del río Chocancharava",
+    "pregunta": "¿Qué otro nombre recibe el río Chocancharava?",
+    "variantes": [
+      "cómo se llama también el río Chocancharava",
+      "río Cuarto es el Chocancharava",
+      "el Chocancharava también se llama"
+    ],
+    "respuesta": "También se lo conoce como río Cuarto.",
+    "fragmentos": [
+      "geocba-30"
+    ]
+  },
+  {
+    "id": "qa-268",
+    "tema": "Por qué los ríos tienen nombres de números",
+    "pregunta": "¿Por qué varios ríos de Córdoba tienen nombres de números?",
+    "variantes": [
+      "por qué hay un río Primero y un río Segundo",
+      "de dónde vienen los nombres río Primero río Segundo",
+      "por qué se numeran los ríos cordobeses"
+    ],
+    "respuesta": "Porque los colonizadores españoles los fueron nombrando en el orden en que los iban encontrando: primero, segundo, tercero, cuarto.",
+    "fragmentos": [
+      "geocba-31"
+    ]
+  },
+  {
+    "id": "qa-269",
+    "tema": "El río que atraviesa la ciudad de Córdoba",
+    "pregunta": "¿Qué río atraviesa la ciudad de Córdoba?",
+    "variantes": [
+      "qué río pasa por la ciudad de Córdoba",
+      "el río que cruza Córdoba capital",
+      "río de la ciudad de Córdoba"
+    ],
+    "respuesta": "El río Suquía, también llamado río Primero.",
+    "fragmentos": [
+      "geocba-32"
+    ]
+  },
+  {
+    "id": "qa-270",
+    "tema": "Qué es un embalse",
+    "pregunta": "¿Qué es un embalse?",
+    "variantes": [
+      "embalse qué significa",
+      "cómo se forma un embalse",
+      "para qué se hace un embalse"
+    ],
+    "respuesta": "Es un lago artificial que se forma al represar un río, generalmente para juntar agua o generar energía eléctrica.",
+    "fragmentos": [
+      "geocba-33"
+    ]
+  },
+  {
+    "id": "qa-271",
+    "tema": "El embalse más conocido de Córdoba",
+    "pregunta": "¿Cuál es el embalse más conocido de la provincia de Córdoba?",
+    "variantes": [
+      "cuál es el lago más famoso de Córdoba",
+      "embalse principal de la provincia",
+      "el lago San Roque dónde está"
+    ],
+    "respuesta": "El Lago San Roque, ubicado cerca de Villa Carlos Paz.",
+    "fragmentos": [
+      "geocba-34"
+    ]
+  },
+  {
+    "id": "qa-272",
+    "tema": "Para qué se usa el Lago San Roque",
+    "pregunta": "¿Para qué se usa el agua del Lago San Roque?",
+    "variantes": [
+      "para qué sirve el lago San Roque",
+      "uso del agua del San Roque",
+      "de dónde toma agua la ciudad de Córdoba"
+    ],
+    "respuesta": "Para abastecer de agua potable a la ciudad de Córdoba y para actividades turísticas y recreativas.",
+    "fragmentos": [
+      "geocba-35"
+    ]
+  },
+  {
+    "id": "qa-273",
+    "tema": "Otros embalses de Córdoba",
+    "pregunta": "¿Qué otros embalses importantes tiene la provincia de Córdoba?",
+    "variantes": [
+      "qué otros lagos artificiales hay en Córdoba",
+      "embalses cordobeses además del San Roque",
+      "otros embalses de la provincia"
+    ],
+    "respuesta": "El embalse Río Tercero, el embalse Los Molinos y el embalse Cruz del Eje, entre otros.",
+    "fragmentos": [
+      "geocba-36"
+    ]
+  },
+  {
+    "id": "qa-274",
+    "tema": "Para qué sirven los embalses",
+    "pregunta": "¿Para qué sirven los embalses de la provincia de Córdoba?",
+    "variantes": [
+      "utilidad de los embalses cordobeses",
+      "para qué se usan los embalses",
+      "funciones de los embalses de Córdoba"
+    ],
+    "respuesta": "Sirven para proveer agua potable, para el riego de cultivos, para generar energía eléctrica y para el turismo.",
+    "fragmentos": [
+      "geocba-37"
+    ]
+  },
+  {
+    "id": "qa-275",
+    "tema": "Actividades en los lagos de Córdoba",
+    "pregunta": "¿Qué actividades se realizan en los lagos y embalses de Córdoba?",
+    "variantes": [
+      "qué se puede hacer en los lagos cordobeses",
+      "actividades turísticas en los embalses",
+      "deportes en los lagos de Córdoba"
+    ],
+    "respuesta": "Pesca, deportes náuticos, paseos en lancha y turismo en general.",
+    "fragmentos": [
+      "geocba-38"
+    ]
+  },
+  {
+    "id": "qa-276",
+    "tema": "Sierras y embalses",
+    "pregunta": "¿Qué relación hay entre las sierras y los embalses cordobeses?",
+    "variantes": [
+      "por qué los embalses de Córdoba están rodeados de sierras",
+      "paisaje de los embalses cordobeses",
+      "sierras alrededor de los lagos"
+    ],
+    "respuesta": "Los embalses cordobeses suelen estar rodeados de sierras, lo que le da al paisaje su forma serrana característica.",
+    "fragmentos": [
+      "geocba-39"
+    ]
+  },
+  {
+    "id": "qa-277",
+    "tema": "Por qué cuidar los ríos y lagos",
+    "pregunta": "¿Por qué es importante cuidar los ríos y lagos de la provincia?",
+    "variantes": [
+      "para qué sirve cuidar los ríos cordobeses",
+      "por qué no hay que contaminar los ríos de Córdoba",
+      "cuidado de los ríos y lagos"
+    ],
+    "respuesta": "Porque son fuente de agua potable y de vida para las plantas, los animales y las personas.",
+    "fragmentos": [
+      "geocba-40"
+    ]
+  },
+  {
+    "id": "qa-278",
+    "tema": "Clima de la provincia de Córdoba",
+    "pregunta": "¿Qué tipo de clima predomina en la provincia de Córdoba?",
+    "variantes": [
+      "cómo es el clima cordobés",
+      "qué clima tiene Córdoba",
+      "el clima de la provincia cómo es"
+    ],
+    "respuesta": "Predomina un clima templado, con veranos cálidos e inviernos más frescos.",
+    "fragmentos": [
+      "geocba-41"
+    ]
+  },
+  {
+    "id": "qa-279",
+    "tema": "Clima en sierras y llanuras",
+    "pregunta": "¿Cómo es el clima en las sierras comparado con el de la llanura?",
+    "variantes": [
+      "hace más frío en las sierras de Córdoba",
+      "diferencia de clima entre sierra y llanura",
+      "en las sierras llueve más"
+    ],
+    "respuesta": "En las sierras el clima suele ser más fresco y con más lluvias que en la llanura.",
+    "fragmentos": [
+      "geocba-42"
+    ]
+  },
+  {
+    "id": "qa-280",
+    "tema": "Época de más lluvias en Córdoba",
+    "pregunta": "¿En qué época del año llueve más en la provincia de Córdoba?",
+    "variantes": [
+      "cuándo llueve más en Córdoba",
+      "en qué estación llueve más",
+      "época de lluvias en Córdoba"
+    ],
+    "respuesta": "Llueve más en el verano.",
+    "fragmentos": [
+      "geocba-43"
+    ]
+  },
+  {
+    "id": "qa-281",
+    "tema": "El invierno en Córdoba",
+    "pregunta": "¿Cómo es el invierno en la provincia de Córdoba?",
+    "variantes": [
+      "hace frío en el invierno cordobés",
+      "cómo son los inviernos en Córdoba",
+      "invierno en la provincia cómo es"
+    ],
+    "respuesta": "Generalmente es seco y con temperaturas más bajas, sobre todo en las zonas de sierra.",
+    "fragmentos": [
+      "geocba-44"
+    ]
+  },
+  {
+    "id": "qa-282",
+    "tema": "Qué son las heladas",
+    "pregunta": "¿Qué son las heladas?",
+    "variantes": [
+      "helada qué significa",
+      "cuándo se congela el agua al aire libre",
+      "qué pasa en una helada"
+    ],
+    "respuesta": "Son momentos en que la temperatura baja tanto que el agua se congela sobre las plantas y el suelo.",
+    "fragmentos": [
+      "geocba-45"
+    ]
+  },
+  {
+    "id": "qa-283",
+    "tema": "Por qué las sierras atraen turistas por el clima",
+    "pregunta": "¿Por qué el clima de las sierras cordobesas atrae a los turistas?",
+    "variantes": [
+      "por qué la gente va a las sierras en verano",
+      "qué tiene de bueno el clima serrano",
+      "por qué es agradable el clima de las sierras"
+    ],
+    "respuesta": "Porque en verano es más fresco que en las ciudades de la llanura, lo que resulta muy agradable para descansar.",
+    "fragmentos": [
+      "geocba-46"
+    ]
+  },
+  {
+    "id": "qa-284",
+    "tema": "Vientos característicos de Córdoba",
+    "pregunta": "¿Qué vientos característicos afectan a la provincia de Córdoba?",
+    "variantes": [
+      "qué vientos hay en Córdoba",
+      "vientos del norte y del sur en Córdoba",
+      "cómo afectan los vientos a Córdoba"
+    ],
+    "respuesta": "Vientos que vienen del norte y del sur y que traen cambios de temperatura.",
+    "fragmentos": [
+      "geocba-47"
+    ]
+  },
+  {
+    "id": "qa-285",
+    "tema": "Sierras y lluvias",
+    "pregunta": "¿Cómo influyen las sierras en las lluvias de la zona?",
+    "variantes": [
+      "por qué llueve más cerca de las sierras",
+      "relación entre sierras y lluvia",
+      "las sierras hacen llover más"
+    ],
+    "respuesta": "Las sierras hacen que las nubes se eleven y descarguen más lluvia justo en esa zona.",
+    "fragmentos": [
+      "geocba-48"
+    ]
+  },
+  {
+    "id": "qa-286",
+    "tema": "Ciudad más poblada de Córdoba",
+    "pregunta": "¿Cuál es la ciudad más poblada de la provincia de Córdoba?",
+    "variantes": [
+      "ciudad con más gente en Córdoba",
+      "dónde vive más gente en la provincia",
+      "la ciudad más grande de Córdoba"
+    ],
+    "respuesta": "La ciudad de Córdoba, que es además la capital de la provincia.",
+    "fragmentos": [
+      "geocba-49"
+    ]
+  },
+  {
+    "id": "qa-287",
+    "tema": "Segunda ciudad de Córdoba",
+    "pregunta": "¿Cuál es la segunda ciudad más importante de la provincia?",
+    "variantes": [
+      "cuál es la segunda ciudad de Córdoba",
+      "después de la capital cuál es la ciudad más grande",
+      "segunda ciudad cordobesa en población"
+    ],
+    "respuesta": "Río Cuarto.",
+    "fragmentos": [
+      "geocba-50"
+    ]
+  },
+  {
+    "id": "qa-288",
+    "tema": "Puerta de entrada a las sierras",
+    "pregunta": "¿Qué ciudad es conocida como la puerta de entrada a las sierras?",
+    "variantes": [
+      "cuál es la puerta de las sierras cordobesas",
+      "ciudad que es entrada a las sierras",
+      "Villa Carlos Paz es la puerta a las sierras"
+    ],
+    "respuesta": "Villa Carlos Paz.",
+    "fragmentos": [
+      "geocba-51"
+    ]
+  },
+  {
+    "id": "qa-289",
+    "tema": "Ciudad del festival de folklore",
+    "pregunta": "¿Qué ciudad es famosa por el Festival Nacional de Folklore?",
+    "variantes": [
+      "dónde es el festival de folklore de Cosquín",
+      "en qué ciudad se hace el festival de folklore",
+      "ciudad del festival de Cosquín"
+    ],
+    "respuesta": "Cosquín.",
+    "fragmentos": [
+      "geocba-52"
+    ]
+  },
+  {
+    "id": "qa-290",
+    "tema": "Ciudad con influencia alemana",
+    "pregunta": "¿Qué ciudad cordobesa tiene fuerte influencia de inmigrantes alemanes?",
+    "variantes": [
+      "cuál es la ciudad alemana de Córdoba",
+      "dónde hay inmigrantes alemanes en Córdoba",
+      "Villa General Belgrano por qué es alemana"
+    ],
+    "respuesta": "Villa General Belgrano.",
+    "fragmentos": [
+      "geocba-53"
+    ]
+  },
+  {
+    "id": "qa-291",
+    "tema": "Centro industrial y automotriz",
+    "pregunta": "¿Qué ciudad de la provincia es un importante centro industrial y automotriz?",
+    "variantes": [
+      "dónde se fabrican autos en Córdoba",
+      "ciudad con industria automotriz cordobesa",
+      "centro industrial de la provincia"
+    ],
+    "respuesta": "La ciudad de Córdoba.",
+    "fragmentos": [
+      "geocba-54"
+    ]
+  },
+  {
+    "id": "qa-292",
+    "tema": "Fiesta de la Doma y el Folklore",
+    "pregunta": "¿Qué ciudad es conocida por la Fiesta de la Doma y el Folklore?",
+    "variantes": [
+      "dónde se hace la fiesta de la doma",
+      "ciudad de la doma y el folklore",
+      "Jesús María qué fiesta tiene"
+    ],
+    "respuesta": "Jesús María.",
+    "fragmentos": [
+      "geocba-55"
+    ]
+  },
+  {
+    "id": "qa-293",
+    "tema": "Ciudad fundada por los jesuitas",
+    "pregunta": "¿Qué ciudad fue fundada por los jesuitas y lleva el nombre de una virtud?",
+    "variantes": [
+      "qué ciudad cordobesa fundaron los jesuitas",
+      "Alta Gracia quién la fundó",
+      "ciudad jesuita con nombre de virtud"
+    ],
+    "respuesta": "Alta Gracia.",
+    "fragmentos": [
+      "geocba-56"
+    ]
+  },
+  {
+    "id": "qa-294",
+    "tema": "Che Guevara en Alta Gracia",
+    "pregunta": "¿Qué personaje histórico latinoamericano vivió parte de su infancia en Alta Gracia?",
+    "variantes": [
+      "quién vivió de chico en Alta Gracia",
+      "el Che Guevara vivió en Córdoba",
+      "personaje famoso que vivió en Alta Gracia"
+    ],
+    "respuesta": "Ernesto Che Guevara.",
+    "fragmentos": [
+      "geocba-57"
+    ]
+  },
+  {
+    "id": "qa-295",
+    "tema": "Centro agrícola del norte",
+    "pregunta": "¿Qué ciudad es un importante centro agrícola e industrial en el norte de la provincia?",
+    "variantes": [
+      "ciudad industrial del norte de Córdoba",
+      "San Francisco qué tipo de ciudad es",
+      "centro agrícola cordobés"
+    ],
+    "respuesta": "San Francisco.",
+    "fragmentos": [
+      "geocba-58"
+    ]
+  },
+  {
+    "id": "qa-296",
+    "tema": "Nudo de rutas en el centro",
+    "pregunta": "¿Qué ciudad se ubica en el centro de la provincia y es un importante nudo de rutas y vías del tren?",
+    "variantes": [
+      "ciudad en el centro de Córdoba con muchas rutas",
+      "Villa María por qué es importante",
+      "nudo ferroviario de Córdoba"
+    ],
+    "respuesta": "Villa María.",
+    "fragmentos": [
+      "geocba-59"
+    ]
+  },
+  {
+    "id": "qa-297",
+    "tema": "Qué son los departamentos de Córdoba",
+    "pregunta": "¿Qué son los departamentos de la provincia de Córdoba?",
+    "variantes": [
+      "cómo se dividen administrativamente los departamentos",
+      "departamentos de la provincia qué son",
+      "organización de los departamentos cordobeses"
+    ],
+    "respuesta": "Son las divisiones administrativas en las que se organiza el territorio de la provincia.",
+    "fragmentos": [
+      "geocba-60"
+    ]
+  },
+  {
+    "id": "qa-298",
+    "tema": "Departamento de la capital",
+    "pregunta": "¿En qué departamento se encuentra la ciudad capital?",
+    "variantes": [
+      "a qué departamento pertenece la ciudad de Córdoba",
+      "departamento donde está la capital",
+      "la capital en qué departamento está"
+    ],
+    "respuesta": "En el departamento Capital.",
+    "fragmentos": [
+      "geocba-61"
+    ]
+  },
+  {
+    "id": "qa-299",
+    "tema": "Departamento Punilla",
+    "pregunta": "¿En qué departamento están Villa Carlos Paz y Cosquín?",
+    "variantes": [
+      "a qué departamento pertenecen Carlos Paz y Cosquín",
+      "departamento Punilla qué ciudades tiene",
+      "Villa Carlos Paz en qué departamento está"
+    ],
+    "respuesta": "En el departamento Punilla.",
+    "fragmentos": [
+      "geocba-62"
+    ]
+  },
+  {
+    "id": "qa-300",
+    "tema": "Departamento Calamuchita",
+    "pregunta": "¿En qué departamento están Villa General Belgrano y Santa Rosa de Calamuchita?",
+    "variantes": [
+      "a qué departamento pertenecen esas dos ciudades",
+      "departamento Calamuchita qué ciudades tiene",
+      "Villa General Belgrano en qué departamento está"
+    ],
+    "respuesta": "En el departamento Calamuchita.",
+    "fragmentos": [
+      "geocba-63"
+    ]
+  },
+  {
+    "id": "qa-301",
+    "tema": "Córdoba entre las provincias más pobladas",
+    "pregunta": "¿Córdoba es una de las provincias más pobladas de la Argentina?",
+    "variantes": [
+      "Córdoba tiene mucha población",
+      "cuántos habitantes tiene Córdoba comparado con otras provincias",
+      "es Córdoba una provincia muy poblada"
+    ],
+    "respuesta": "Sí, es la segunda provincia más poblada del país, después de la provincia de Buenos Aires.",
+    "fragmentos": [
+      "geocba-64"
+    ]
+  },
+  {
+    "id": "qa-302",
+    "tema": "Dónde vive la mayoría de la población cordobesa",
+    "pregunta": "¿Dónde vive la mayor parte de la población de la provincia de Córdoba?",
+    "variantes": [
+      "dónde se concentra la población de Córdoba",
+      "la mayoría de los cordobeses dónde vive",
+      "zona más poblada de la provincia"
+    ],
+    "respuesta": "En la ciudad de Córdoba y en las localidades de su zona metropolitana.",
+    "fragmentos": [
+      "geocba-65"
+    ]
+  },
+  {
+    "id": "qa-303",
+    "tema": "Pueblos originarios de Córdoba",
+    "pregunta": "¿Qué pueblos originarios vivían en la región de Córdoba antes de la llegada de los españoles?",
+    "variantes": [
+      "quiénes vivían en Córdoba antes de los españoles",
+      "pueblos indígenas de la región cordobesa",
+      "comechingones y sanavirones"
+    ],
+    "respuesta": "Los comechingones y los sanavirones.",
+    "fragmentos": [
+      "geocba-66"
+    ]
+  },
+  {
+    "id": "qa-304",
+    "tema": "Por qué se llaman Sierras de Comechingones",
+    "pregunta": "¿Por qué las sierras del sur de la provincia se llaman de Comechingones?",
+    "variantes": [
+      "de dónde viene el nombre Comechingones",
+      "por qué esas sierras tienen ese nombre",
+      "origen del nombre Comechingones"
+    ],
+    "respuesta": "En homenaje al pueblo originario comechingón, que habitaba esa zona.",
+    "fragmentos": [
+      "geocba-67"
+    ]
+  },
+  {
+    "id": "qa-305",
+    "tema": "Influencia de inmigrantes europeos",
+    "pregunta": "¿Qué influencia dejaron los inmigrantes europeos en la población cordobesa?",
+    "variantes": [
+      "qué trajeron los inmigrantes a Córdoba",
+      "influencia europea en Córdoba",
+      "costumbres que trajeron los inmigrantes"
+    ],
+    "respuesta": "Trajeron costumbres, idiomas y tradiciones, sobre todo de origen italiano, español y alemán.",
+    "fragmentos": [
+      "geocba-68"
+    ]
+  },
+  {
+    "id": "qa-306",
+    "tema": "Cultivos principales de Córdoba",
+    "pregunta": "¿Cuáles son los principales cultivos de la provincia de Córdoba?",
+    "variantes": [
+      "qué se cultiva en Córdoba",
+      "principales cultivos cordobeses",
+      "qué siembran en la provincia de Córdoba"
+    ],
+    "respuesta": "La soja, el maíz, el trigo y el maní.",
+    "fragmentos": [
+      "geocba-69"
+    ]
+  },
+  {
+    "id": "qa-307",
+    "tema": "Córdoba y el maní",
+    "pregunta": "¿Por qué la provincia de Córdoba es reconocida en la producción de maní?",
+    "variantes": [
+      "Córdoba es la mayor productora de maní",
+      "por qué Córdoba produce tanto maní",
+      "el maní de Córdoba por qué es famoso"
+    ],
+    "respuesta": "Porque es la principal productora de maní de toda la Argentina.",
+    "fragmentos": [
+      "geocba-70"
+    ]
+  },
+  {
+    "id": "qa-308",
+    "tema": "Ganadería en Córdoba",
+    "pregunta": "¿Qué actividad ganadera es importante en la provincia de Córdoba?",
+    "variantes": [
+      "qué animales se crían en Córdoba",
+      "ganadería cordobesa cuál es",
+      "se cría ganado en Córdoba"
+    ],
+    "respuesta": "La cría de ganado vacuno, es decir de vacas, tanto para carne como para leche.",
+    "fragmentos": [
+      "geocba-71"
+    ]
+  },
+  {
+    "id": "qa-309",
+    "tema": "Industria automotriz de Córdoba",
+    "pregunta": "¿Qué industria importante tiene la ciudad de Córdoba?",
+    "variantes": [
+      "qué se fabrica en la ciudad de Córdoba",
+      "industria de la ciudad capital",
+      "fábricas de autos en Córdoba"
+    ],
+    "respuesta": "La industria automotriz, con fábricas que producen autos y autopartes.",
+    "fragmentos": [
+      "geocba-72"
+    ]
+  },
+  {
+    "id": "qa-310",
+    "tema": "Industria aeronáutica de Córdoba",
+    "pregunta": "¿Qué otra industria histórica desarrolló la ciudad de Córdoba?",
+    "variantes": [
+      "se fabrican aviones en Córdoba",
+      "industria aeronáutica cordobesa",
+      "otra industria importante de Córdoba"
+    ],
+    "respuesta": "La industria aeronáutica, con fábricas de aviones.",
+    "fragmentos": [
+      "geocba-73"
+    ]
+  },
+  {
+    "id": "qa-311",
+    "tema": "El turismo en las sierras",
+    "pregunta": "¿Qué actividad económica es muy importante en las sierras cordobesas?",
+    "variantes": [
+      "de qué vive la gente de las sierras",
+      "actividad económica de las sierras",
+      "principal actividad en las sierras de Córdoba"
+    ],
+    "respuesta": "El turismo.",
+    "fragmentos": [
+      "geocba-74"
+    ]
+  },
+  {
+    "id": "qa-312",
+    "tema": "Qué atrae a los turistas a las sierras",
+    "pregunta": "¿Qué atrae a los turistas a las sierras de la provincia de Córdoba?",
+    "variantes": [
+      "por qué la gente visita las sierras de Córdoba",
+      "qué tienen de atractivo las sierras cordobesas",
+      "qué se puede ver en las sierras de Córdoba"
+    ],
+    "respuesta": "El paisaje serrano, los ríos, los lagos, el clima fresco y los pueblos de montaña.",
+    "fragmentos": [
+      "geocba-75"
+    ]
+  },
+  {
+    "id": "qa-313",
+    "tema": "Qué son los tambos",
+    "pregunta": "¿Qué son los tambos?",
+    "variantes": [
+      "tambo qué significa",
+      "dónde se ordeñan las vacas",
+      "qué es un tambo lechero"
+    ],
+    "respuesta": "Son establecimientos donde se ordeñan las vacas para producir leche.",
+    "fragmentos": [
+      "geocba-76"
+    ]
+  },
+  {
+    "id": "qa-314",
+    "tema": "Uso de la soja cordobesa",
+    "pregunta": "¿Para qué se usa la soja que se cultiva en la provincia de Córdoba?",
+    "variantes": [
+      "qué se hace con la soja de Córdoba",
+      "para qué sirve la soja cultivada",
+      "destino de la producción de soja"
+    ],
+    "respuesta": "Se usa para alimento de animales, para hacer aceite y también se exporta a otros países.",
+    "fragmentos": [
+      "geocba-77"
+    ]
+  },
+  {
+    "id": "qa-315",
+    "tema": "Universidad de la ciudad de Córdoba",
+    "pregunta": "¿Qué universidad importante tiene la ciudad de Córdoba?",
+    "variantes": [
+      "cuál es la universidad más antigua de Argentina",
+      "universidad de la ciudad capital cordobesa",
+      "nombre de la universidad de Córdoba"
+    ],
+    "respuesta": "La Universidad Nacional de Córdoba, la más antigua de la Argentina.",
+    "fragmentos": [
+      "geocba-78"
+    ]
+  },
+  {
+    "id": "qa-316",
+    "tema": "Educación y economía cordobesa",
+    "pregunta": "¿Por qué la educación es importante para la economía de la provincia de Córdoba?",
+    "variantes": [
+      "cómo ayuda la universidad a la economía de Córdoba",
+      "por qué estudian tantos en Córdoba",
+      "relación entre educación y economía cordobesa"
+    ],
+    "respuesta": "Porque forma profesionales y atrae a estudiantes de todo el país, generando actividad económica.",
+    "fragmentos": [
+      "geocba-79"
+    ]
+  },
+  {
+    "id": "qa-317",
+    "tema": "Importancia de la llanura pampeana",
+    "pregunta": "¿Por qué la llanura pampeana es importante para la economía de la provincia?",
+    "variantes": [
+      "para qué sirve la llanura cordobesa",
+      "por qué es fértil la llanura pampeana de Córdoba",
+      "importancia económica de la llanura"
+    ],
+    "respuesta": "Porque es una gran zona plana y fértil, ideal para la agricultura y la ganadería.",
+    "fragmentos": [
+      "geocba-80"
+    ]
+  },
+  {
+    "id": "qa-318",
+    "tema": "Córdoba y la producción de alimentos",
+    "pregunta": "¿Qué rol cumple la provincia de Córdoba en la producción de alimentos de la Argentina?",
+    "variantes": [
+      "Córdoba produce mucha comida",
+      "importancia de Córdoba para la alimentación del país",
+      "qué produce Córdoba para el país"
+    ],
+    "respuesta": "Es una de las principales provincias productoras de granos y de carne del país.",
+    "fragmentos": [
+      "geocba-81"
+    ]
+  },
+  {
+    "id": "qa-319",
+    "tema": "Medios de transporte de Córdoba",
+    "pregunta": "¿Qué medios de transporte conectan a la provincia de Córdoba con el resto del país?",
+    "variantes": [
+      "cómo se llega a Córdoba desde otras provincias",
+      "transporte de la provincia de Córdoba",
+      "rutas y aeropuerto de Córdoba"
+    ],
+    "respuesta": "Rutas nacionales, un aeropuerto internacional y vías del ferrocarril.",
+    "fragmentos": [
+      "geocba-82"
+    ]
+  },
+  {
+    "id": "qa-320",
+    "tema": "Árbol característico de las sierras",
+    "pregunta": "¿Qué árbol es característico de las sierras de la provincia de Córdoba?",
+    "variantes": [
+      "árbol típico de Córdoba",
+      "cuál es el árbol nativo de las sierras cordobesas",
+      "árbol más conocido de las sierras"
+    ],
+    "respuesta": "El algarrobo.",
+    "fragmentos": [
+      "geocba-83"
+    ]
+  },
+  {
+    "id": "qa-321",
+    "tema": "Otros árboles nativos de Córdoba",
+    "pregunta": "¿Qué otros árboles nativos hay en la provincia de Córdoba?",
+    "variantes": [
+      "qué árboles autóctonos tiene Córdoba",
+      "árboles nativos cordobeses además del algarrobo",
+      "especies de árboles de Córdoba"
+    ],
+    "respuesta": "El molle, el espinillo y el tabaquillo.",
+    "fragmentos": [
+      "geocba-84"
+    ]
+  },
+  {
+    "id": "qa-322",
+    "tema": "Animal típico de las sierras",
+    "pregunta": "¿Qué animal es típico de las sierras cordobesas?",
+    "variantes": [
+      "qué animales viven en las sierras de Córdoba",
+      "fauna típica de las sierras cordobesas",
+      "animales de la zona serrana"
+    ],
+    "respuesta": "El zorro gris y el puma, entre otros animales de la zona serrana.",
+    "fragmentos": [
+      "geocba-85"
+    ]
+  },
+  {
+    "id": "qa-323",
+    "tema": "Aves de las sierras de Córdoba",
+    "pregunta": "¿Qué aves se pueden observar en las sierras de la provincia de Córdoba?",
+    "variantes": [
+      "qué pájaros hay en las sierras cordobesas",
+      "aves típicas de Córdoba",
+      "el cóndor vive en Córdoba"
+    ],
+    "respuesta": "El cóndor andino en algunas zonas altas, y el hornero, que es el ave nacional de la Argentina.",
+    "fragmentos": [
+      "geocba-86"
+    ]
+  },
+  {
+    "id": "qa-324",
+    "tema": "Qué es el tabaquillo",
+    "pregunta": "¿Qué es el tabaquillo?",
+    "variantes": [
+      "tabaquillo qué es",
+      "dónde crece el tabaquillo",
+      "árbol de las zonas altas de Córdoba"
+    ],
+    "respuesta": "Es un árbol nativo que crece en las zonas más altas de las sierras de Córdoba.",
+    "fragmentos": [
+      "geocba-87"
+    ]
+  },
+  {
+    "id": "qa-325",
+    "tema": "Animales de los ríos y lagos cordobeses",
+    "pregunta": "¿Qué animales viven en los ríos y lagos de la provincia de Córdoba?",
+    "variantes": [
+      "qué peces hay en los ríos de Córdoba",
+      "fauna de los lagos cordobeses",
+      "animales acuáticos de Córdoba"
+    ],
+    "respuesta": "Peces como el pejerrey, y también distintas aves acuáticas.",
+    "fragmentos": [
+      "geocba-88"
+    ]
+  },
+  {
+    "id": "qa-326",
+    "tema": "Cuidado de la fauna autóctona",
+    "pregunta": "¿Por qué es importante cuidar la fauna autóctona de la provincia?",
+    "variantes": [
+      "para qué sirve proteger los animales de Córdoba",
+      "por qué hay que cuidar los animales nativos",
+      "importancia de la fauna cordobesa"
+    ],
+    "respuesta": "Porque forma parte del equilibrio natural de las sierras, y muchas especies necesitan protección.",
+    "fragmentos": [
+      "geocba-89"
+    ]
+  },
+  {
+    "id": "qa-327",
+    "tema": "Incendios forestales en Córdoba",
+    "pregunta": "¿Qué problema ambiental afecta con frecuencia a las sierras de Córdoba?",
+    "variantes": [
+      "qué desastres naturales pasan en las sierras cordobesas",
+      "problema ambiental de las sierras de Córdoba",
+      "los incendios en las sierras"
+    ],
+    "respuesta": "Los incendios forestales.",
+    "fragmentos": [
+      "geocba-90"
+    ]
+  },
+  {
+    "id": "qa-328",
+    "tema": "Fundación de la ciudad de Córdoba",
+    "pregunta": "¿Quién fundó la ciudad de Córdoba y en qué año?",
+    "variantes": [
+      "quién fundó Córdoba",
+      "cuándo se fundó la ciudad de Córdoba",
+      "fundador de la ciudad de Córdoba"
+    ],
+    "respuesta": "Fue fundada por Jerónimo Luis de Cabrera, en el año mil quinientos setenta y tres.",
+    "fragmentos": [
+      "geocba-91"
+    ]
+  },
+  {
+    "id": "qa-329",
+    "tema": "Los jesuitas en Córdoba",
+    "pregunta": "¿Qué orden religiosa tuvo mucha influencia en la historia de la provincia de Córdoba?",
+    "variantes": [
+      "qué religiosos influyeron en la historia cordobesa",
+      "orden religiosa importante en Córdoba",
+      "los jesuitas en la historia de Córdoba"
+    ],
+    "respuesta": "Los jesuitas.",
+    "fragmentos": [
+      "geocba-92"
+    ]
+  },
+  {
+    "id": "qa-330",
+    "tema": "Qué es la Manzana Jesuítica",
+    "pregunta": "¿Qué es la Manzana Jesuítica?",
+    "variantes": [
+      "dónde está la Manzana Jesuítica",
+      "Manzana Jesuítica qué significa",
+      "patrimonio de la humanidad en Córdoba capital"
+    ],
+    "respuesta": "Es un conjunto de edificios históricos en el centro de la ciudad de Córdoba, construidos por los jesuitas, declarado Patrimonio de la Humanidad.",
+    "fragmentos": [
+      "geocba-93"
+    ]
+  },
+  {
+    "id": "qa-331",
+    "tema": "Qué son las Estancias Jesuíticas",
+    "pregunta": "¿Qué son las Estancias Jesuíticas de Córdoba?",
+    "variantes": [
+      "estancias jesuíticas qué son",
+      "patrimonio de la humanidad en la provincia de Córdoba",
+      "estancias fundadas por los jesuitas"
+    ],
+    "respuesta": "Son antiguos establecimientos agrícolas y ganaderos fundados por los jesuitas, también declarados Patrimonio de la Humanidad.",
+    "fragmentos": [
+      "geocba-94"
+    ]
+  },
+  {
+    "id": "qa-332",
+    "tema": "Festival de Cosquín",
+    "pregunta": "¿Qué festival de folklore muy famoso se realiza cada año en Cosquín?",
+    "variantes": [
+      "cómo se llama el festival de Cosquín",
+      "festival nacional que se hace en Cosquín",
+      "el festival de folklore de Cosquín"
+    ],
+    "respuesta": "El Festival Nacional de Folklore.",
+    "fragmentos": [
+      "geocba-95"
+    ]
+  },
+  {
+    "id": "qa-333",
+    "tema": "Fiesta de Jesús María",
+    "pregunta": "¿Qué celebración de doma y folklore se realiza en Jesús María?",
+    "variantes": [
+      "cómo se llama la fiesta de Jesús María",
+      "festival de la doma en Jesús María",
+      "celebración de Jesús María"
+    ],
+    "respuesta": "La Fiesta Nacional de la Doma y el Folklore.",
+    "fragmentos": [
+      "geocba-96"
+    ]
+  },
+  {
+    "id": "qa-334",
+    "tema": "El Camino Real",
+    "pregunta": "¿Qué caminos históricos usaban los jesuitas para trasladarse entre sus estancias?",
+    "variantes": [
+      "cómo se llama el camino colonial de los jesuitas",
+      "Camino Real qué es",
+      "camino histórico entre las estancias jesuíticas"
+    ],
+    "respuesta": "El Camino Real, un antiguo camino de la época colonial.",
+    "fragmentos": [
+      "geocba-97"
+    ]
+  },
+  {
+    "id": "qa-335",
+    "tema": "Qué visitar en las estancias jesuíticas",
+    "pregunta": "¿Qué se puede visitar hoy en las antiguas estancias jesuíticas?",
+    "variantes": [
+      "qué hay para ver en las estancias jesuíticas",
+      "museos en las estancias de Córdoba",
+      "turismo en las estancias jesuíticas"
+    ],
+    "respuesta": "Museos, capillas y edificios históricos que están abiertos al público.",
+    "fragmentos": [
+      "geocba-98"
+    ]
+  },
+  {
+    "id": "qa-336",
+    "tema": "Córdoba como destino turístico",
+    "pregunta": "¿Por qué la provincia de Córdoba es un destino turístico importante de la Argentina?",
+    "variantes": [
+      "por qué la gente visita la provincia de Córdoba",
+      "qué hace turística a la provincia de Córdoba",
+      "atractivos turísticos de Córdoba"
+    ],
+    "respuesta": "Por sus sierras, sus lagos, su historia, su clima y sus fiestas populares.",
+    "fragmentos": [
+      "geocba-99"
+    ]
+  },
+  {
+    "id": "qa-337",
+    "tema": "Qué distingue culturalmente a Córdoba",
+    "pregunta": "¿Qué distingue culturalmente a la provincia de Córdoba dentro de la Argentina?",
+    "variantes": [
+      "qué hace especial a la cultura cordobesa",
+      "identidad cultural de Córdoba",
+      "qué caracteriza a Córdoba culturalmente"
+    ],
+    "respuesta": "Su tonada particular, su historia universitaria y jesuítica, y sus tradiciones serranas y folklóricas.",
+    "fragmentos": [
+      "geocba-100"
+    ]
   }
 ]
