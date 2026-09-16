@@ -72,10 +72,12 @@ class CannedAnswersTest {
     }
 
     @Test
-    fun `asset has exactly 129 well-formed entries with unique ids`() {
+    fun `asset has exactly 137 well-formed entries with unique ids`() {
         // 30 from the original inicial/primario lessons + 99 from the 3rd/4th-grade guide (110
-        // questions minus the 11 that duplicated ones already in the first set).
-        assertEquals(129, entries.length())
+        // questions minus the 11 that duplicated ones already in the first set) + 8 follow-up
+        // entries (angles, aristas/caras, poliedros, cuerpos redondos, cuadrilátero, mitad,
+        // comparing fractions) grounded in guide answers that already mentioned those terms.
+        assertEquals(137, entries.length())
 
         val ids = mutableSetOf<String>()
         for (i in 0 until entries.length()) {
@@ -162,6 +164,24 @@ class CannedAnswersTest {
                 "Anita, ¿qué es sumar?" to "qa-06",
                 "Anita, ¿cuántos lados tiene un triángulo?" to "qa-23",
                 "Anita, ¿qué es un vértice?" to "qa-27",
+                // The follow-up entries added on top of the guide, and the extra variantes given
+                // to 9 existing entries so a test question doesn't need to be recited verbatim.
+                "¿Qué son los rombos?" to "qa-112",
+                "¿Cuánto pesa un kilo?" to "qa-124",
+                "¿Puedo dividir algo por cero?" to "qa-83",
+                "¿Qué es un cuarto de algo?" to "qa-89",
+                "¿Cuánto es el doble de un número?" to "qa-64",
+                "¿Cómo se saca el vuelto?" to "qa-55",
+                "¿Qué son las tablas de multiplicar?" to "qa-62",
+                "¿Qué son las sumas?" to "qa-06",
+                "¿Qué es un ángulo obtuso?" to "qa-130",
+                "¿Qué son las aristas?" to "qa-131",
+                "¿Qué es una cara de un cuerpo?" to "qa-132",
+                "¿Qué son los poliedros?" to "qa-133",
+                "¿Qué es una esfera?" to "qa-134",
+                "¿Qué son los cuadriláteros?" to "qa-135",
+                "¿Cuánto es la mitad de diez?" to "qa-136",
+                "¿Qué es más grande un medio o un cuarto?" to "qa-137",
             )
 
         val failures = expected.mapNotNull { (question, expectedId) ->

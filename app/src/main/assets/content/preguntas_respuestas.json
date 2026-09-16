@@ -10,7 +10,10 @@
       "cómo se cuenta hasta diez",
       "cómo se cuenta del 1 al 10",
       "contá hasta el 10",
-      "contar hasta diez"
+      "contar hasta diez",
+      "cómo contamos del uno al diez",
+      "enseñame a contar hasta diez",
+      "cómo se numeran los números del uno al diez"
     ],
     "respuesta": "Se cuenta así: uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve y diez. Los números sirven para contar cosas: si tenés tres manzanas, decís uno, dos, tres, y sabés que hay tres manzanas.",
     "fragmentos": [
@@ -26,7 +29,10 @@
       "qué significa el cero",
       "qué es el cero",
       "para qué sirve el cero",
-      "qué quiere decir cero"
+      "qué quiere decir cero",
+      "qué representa el número cero",
+      "para qué sirve el número cero",
+      "el cero cuenta como número"
     ],
     "respuesta": "El cero es un número que significa que no hay nada. Si una caja está vacía, decimos que tiene cero objetos adentro.",
     "fragmentos": [
@@ -43,7 +49,10 @@
       "cuál es el orden de los números",
       "qué viene después del 5",
       "qué viene después del 9",
-      "qué número sigue"
+      "qué número sigue",
+      "cuál es el número que sigue después del cinco",
+      "qué número sigue al cinco",
+      "cuál es el número siguiente al cinco"
     ],
     "respuesta": "Los números van siempre en el mismo orden: después del cinco viene el seis, y después del nueve viene el diez. Cada número es uno más que el anterior.",
     "fragmentos": [
@@ -61,7 +70,10 @@
       "qué número es menor",
       "cómo sé cuál tiene más",
       "quién tiene más y quién tiene menos",
-      "cuál es más grande 5 o 7"
+      "cuál es más grande 5 o 7",
+      "cómo comparamos números",
+      "cómo me doy cuenta cuál número es mayor",
+      "cómo sé cuál número es menor"
     ],
     "respuesta": "Se compara contando. Si vos tenés cinco lápices y yo tengo tres, vos tenés más y yo tengo menos. Entre cinco y siete, el siete es más grande, porque viene después al contar.",
     "fragmentos": [
@@ -78,7 +90,10 @@
       "para qué sirven los números",
       "cómo cuento las pelotas del patio",
       "cómo sé cuántas cosas hay",
-      "contar objetos"
+      "contar objetos",
+      "por qué es importante contar",
+      "para qué usamos los números al contar",
+      "qué usos tiene contar"
     ],
     "respuesta": "Contar sirve para saber cuántas cosas hay. Si en el patio de la escuela hay cuatro pelotas, las contamos una por una: uno, dos, tres, cuatro.",
     "fragmentos": [
@@ -102,7 +117,9 @@
       "cómo sumamos",
       "cómo se hace una suma",
       "cómo se suma",
-      "sumar"
+      "sumar",
+      "qué son las sumas",
+      "cómo se suman los números"
     ],
     "respuesta": "Sumar es juntar cantidades para saber cuántas cosas hay en total. Si tenés tres caramelos y te dan dos más, sumaste, y ahora tenés cinco caramelos.",
     "fragmentos": [
@@ -120,7 +137,9 @@
       "cuánto es dos más tres",
       "cuánto es 2 más 3",
       "ejemplo sencillo de suma",
-      "una suma fácil"
+      "una suma fácil",
+      "podés darme un ejemplo de una suma",
+      "hacemos un ejemplo de suma"
     ],
     "respuesta": "Si tenés dos caramelos y te regalan tres más, en total tenés cinco caramelos. Dos más tres es igual a cinco.",
     "fragmentos": [
@@ -138,7 +157,10 @@
       "contar con los dedos",
       "sumar con las manos",
       "cuánto es cuatro más dos",
-      "cuánto es 4 más 2"
+      "cuánto es 4 más 2",
+      "cómo se suma con los dedos",
+      "puedo sumar usando los dedos",
+      "sumar contando con los dedos"
     ],
     "respuesta": "Levantá en una mano tantos dedos como el primer número, y en la otra mano tantos como el segundo. Después contá todos los dedos levantados. Para cuatro más dos, levantás cuatro dedos y dos dedos, y al contarlos todos juntos son seis.",
     "fragmentos": [
@@ -157,7 +179,10 @@
       "cuánto es tres más cinco",
       "cuánto es 3 más 5",
       "qué es la propiedad conmutativa de la suma",
-      "propiedad conmutativa de la suma"
+      "propiedad conmutativa de la suma",
+      "el orden de la suma importa",
+      "puedo sumar en cualquier orden",
+      "da lo mismo el orden al sumar"
     ],
     "respuesta": "No, en una suma el orden de los números no cambia el resultado. Tres más cinco da ocho, y cinco más tres también da ocho.",
     "fragmentos": [
@@ -174,7 +199,10 @@
       "sumar varios números",
       "cuánto es dos más tres más uno",
       "cuánto es 2 más 3 más 1",
-      "sumar tres números"
+      "sumar tres números",
+      "cómo se suman tres números a la vez",
+      "puedo sumar más de dos números juntos",
+      "cómo sumamos tres números seguidos"
     ],
     "respuesta": "Se suman de a uno por vez. Para dos más tres más uno, primero sumás dos más tres, que da cinco, y después sumás cinco más uno, que da seis.",
     "fragmentos": [
@@ -198,7 +226,8 @@
       "cómo restamos",
       "cómo se hace una resta",
       "cómo se resta",
-      "restar"
+      "restar",
+      "qué son las restas"
     ],
     "respuesta": "Restar es quitar una cantidad de otra para saber cuánto queda. Si tenías cinco lápices y perdiste dos, restaste, y te quedan tres lápices.",
     "fragmentos": [
@@ -216,7 +245,9 @@
       "cuánto es cinco menos dos",
       "cuánto es 5 menos 2",
       "ejemplo sencillo de resta",
-      "una resta fácil"
+      "una resta fácil",
+      "podés darme un ejemplo de una resta",
+      "hacemos un ejemplo de resta"
     ],
     "respuesta": "Si tenés cinco galletitas y te comés dos, te quedan tres galletitas. Cinco menos dos es igual a tres.",
     "fragmentos": [
@@ -234,7 +265,9 @@
       "cuánto es siete menos tres",
       "cuánto es 7 menos 3",
       "contar para atrás",
-      "contá para atrás desde el 5"
+      "contá para atrás desde el 5",
+      "cómo se resta contando para atrás",
+      "restar contando hacia atrás cómo se hace"
     ],
     "respuesta": "Empezás en el número más grande y contás hacia atrás tantos números como quieras restar. Para siete menos tres, desde el siete contás seis, cinco, cuatro: el resultado es cuatro. Y contar para atrás desde el cinco es: cinco, cuatro, tres, dos, uno, cero.",
     "fragmentos": [
@@ -251,7 +284,10 @@
       "cuánto es 4 menos 4",
       "restar un número a sí mismo",
       "cuándo una resta da cero",
-      "por qué una resta da cero"
+      "por qué una resta da cero",
+      "cuánto es un número menos él mismo",
+      "qué da restar un número a sí mismo",
+      "cuánto es cinco menos cinco"
     ],
     "respuesta": "El resultado es cero. Por ejemplo, cuatro menos cuatro es cero: si tenías cuatro caramelos y los repartiste todos, no te queda ninguno.",
     "fragmentos": [
@@ -267,7 +303,9 @@
       "la resta deshace la suma",
       "qué relación hay entre la suma y la resta",
       "la resta y la suma son opuestas",
-      "resta contraria a la suma"
+      "resta contraria a la suma",
+      "la resta es lo opuesto de qué operación",
+      "qué operación es lo contrario de restar"
     ],
     "respuesta": "La resta es lo contrario de la suma: deshace lo que la suma hace. Si tres más dos es cinco, entonces cinco menos dos es tres, y cinco menos tres es dos.",
     "fragmentos": [
@@ -289,7 +327,8 @@
       "sumar un número varias veces",
       "cómo multiplicamos",
       "cómo se hace una multiplicación",
-      "cómo se multiplica"
+      "cómo se multiplica",
+      "qué son las multiplicaciones"
     ],
     "respuesta": "Multiplicar es sumar un mismo número varias veces. Tres por cuatro es lo mismo que sumar tres cuatro veces: tres más tres más tres más tres, que da doce.",
     "fragmentos": [
@@ -305,7 +344,10 @@
       "qué significa por en una multiplicación",
       "qué quiere decir dos por cinco",
       "signo por",
-      "cómo se escribe una multiplicación"
+      "cómo se escribe una multiplicación",
+      "qué significa el signo de multiplicar",
+      "cómo se dice el signo por",
+      "qué es el signo por en una cuenta"
     ],
     "respuesta": "El signo de multiplicar es una equis, y se lee por. Cuando ves dos por cinco, significa sumar el número dos cinco veces.",
     "fragmentos": [
@@ -323,7 +365,9 @@
       "cuánto es dos por tres",
       "cuánto es dos por cuatro",
       "tabla del 2",
-      "cuánto es 2 por 3"
+      "cuánto es 2 por 3",
+      "cómo es la tabla del dos",
+      "cuál es la tabla del dos"
     ],
     "respuesta": "Dos por uno es dos, dos por dos es cuatro, dos por tres es seis, dos por cuatro es ocho y dos por cinco es diez. En la tabla del dos, cada resultado aumenta de a dos.",
     "fragmentos": [
@@ -341,7 +385,9 @@
       "cuánto es cinco por cuatro",
       "cuánto es cinco por dos",
       "tabla del 5",
-      "cuánto es 5 por 4"
+      "cuánto es 5 por 4",
+      "cómo es la tabla del cinco",
+      "cuál es la tabla del cinco"
     ],
     "respuesta": "Cinco por uno es cinco, cinco por dos es diez, cinco por tres es quince y cinco por cuatro es veinte. En la tabla del cinco, los resultados siempre terminan en cero o en cinco.",
     "fragmentos": [
@@ -357,7 +403,8 @@
       "cinco por tres",
       "cuánto da cinco por tres",
       "tres por cinco",
-      "cuánto es 5 por 3"
+      "cuánto es 5 por 3",
+      "cuál es el resultado de cinco por tres"
     ],
     "respuesta": "Cinco por tres es quince. Es lo mismo que sumar cinco tres veces: cinco más cinco más cinco.",
     "fragmentos": [
@@ -378,7 +425,10 @@
       "multiplicar por uno",
       "cualquier número por cero",
       "cuánto es 5 por 0",
-      "cuánto es 7 por 1"
+      "cuánto es 7 por 1",
+      "cuánto da un número por uno",
+      "cuánto da un número por cero",
+      "qué pasa si multiplico por uno"
     ],
     "respuesta": "Cualquier número multiplicado por uno da el mismo número: siete por uno es siete. Y cualquier número multiplicado por cero da cero: siete por cero es cero, y cinco por cero también es cero.",
     "fragmentos": [
@@ -395,7 +445,9 @@
       "ejemplo de multiplicación con cajas",
       "cuánto es tres por cuatro",
       "cuánto es 3 por 4",
-      "cajas de caramelos"
+      "cajas de caramelos",
+      "tres cajas de cuatro caramelos cuántos caramelos son",
+      "ejemplo de multiplicación con cajas de caramelos"
     ],
     "respuesta": "Hay doce caramelos en total, porque tres por cuatro es doce: cuatro más cuatro más cuatro da doce.",
     "fragmentos": [
@@ -413,7 +465,9 @@
       "cuántos lados tienen los triángulos",
       "cuántos vértices tiene un triángulo",
       "triángulos",
-      "figura de tres lados"
+      "figura de tres lados",
+      "cuántas esquinas tiene un triángulo",
+      "cómo son los triángulos"
     ],
     "respuesta": "Un triángulo tiene tres lados y tres esquinas, que se llaman vértices. El techo de una casa a veces tiene forma de triángulo.",
     "fragmentos": [
@@ -431,7 +485,9 @@
       "cuántas esquinas tiene el cuadrado",
       "cuántos vértices tiene un cuadrado",
       "cuadrados",
-      "figura de cuatro lados iguales"
+      "figura de cuatro lados iguales",
+      "cuántas esquinas tiene un cuadrado",
+      "cómo son los cuadrados"
     ],
     "respuesta": "Un cuadrado tiene cuatro lados iguales y cuatro esquinas. Sus cuatro lados miden todos lo mismo.",
     "fragmentos": [
@@ -447,7 +503,8 @@
       "en qué se diferencia el rectángulo del cuadrado",
       "cómo es un rectángulo",
       "rectángulos",
-      "rectángulo y cuadrado"
+      "rectángulo y cuadrado",
+      "qué son los rectángulos"
     ],
     "respuesta": "El rectángulo tiene cuatro lados y cuatro esquinas, igual que el cuadrado, pero no todos sus lados miden lo mismo: dos lados son más largos y dos son más cortos.",
     "fragmentos": [
@@ -464,7 +521,8 @@
       "el círculo tiene esquinas",
       "figura redonda",
       "círculos",
-      "qué forma tiene una pelota"
+      "qué forma tiene una pelota",
+      "el círculo tiene lados"
     ],
     "respuesta": "El círculo no tiene lados ni esquinas: es una figura redonda. Una pelota o una rueda tienen forma de círculo.",
     "fragmentos": [
@@ -481,7 +539,9 @@
       "dónde se juntan dos lados",
       "vértices",
       "qué es un bértice",
-      "bértices"
+      "bértices",
+      "qué es un vértice de una figura",
+      "cómo se llama la esquina de una figura"
     ],
     "respuesta": "Un vértice es la esquina donde se juntan dos lados de una figura. El triángulo tiene tres vértices y el cuadrado tiene cuatro vértices.",
     "fragmentos": [
@@ -506,7 +566,8 @@
       "cómo dividimos",
       "cómo se hace una división",
       "cómo se divide",
-      "dividir"
+      "dividir",
+      "qué son las divisiones"
     ],
     "respuesta": "Dividir es repartir una cantidad en partes iguales. Si repartís seis caramelos entre dos amigos por igual, cada uno recibe tres: seis dividido dos es tres.",
     "fragmentos": [
@@ -525,7 +586,10 @@
       "reparto figuritas entre amigos",
       "cuánto es doce dividido cuatro",
       "cuánto es 12 dividido 4",
-      "cuánto es diez dividido cinco"
+      "cuánto es diez dividido cinco",
+      "cómo hago un reparto en partes iguales",
+      "cómo reparto cosas iguales para todos",
+      "repartir en partes iguales cómo se hace"
     ],
     "respuesta": "Repartir en partes iguales es dividir. Si hay doce alumnos y armás grupos de cuatro, podés armar tres grupos, porque doce dividido cuatro es tres. Y si repartís diez figuritas entre cinco amigos, a cada uno le tocan dos.",
     "fragmentos": [
@@ -542,7 +606,10 @@
       "cuánto es ocho dividido uno",
       "cuánto es 8 dividido 1",
       "dividir por uno",
-      "un número dividido uno"
+      "un número dividido uno",
+      "cuánto da un número dividido uno",
+      "qué resultado da dividir por uno",
+      "cuánto es cinco dividido uno"
     ],
     "respuesta": "Da el mismo número. Ocho dividido uno es ocho, porque repartir entre una sola persona significa que esa persona se queda con todo.",
     "fragmentos": [
@@ -558,7 +625,10 @@
       "para qué sirve la serie numérica",
       "cómo se ordenan los números en serie",
       "contar de diez en diez",
-      "contar de cien en cien"
+      "contar de cien en cien",
+      "qué es una serie numérica",
+      "cómo se ordenan los números",
+      "qué es contar de diez en diez o de cien en cien"
     ],
     "respuesta": "La serie numérica es el orden en que van los números, uno detrás de otro, siguiendo una regla fija: de uno en uno, de diez en diez o de cien en cien. Sirve para contar, ordenar cosas y saber qué número viene antes o después.",
     "fragmentos": [
@@ -574,7 +644,9 @@
       "qué es el valor de posición",
       "por qué el tres vale trescientos",
       "cuánto vale una cifra según dónde está",
-      "valor posicional"
+      "valor posicional",
+      "por qué el tres vale trescientos en 352",
+      "cuánto vale cada cifra según su lugar"
     ],
     "respuesta": "El valor posicional es lo que vale cada cifra según el lugar que ocupa en el número. Por ejemplo, en el 352, el tres no vale tres: vale trescientos, porque está en el lugar de las centenas.",
     "fragmentos": [
@@ -607,7 +679,10 @@
       "cómo se leen los números grandes",
       "cómo leo un número de cinco cifras",
       "cómo se dice cuatro mil quinientos veintiocho",
-      "leer números de cuatro cifras"
+      "leer números de cuatro cifras",
+      "cómo leo un número grande",
+      "cómo se dicen los números de cuatro cifras",
+      "cómo se lee cuatro mil quinientos veintiocho"
     ],
     "respuesta": "Se lee por partes, empezando desde la izquierda. En el 4528, el cuatro está en las unidades de mil, así que decimos cuatro mil; el cinco está en las centenas, quinientos; y al final queda veintiocho. Todo junto: cuatro mil quinientos veintiocho.",
     "fragmentos": [
@@ -623,7 +698,9 @@
       "qué es descomponer un número",
       "cómo se desarma el 2435",
       "descomposición aditiva",
-      "desarmar un número en miles, cientos, dieces y unos"
+      "desarmar un número en miles, cientos, dieces y unos",
+      "qué es desarmar un número sumando",
+      "cómo se descompone un número"
     ],
     "respuesta": "Es desarmar un número mostrando cuánto vale cada cifra, como una suma. Por ejemplo, el 2435 se desarma así: dos mil, más cuatrocientos, más treinta, más cinco.",
     "fragmentos": [
@@ -638,7 +715,9 @@
       "cómo desarmo un número con multiplicaciones",
       "descomposición multiplicativa",
       "cómo escribo 456 con multiplicaciones",
-      "desarmar un número multiplicando por cien y por diez"
+      "desarmar un número multiplicando por cien y por diez",
+      "cómo se escribe 456 con multiplicaciones",
+      "qué es descomponer multiplicando"
     ],
     "respuesta": "Es escribir cada cifra multiplicada por lo que vale su lugar: uno, diez, cien o mil. Por ejemplo, el 456 es cuatro por cien, más cinco por diez, más seis por uno.",
     "fragmentos": [
@@ -654,7 +733,9 @@
       "para qué sirve la recta numérica",
       "cómo se ubican los números en una recta",
       "recta numérica",
-      "qué es una línea de números"
+      "qué es una línea de números",
+      "qué es una recta numérica",
+      "cómo se usa la recta numérica"
     ],
     "respuesta": "La recta numérica es una línea donde ponemos los números ordenados de menor a mayor, todos a la misma distancia. Nos ayuda a ver qué número está cerca de cuál, a comparar cantidades y a encontrar los números que están en el medio.",
     "fragmentos": [
@@ -671,7 +752,9 @@
       "qué quiere decir redondear un número",
       "cómo redondeo 1980",
       "para qué sirve redondear",
-      "redondear"
+      "redondear",
+      "qué es redondear un número",
+      "cómo redondeo un número"
     ],
     "respuesta": "Redondear es buscar un número redondo que esté cerca y sea fácil de usar de cabeza. Por ejemplo, si tenemos 1980, podemos redondearlo a dos mil para hacer una cuenta aproximada más rápido.",
     "fragmentos": [
@@ -687,7 +770,8 @@
       "por qué se dice sistema decimal",
       "por qué agrupamos de diez en diez",
       "sistema de numeración decimal",
-      "qué quiere decir decimal"
+      "qué quiere decir decimal",
+      "qué quiere decir sistema decimal"
     ],
     "respuesta": "Se llama decimal porque agrupamos las cantidades de diez en diez. Cada vez que juntamos diez de un grupo, formamos uno del grupo siguiente: diez unidades son una decena, diez decenas son una centena, y así.",
     "fragmentos": [
@@ -704,7 +788,9 @@
       "cuánto es 3450 más 100",
       "sumar de a cien",
       "sumar de a mil",
-      "sumarle diez a un número"
+      "sumarle diez a un número",
+      "qué pasa si le resto mil a un número",
+      "cómo cambia un número al sumarle cien"
     ],
     "respuesta": "Cambia solamente la cifra de ese lugar, y las demás quedan igual, salvo que haya que pasar al grupo siguiente. Por ejemplo, 3450 más cien da 3550: solo el cuatro de las centenas cambió por un cinco.",
     "fragmentos": [
@@ -720,7 +806,8 @@
       "por qué el cero guarda el lugar",
       "qué diferencia hay entre 105 y 15",
       "el cero en el medio de un número",
-      "por qué importa el cero"
+      "por qué importa el cero",
+      "qué pasaría sin el cero"
     ],
     "respuesta": "El cero guarda el lugar donde no hay cantidad. Por ejemplo, en el 105, el cero dice que hay cero decenas, y eso lo hace distinto del 15. Sin el cero, no sabríamos en qué lugar va cada cifra.",
     "fragmentos": [
@@ -736,7 +823,10 @@
       "cuándo se usa la suma",
       "dónde usamos la suma en la vida",
       "ejemplos de sumas en la vida diaria",
-      "cuándo tengo que sumar"
+      "cuándo tengo que sumar",
+      "dónde usamos la suma en la vida diaria",
+      "para qué usamos sumar en la vida real",
+      "ejemplos de la suma en la vida diaria"
     ],
     "respuesta": "Usamos la suma cuando compramos varias cosas y queremos saber cuánto gastamos en total, cuando juntamos los puntos de un juego, o cuando agregamos ingredientes a una receta. Siempre que juntamos cantidades, sumamos.",
     "fragmentos": [
@@ -752,7 +842,8 @@
       "cómo sumo de cabeza",
       "qué son los números amigos",
       "cálculo mental",
-      "sumar sin escribir la cuenta"
+      "sumar sin escribir la cuenta",
+      "cómo hago cálculo mental"
     ],
     "respuesta": "El cálculo mental es resolver cuentas en la cabeza, sin escribirlas paso a paso. Se usan trucos como desarmar los números o buscar números amigos, que son los que juntos dan diez, cien o mil.",
     "fragmentos": [
@@ -768,7 +859,9 @@
       "cuánto es 45 más 32",
       "cómo sumo cuarenta y cinco más treinta y dos",
       "sumar por partes",
-      "sumar desarmando en dieces y unos"
+      "sumar desarmando en dieces y unos",
+      "cómo sumo por partes",
+      "cómo se suma desarmando"
     ],
     "respuesta": "Desarmar sirve para sumar por partes. Para hacer cuarenta y cinco más treinta y dos, desarmamos en cuarenta más cinco y treinta más dos. Sumamos las decenas: cuarenta más treinta, setenta. Sumamos las unidades: cinco más dos, siete. Juntamos todo: setenta y siete.",
     "fragmentos": [
@@ -784,7 +877,8 @@
       "por qué los números redondos son fáciles",
       "cuáles son los números redondos",
       "números que terminan en cero",
-      "números redondos"
+      "números redondos",
+      "cuáles son los números que terminan en cero"
     ],
     "respuesta": "Los números redondos son los que terminan en cero, como diez, cincuenta, cien, quinientos o mil. Son fáciles de usar porque sumarlos o restarlos es como operar con números de una cifra y después agregar los ceros.",
     "fragmentos": [
@@ -800,7 +894,8 @@
       "qué es una suma aproximada",
       "cuánto es 298 más 403 más o menos",
       "sumar redondeando",
-      "cálculo aproximado"
+      "cálculo aproximado",
+      "qué es sumar redondeando"
     ],
     "respuesta": "Es calcular un valor cercano redondeando los números antes de sumar. Si queremos saber cuánto es 298 más 403, pensamos trescientos más cuatrocientos, que da setecientos. El resultado exacto va a estar muy cerca de setecientos.",
     "fragmentos": [
@@ -816,7 +911,8 @@
       "cómo verifico una suma",
       "cómo reviso el resultado de una suma",
       "comprobar una suma con una resta",
-      "cómo me doy cuenta si sumé bien"
+      "cómo me doy cuenta si sumé bien",
+      "cómo sé si sumé bien"
     ],
     "respuesta": "Podés restarle al resultado uno de los números que sumaste. Si te da el otro número, la suma está bien. También podés volver a sumar desarmando los números de otra manera y ver si te da lo mismo.",
     "fragmentos": [
@@ -832,7 +928,8 @@
       "qué hago con los datos que sobran en un problema",
       "cómo sé qué números usar en un problema",
       "datos de más",
-      "un problema con información que no sirve"
+      "un problema con información que no sirve",
+      "qué hago con la información que sobra"
     ],
     "respuesta": "Leé con atención la pregunta del problema y fijate qué es lo que te piden. Después elegí solo los números que sirven para responder esa pregunta, y dejá de lado los datos que no hacen falta.",
     "fragmentos": [
@@ -848,7 +945,8 @@
       "restar para comparar",
       "qué es quitar en una resta",
       "cuántos años más tiene uno que otro",
-      "para qué sirve la resta además de quitar"
+      "para qué sirve la resta además de quitar",
+      "diferencia entre quitar y comparar"
     ],
     "respuesta": "Quitar es tener una cantidad y sacar una parte: tenía diez caramelos, comí tres, me quedan siete. Buscar la diferencia es comparar dos cantidades para ver por cuánto una le gana a la otra: Juan tiene diez años y Sofía siete, la diferencia es tres años. Las dos se resuelven restando.",
     "fragmentos": [
@@ -864,7 +962,10 @@
       "cuánto falta para llegar a quinientos",
       "cómo sé cuánto me falta",
       "cuánto le falta a 350 para llegar a 500",
-      "cuánto falta"
+      "cuánto falta",
+      "cuánto me falta para llegar a un número",
+      "cómo sé cuánto falta",
+      "cuánto falta para completar"
     ],
     "respuesta": "Se resta el número más chico al más grande. Por ejemplo, si un libro cuesta quinientos pesos y tenés trescientos cincuenta, hacés quinientos menos trescientos cincuenta, que da ciento cincuenta. Te faltan ciento cincuenta pesos.",
     "fragmentos": [
@@ -880,7 +981,9 @@
       "cuánto es 85 menos 32",
       "cómo resto ochenta y cinco menos treinta y dos",
       "restar desarmando",
-      "restar de a partes"
+      "restar de a partes",
+      "cómo se resta desarmando",
+      "restar desarmando el número"
     ],
     "respuesta": "Para hacer ochenta y cinco menos treinta y dos, desarmamos el treinta y dos en treinta más dos, y restamos por partes. Primero ochenta y cinco menos treinta, que da cincuenta y cinco. Después cincuenta y cinco menos dos, que da cincuenta y tres.",
     "fragmentos": [
@@ -897,7 +1000,8 @@
       "cuánto es 1480 menos 100",
       "restar de a cien",
       "restar de a mil",
-      "restarle diez a un número"
+      "restarle diez a un número",
+      "restar de a cien de cabeza"
     ],
     "respuesta": "Le bajás uno a la cifra de las decenas, de las centenas o de las unidades de mil, según lo que restes. Por ejemplo, 1480 menos cien da 1380: solo cambió el cuatro de las centenas por un tres.",
     "fragmentos": [
@@ -913,7 +1017,8 @@
       "puedo restar al revés",
       "es lo mismo cincuenta menos veinte que veinte menos cincuenta",
       "el orden en la resta",
-      "por qué no puedo dar vuelta una resta"
+      "por qué no puedo dar vuelta una resta",
+      "el orden en la resta importa"
     ],
     "respuesta": "Porque a una cantidad chica no le podemos sacar una más grande. Cincuenta menos veinte da treinta, pero veinte menos cincuenta no se puede hacer con los números que usamos para contar. En la resta, el orden sí importa.",
     "fragmentos": [
@@ -929,7 +1034,9 @@
       "qué es la composición de transformaciones",
       "si gano cinco y pierdo tres cuánto me queda",
       "un problema donde primero sumo y después resto",
-      "varios cambios en una cantidad"
+      "varios cambios en una cantidad",
+      "si gano puntos y después pierdo puntos cuánto me queda",
+      "varios cambios en una cantidad seguidos"
     ],
     "respuesta": "Cuando pasan varias cosas seguidas, se van aplicando una por una. Por ejemplo, en un juego gano cinco puntos en la primera ronda y pierdo tres en la segunda. Al final gané dos puntos: cinco menos tres.",
     "fragmentos": [
@@ -945,7 +1052,10 @@
       "cómo se calcula el vuelto",
       "cuánto me tienen que devolver",
       "el vuelto",
-      "contar hacia arriba para el vuelto"
+      "contar hacia arriba para el vuelto",
+      "cómo se saca el vuelto",
+      "qué es el vuelto",
+      "cómo sé cuánto me tienen que dar de vuelto"
     ],
     "respuesta": "Hay dos formas. Una es restarle al billete que entregás el precio de lo que compraste. La otra es contar hacia arriba: arrancás desde el precio y vas agregando plata hasta llegar al valor del billete. Lo que agregaste es el vuelto.",
     "fragmentos": [
@@ -961,7 +1071,8 @@
       "qué es una resta aproximada",
       "cuánto es 890 menos 310 más o menos",
       "restar redondeando",
-      "resta aproximada"
+      "resta aproximada",
+      "cómo redondeo para restar"
     ],
     "respuesta": "Redondeás los dos números a las centenas o a los miles más cercanos y después restás. Para 890 menos 310, pensás novecientos menos trescientos, que da seiscientos. El resultado exacto va a estar cerca de seiscientos.",
     "fragmentos": [
@@ -977,7 +1088,8 @@
       "cuándo tengo que multiplicar",
       "para qué sirve multiplicar",
       "multiplicar o sumar",
-      "cuándo es mejor multiplicar"
+      "cuándo es mejor multiplicar",
+      "para qué sirve multiplicar en vez de sumar"
     ],
     "respuesta": "Conviene multiplicar cuando tenés varios grupos con exactamente la misma cantidad de cosas en cada uno. Multiplicar es mucho más rápido que sumar uno por uno.",
     "fragmentos": [
@@ -993,7 +1105,8 @@
       "qué es el producto en una multiplicación",
       "cómo se llama el resultado de multiplicar",
       "las partes de una multiplicación",
-      "factores y producto"
+      "factores y producto",
+      "qué es el producto en una cuenta de multiplicar"
     ],
     "respuesta": "Los números que se multiplican se llaman factores. El resultado de la multiplicación se llama producto. En tres por cuatro, doce: el tres y el cuatro son los factores, y el doce es el producto.",
     "fragmentos": [
@@ -1009,7 +1122,8 @@
       "qué es una organización en filas y columnas",
       "organización rectangular",
       "cosas ordenadas en filas y columnas",
-      "qué es una fila y qué es una columna"
+      "qué es una fila y qué es una columna",
+      "cómo se ordenan cosas en filas y columnas"
     ],
     "respuesta": "Es cuando ponemos las cosas ordenadas en filas, que van de costado, y columnas, que van para arriba y para abajo, formando un rectángulo. Como las baldosas de un piso, los asientos de un cine o los bombones de una caja.",
     "fragmentos": [
@@ -1025,7 +1139,8 @@
       "cuántos alfajores hay en cinco filas de ocho",
       "multiplicar filas por columnas",
       "contar los asientos del cine",
-      "cuántas baldosas hay"
+      "cuántas baldosas hay",
+      "cómo cuento los asientos de un cine"
     ],
     "respuesta": "Multiplicás la cantidad de filas por la cantidad de columnas. Por ejemplo, si una bandeja tiene cinco filas de ocho alfajores cada una, el total es cinco por ocho, que da cuarenta alfajores.",
     "fragmentos": [
@@ -1041,7 +1156,8 @@
       "si un paquete trae cinco figuritas cuántas traen cuatro paquetes",
       "proporcionalidad",
       "si compro el doble tengo el doble",
-      "problemas de paquetes y figuritas"
+      "problemas de paquetes y figuritas",
+      "qué es un problema de paquetes y figuritas"
     ],
     "respuesta": "Es un problema donde si una cantidad se duplica o se triplica, la otra también. Por ejemplo: si un paquete trae cinco figuritas, cuatro paquetes traen cuatro por cinco, que son veinte figuritas.",
     "fragmentos": [
@@ -1057,7 +1173,10 @@
       "para qué sirve la tabla pitagórica",
       "qué es el cuadro de las tablas",
       "tabla pitagórica",
-      "dónde están todas las tablas de multiplicar"
+      "dónde están todas las tablas de multiplicar",
+      "qué son las tablas de multiplicar",
+      "para qué sirven las tablas de multiplicar",
+      "cómo es la tabla pitagórica"
     ],
     "respuesta": "La tabla pitagórica es un cuadro con todas las multiplicaciones de los números del uno al diez entre sí, ordenadas en filas y columnas. Lleva el nombre de Pitágoras, un sabio de la antigüedad, y sirve para aprender y consultar las tablas fácilmente.",
     "fragmentos": [
@@ -1073,7 +1192,8 @@
       "por qué hay números repetidos en las tablas",
       "qué multiplicaciones dan doce",
       "números repetidos en la tabla pitagórica",
-      "dos multiplicaciones que dan lo mismo"
+      "dos multiplicaciones que dan lo mismo",
+      "qué multiplicaciones dan el mismo resultado"
     ],
     "respuesta": "Se repiten porque distintas multiplicaciones pueden dar el mismo resultado. Por ejemplo, el doce aparece en dos por seis, en seis por dos, en tres por cuatro y en cuatro por tres.",
     "fragmentos": [
@@ -1090,7 +1210,9 @@
       "qué es el cuádruple",
       "cuánto es el doble de seis",
       "cuánto es el triple de cinco",
-      "cómo calculo el doble de un número"
+      "cómo calculo el doble de un número",
+      "qué quiere decir el doble",
+      "cuánto es el doble de un número"
     ],
     "respuesta": "El doble es multiplicar por dos, o sea sumar el número con él mismo: el doble de seis es doce. El triple es multiplicar por tres: el triple de cinco es quince. El cuádruple es multiplicar por cuatro: el cuádruple de dos es ocho.",
     "fragmentos": [
@@ -1108,7 +1230,8 @@
       "multiplicar por diez",
       "multiplicar por cien",
       "cómo multiplico por 10",
-      "cómo multiplico por 100"
+      "cómo multiplico por 100",
+      "cómo multiplico por diez"
     ],
     "respuesta": "Escribís el mismo número y le agregás ceros al final. Por diez, un cero: cinco por diez es cincuenta. Por cien, dos ceros: cinco por cien es quinientos. Por mil, tres ceros: cinco por mil es cinco mil.",
     "fragmentos": [
@@ -1124,7 +1247,8 @@
       "cómo multiplico por veinte",
       "cómo multiplico por trescientos",
       "multiplicar por un número que termina en cero",
-      "cuánto es 6 por 40"
+      "cuánto es 6 por 40",
+      "cómo multiplico por un número redondo"
     ],
     "respuesta": "Multiplicás el número por la primera cifra y después le agregás los ceros. Para seis por cuarenta, hacés seis por cuatro, que da veinticuatro, y le agregás un cero: doscientos cuarenta.",
     "fragmentos": [
@@ -1140,7 +1264,8 @@
       "es lo mismo cinco por siete que siete por cinco",
       "puedo multiplicar al revés",
       "el orden de los factores",
-      "si cambio el orden de la multiplicación cambia el resultado"
+      "si cambio el orden de la multiplicación cambia el resultado",
+      "el orden de los factores importa"
     ],
     "respuesta": "No, en la multiplicación el orden de los factores no cambia el producto. Cinco por siete da treinta y cinco, y siete por cinco también da treinta y cinco. A eso se le llama propiedad conmutativa.",
     "fragmentos": [
@@ -1156,7 +1281,8 @@
       "cómo agrupo los factores para multiplicar más fácil",
       "cuánto es dos por nueve por cinco",
       "propiedad asociativa",
-      "multiplicar tres números seguidos"
+      "multiplicar tres números seguidos",
+      "qué es agrupar factores"
     ],
     "respuesta": "Es que cuando multiplicás tres números, podés agruparlos como te resulte más cómodo. Para hacer dos por nueve por cinco, conviene hacer primero dos por cinco, que da diez, y después diez por nueve, que da noventa.",
     "fragmentos": [
@@ -1172,7 +1298,9 @@
       "propiedad distributiva",
       "cuánto es nueve por siete desarmando",
       "distributiva de la multiplicación",
-      "multiplicar por partes"
+      "multiplicar por partes",
+      "qué es multiplicar por partes",
+      "cómo se desarma un factor para multiplicar"
     ],
     "respuesta": "Es desarmar uno de los factores en una suma, multiplicar cada parte y después sumar los resultados. Para nueve por siete, desarmás el siete en cinco más dos: nueve por cinco es cuarenta y cinco, nueve por dos es dieciocho, y cuarenta y cinco más dieciocho da sesenta y tres.",
     "fragmentos": [
@@ -1188,7 +1316,8 @@
       "cómo desarmo un número de dos cifras para multiplicar",
       "cómo hago una multiplicación grande",
       "cuánto es 28 por 6",
-      "multiplicar números de dos cifras"
+      "multiplicar números de dos cifras",
+      "cómo hago una cuenta de multiplicar grande"
     ],
     "respuesta": "Desarmás el número de dos cifras en decenas y unidades. Para veintiocho por seis, desarmás el veintiocho en veinte más ocho: veinte por seis es ciento veinte, ocho por seis es cuarenta y ocho, y sumando los dos da ciento sesenta y ocho.",
     "fragmentos": [
@@ -1204,7 +1333,8 @@
       "qué es la combinatoria",
       "cómo cuento las combinaciones",
       "cuántos conjuntos puedo armar",
-      "combinar cosas de dos grupos"
+      "combinar cosas de dos grupos",
+      "combinar dos grupos de cosas distintas"
     ],
     "respuesta": "Es un problema donde hay que combinar cosas de dos grupos distintos, por ejemplo tres remeras con cuatro pantalones. Se resuelve multiplicando la cantidad de un grupo por la del otro: tres por cuatro, doce combinaciones posibles.",
     "fragmentos": [
@@ -1220,7 +1350,8 @@
       "repartir o partir",
       "cuántos grupos puedo armar",
       "cuántos le tocan a cada uno",
-      "dos maneras de dividir"
+      "dos maneras de dividir",
+      "conozco los grupos o conozco lo que hay en cada grupo"
     ],
     "respuesta": "Repartir es cuando sabés cuántos grupos hay y querés saber cuántas cosas van en cada uno. Partir es cuando sabés cuántas cosas van en cada grupo y querés saber cuántos grupos podés armar. Las dos se resuelven dividiendo.",
     "fragmentos": [
@@ -1236,7 +1367,8 @@
       "qué es el divisor",
       "qué es el cociente",
       "cómo se llama el resultado de una división",
-      "dividendo divisor cociente y resto"
+      "dividendo divisor cociente y resto",
+      "cómo se llaman las partes de una división"
     ],
     "respuesta": "El dividendo es la cantidad total que queremos repartir. El divisor es en cuántas partes repartimos. El cociente es el resultado, cuánto le toca a cada uno. Y el resto es lo que sobra cuando el reparto no es exacto.",
     "fragmentos": [
@@ -1252,7 +1384,8 @@
       "cómo divido usando las tablas",
       "qué número por cinco da treinta y cinco",
       "dividir con la multiplicación",
-      "cuánto es 35 dividido 5"
+      "cuánto es 35 dividido 5",
+      "usar la tabla de multiplicar para resolver una división"
     ],
     "respuesta": "Como dividir es lo contrario de multiplicar, buscás en la tabla qué número multiplicado por el divisor da el dividendo. Para treinta y cinco dividido cinco, pensás: qué número por cinco da treinta y cinco. Es el siete, porque cinco por siete es treinta y cinco.",
     "fragmentos": [
@@ -1268,7 +1401,8 @@
       "el resto puede ser más grande que el divisor",
       "qué pasa con lo que sobra al dividir",
       "el resto",
-      "cuánto puede ser el resto"
+      "cuánto puede ser el resto",
+      "qué sobra en una división"
     ],
     "respuesta": "El resto es lo que queda sin repartir. Siempre tiene que ser más chico que el divisor, porque si fuera igual o más grande, todavía podrías darle uno más a cada uno.",
     "fragmentos": [
@@ -1284,7 +1418,8 @@
       "qué es una división que no es exacta",
       "cuándo una división tiene resto cero",
       "división entera",
-      "qué pasa si la división no da justo"
+      "qué pasa si la división no da justo",
+      "qué es una división entera"
     ],
     "respuesta": "Una división es exacta cuando el resto es cero, o sea, no sobra nada. Es no exacta, o entera, cuando sobra algo: una cantidad mayor que cero pero menor que el divisor.",
     "fragmentos": [
@@ -1300,7 +1435,8 @@
       "qué hago con el resto en un problema",
       "si sobran tres necesito un bote más",
       "el resto en los problemas de la vida real",
-      "cuántos micros hacen falta"
+      "cuántos micros hacen falta",
+      "por qué a veces hace falta un grupo más"
     ],
     "respuesta": "Porque en la vida real, a veces lo que sobra necesita un grupo más. Por ejemplo, si noventa y un chicos viajan en botes de cuatro, noventa y uno dividido cuatro da veintidós y sobran tres. Hacen falta veintitrés botes, para que ningún chico quede afuera.",
     "fragmentos": [
@@ -1317,7 +1453,8 @@
       "dividir por diez",
       "dividir por cien",
       "cómo divido un número que termina en cero",
-      "cómo divido por 10"
+      "cómo divido por 10",
+      "cuánto es cuatrocientos cincuenta dividido diez"
     ],
     "respuesta": "Si el número termina en ceros, le sacás tantos ceros como tenga el divisor. Dividir por diez, un cero: 450 dividido diez es cuarenta y cinco. Por cien, dos ceros: 3200 dividido cien es treinta y dos. Por mil, tres ceros: 8000 dividido mil es ocho.",
     "fragmentos": [
@@ -1332,7 +1469,9 @@
       "dividir con la tabla pitagórica",
       "cómo busco una división en la tabla pitagórica",
       "la tabla pitagórica sirve para dividir",
-      "cómo encuentro el cociente en la tabla"
+      "cómo encuentro el cociente en la tabla",
+      "cómo divido usando la tabla pitagórica",
+      "sirve la tabla pitagórica para dividir"
     ],
     "respuesta": "Buscás el divisor en la fila o en la columna de entrada, avanzás por esa línea hasta encontrar el dividendo, y mirás el número que está en el otro extremo. Ese es el cociente.",
     "fragmentos": [
@@ -1348,7 +1487,8 @@
       "cuántas cifras tiene el cociente",
       "cómo sé si el resultado de la división está bien",
       "cómo me doy cuenta si una división me dio un disparate",
-      "cifras del cociente"
+      "cifras del cociente",
+      "cómo sé si una división me dio un disparate"
     ],
     "respuesta": "Antes de dividir, probás multiplicar el divisor por diez, por cien o por mil, y te fijás cuál se acerca al dividendo. Así sabés si el resultado va a tener una, dos o tres cifras, y podés controlar que no te dé un disparate.",
     "fragmentos": [
@@ -1364,7 +1504,8 @@
       "cómo divido por aproximaciones",
       "dividir de a poco",
       "restas sucesivas",
-      "cómo hago una división larga"
+      "cómo hago una división larga",
+      "resolver una división con restas"
     ],
     "respuesta": "Le vas restando al dividendo multiplicaciones fáciles del divisor, como por diez, por veinte o por cinco, hasta llegar a cero o a un resto más chico que el divisor. Después sumás todas esas partes y ese es el cociente.",
     "fragmentos": [
@@ -1380,7 +1521,8 @@
       "qué pasa si divido cero",
       "si no tengo caramelos y reparto cuánto le toca a cada uno",
       "cero dividido",
-      "dividir el cero"
+      "dividir el cero",
+      "si no tengo nada para repartir cuánto le toca a cada uno"
     ],
     "respuesta": "Da cero. Si tenés cero caramelos para repartir entre cinco chicos, a cada uno le tocan cero caramelos.",
     "fragmentos": [
@@ -1396,7 +1538,10 @@
       "qué pasa si divido por cero",
       "se puede dividir por cero",
       "dividir por cero",
-      "por qué está prohibido dividir por cero"
+      "por qué está prohibido dividir por cero",
+      "puedo dividir algo por cero",
+      "qué pasa si divido entre cero",
+      "por qué no se puede dividir entre cero"
     ],
     "respuesta": "Porque no tiene sentido repartir una cantidad entre cero grupos. Además, no existe ningún número que multiplicado por cero dé algo distinto de cero, así que la cuenta no tiene respuesta.",
     "fragmentos": [
@@ -1412,7 +1557,8 @@
       "puedo cortar lo que sobra",
       "de dónde salen las fracciones",
       "repartir chocolates que sobran",
-      "cortar el resto en partes iguales"
+      "cortar el resto en partes iguales",
+      "el resto de una división se puede cortar en partes"
     ],
     "respuesta": "Si lo que sobra se puede cortar, como alfajores o chocolates, lo seguís repartiendo cortándolo en partes iguales. De ahí nacen las fracciones.",
     "fragmentos": [
@@ -1428,7 +1574,8 @@
       "multiplicar o dividir",
       "cómo me doy cuenta si es una multiplicación o una división",
       "qué cuenta uso en un problema de grupos",
-      "tengo que multiplicar o dividir"
+      "tengo que multiplicar o dividir",
+      "cómo me doy cuenta si es multiplicación o división"
     ],
     "respuesta": "Si tenés varios grupos iguales y querés saber el total, multiplicás. Si tenés el total y querés repartirlo o armar grupos iguales, dividís.",
     "fragmentos": [
@@ -1476,7 +1623,8 @@
       "qué es la mitad",
       "qué quiere decir la mitad de algo",
       "un medio",
-      "medio kilo es la mitad"
+      "medio kilo es la mitad",
+      "qué es la mitad de algo"
     ],
     "respuesta": "Un medio significa que el entero se dividió en dos partes exactamente iguales y tomamos una de ellas. Es la mitad del entero.",
     "fragmentos": [
@@ -1492,7 +1640,10 @@
       "qué son tres cuartos",
       "qué quiere decir un cuarto de algo",
       "un cuarto",
-      "tres cuartos"
+      "tres cuartos",
+      "qué es un cuarto de algo",
+      "cómo es un cuarto",
+      "qué significan los cuartos"
     ],
     "respuesta": "Un cuarto es una de las cuatro partes iguales de un entero. Tres cuartos son tres de esas cuatro partes. Si cortás una pizza en cuatro porciones iguales, una porción es un cuarto y tres porciones son tres cuartos.",
     "fragmentos": [
@@ -1540,7 +1691,8 @@
       "dos cuartos es lo mismo que un medio",
       "fracciones que valen lo mismo",
       "fracciones equivalentes",
-      "fracciones iguales escritas distinto"
+      "fracciones iguales escritas distinto",
+      "fracciones que representan lo mismo"
     ],
     "respuesta": "Son fracciones que se escriben distinto pero representan exactamente la misma cantidad del entero. Por ejemplo, dos cuartos es equivalente a un medio: las dos son la mitad.",
     "fragmentos": [
@@ -1620,7 +1772,8 @@
       "cómo se suman las fracciones",
       "sumar fracciones",
       "sumar cuartos con cuartos",
-      "cómo sumo fracciones iguales"
+      "cómo sumo fracciones iguales",
+      "cómo sumo fracciones con igual denominador"
     ],
     "respuesta": "Dejás el mismo denominador y sumás solo los numeradores. Por ejemplo, un cuarto más dos cuartos: sumás uno más dos, que da tres, y queda tres cuartos.",
     "fragmentos": [
@@ -1652,7 +1805,8 @@
       "qué significa lo que va a la derecha de la coma",
       "la parte decimal",
       "qué es la parte que sigue a la coma",
-      "los números que van después de la coma"
+      "los números que van después de la coma",
+      "qué es la parte decimal"
     ],
     "respuesta": "La parte que está después de la coma es una cantidad más chica que una unidad entera: partes de un peso, partes de un metro, y así.",
     "fragmentos": [
@@ -1668,7 +1822,8 @@
       "qué es la décima parte",
       "cuánto es cero coma uno",
       "cuántos centavos es un décimo de peso",
-      "décimo"
+      "décimo",
+      "decimo"
     ],
     "respuesta": "El décimo es el primer lugar después de la coma, y es la décima parte de un entero. Se escribe cero coma uno, o cero coma diez. En plata, cero coma diez pesos son diez centavos.",
     "fragmentos": [
@@ -1684,7 +1839,8 @@
       "qué es la centésima parte",
       "cuánto es cero coma cero uno",
       "cuántos centavos es un centésimo de peso",
-      "centésimo"
+      "centésimo",
+      "centesimo"
     ],
     "respuesta": "El centésimo es el segundo lugar después de la coma, y es la centésima parte de un entero. Se escribe cero coma cero uno. En plata, cero coma cero uno pesos es un centavo.",
     "fragmentos": [
@@ -1700,7 +1856,9 @@
       "cómo escribo tres con cincuenta",
       "cómo se escribe un precio con centavos",
       "tres pesos con cincuenta",
-      "escribir plata con coma"
+      "escribir plata con coma",
+      "cómo escribo un precio con centavos",
+      "cómo se escribe tres con cincuenta"
     ],
     "respuesta": "Se escribe tres coma cincuenta: el tres son los pesos enteros y el cincuenta son los centavos.",
     "fragmentos": [
@@ -1748,7 +1906,8 @@
       "cuánto es uno con cincuenta más dos con cincuenta",
       "sumar plata con centavos",
       "sumar números con coma",
-      "cómo sumo precios con centavos"
+      "cómo sumo precios con centavos",
+      "cómo se suman precios con centavos"
     ],
     "respuesta": "Sumás por un lado los pesos y por otro los centavos. Si juntás cien centavos, formás un peso más. Por ejemplo, uno con cincuenta más dos con cincuenta: los pesos dan tres, los centavos dan cien, que es un peso más, total cuatro pesos.",
     "fragmentos": [
@@ -1860,7 +2019,10 @@
       "rombo y cuadrado",
       "en qué se parece el rombo al cuadrado",
       "el rombo es un cuadrado torcido",
-      "rombo"
+      "rombo",
+      "qué son los rombos",
+      "cómo son los rombos",
+      "cómo es un rombo"
     ],
     "respuesta": "El rombo y el cuadrado se parecen en que los dos tienen cuatro lados iguales. Se diferencian en los ángulos: el cuadrado tiene cuatro ángulos rectos, y el rombo tiene dos ángulos más cerrados y dos más abiertos.",
     "fragmentos": [
@@ -1924,7 +2086,10 @@
       "cuántas aristas tiene un cubo",
       "cuántos vértices tiene un cubo",
       "cubo",
-      "cómo es un dado"
+      "cómo es un dado",
+      "qué es un cubo",
+      "cómo es un cubo",
+      "un cubo es como un dado"
     ],
     "respuesta": "El cubo es un cuerpo geométrico con seis caras cuadradas, todas iguales, como un dado. Tiene doce aristas de la misma medida y ocho vértices.",
     "fragmentos": [
@@ -1940,7 +2105,8 @@
       "qué forma tienen las caras de un prisma",
       "prisma",
       "prisma rectangular",
-      "prisma triangular"
+      "prisma triangular",
+      "qué es un prisma rectangular"
     ],
     "respuesta": "Un prisma es un cuerpo geométrico con dos bases iguales y paralelas, y caras laterales que siempre son rectángulos. Se nombra según la forma de su base: prisma rectangular, prisma triangular, y así.",
     "fragmentos": [
@@ -1956,7 +2122,8 @@
       "desarrollo plano",
       "cómo armo una caja con un dibujo",
       "el dibujo desplegado de un cuerpo",
-      "cómo hago un cubo de papel"
+      "cómo hago un cubo de papel",
+      "qué es el desarrollo plano"
     ],
     "respuesta": "El desarrollo plano es el dibujo de todas las caras del cuerpo desplegadas sobre una hoja. Si lo recortás, lo plegás y lo pegás por los bordes, armás el cuerpo en tres dimensiones, como una caja de remedios desarmada.",
     "fragmentos": [
@@ -1972,7 +2139,8 @@
       "por qué la pelota rueda y la caja no",
       "qué es un cuerpo redondo",
       "qué es un poliedro",
-      "cuerpos que ruedan"
+      "cuerpos que ruedan",
+      "qué cuerpos no pueden rodar"
     ],
     "respuesta": "Pueden rodar los cuerpos redondos, los que tienen alguna superficie curva: la esfera, el cilindro y el cono. No pueden rodar los que tienen todas las caras planas, que se llaman poliedros: el cubo, los prismas y las pirámides.",
     "fragmentos": [
@@ -2037,7 +2205,8 @@
       "dónde apoyo la regla para medir",
       "cómo se mide una línea con la regla",
       "usar la regla",
-      "por qué tengo que empezar desde el cero de la regla"
+      "por qué tengo que empezar desde el cero de la regla",
+      "cómo se usa la regla"
     ],
     "respuesta": "Apoyás la regla haciendo coincidir la marca del cero, y no el borde de la regla, con el principio de la línea. Después leés el número que queda en el punto donde termina la línea.",
     "fragmentos": [
@@ -2054,7 +2223,10 @@
       "cuántos gramos tiene un kilo",
       "cuántos gramos es medio kilo",
       "unidades de peso",
-      "cómo se mide el peso"
+      "cómo se mide el peso",
+      "cuántos gramos son un kilo",
+      "cuánto pesa un kilo",
+      "qué es medir el peso"
     ],
     "respuesta": "El peso se mide en kilogramos y en gramos. Un kilo tiene mil gramos. Medio kilo son quinientos gramos, y un cuarto kilo son doscientos cincuenta gramos.",
     "fragmentos": [
@@ -2087,7 +2259,9 @@
       "cómo se lee el reloj",
       "cómo se escribe la hora",
       "unidades de tiempo",
-      "cuánto dura una hora"
+      "cuánto dura una hora",
+      "qué es un minuto",
+      "cómo se escribe una hora con minutos"
     ],
     "respuesta": "El tiempo se mide con el reloj, en horas y minutos. Una hora tiene sesenta minutos. Por ejemplo, las trece horas y veinticinco minutos se escriben trece, dos puntos, veinticinco.",
     "fragmentos": [
@@ -2119,7 +2293,8 @@
       "para qué sirve un cuadro de doble entrada",
       "para qué sirve una tabla con filas y columnas",
       "tablas de datos",
-      "cómo organizo la información en una tabla"
+      "cómo organizo la información en una tabla",
+      "para qué sirven las tablas de datos"
     ],
     "respuesta": "Las tablas sirven para organizar la información en filas y columnas, de forma ordenada y clara. Así es más fácil leer los datos, compararlos y responder preguntas sobre ellos.",
     "fragmentos": [
@@ -2135,11 +2310,156 @@
       "cómo se lee un gráfico de barras",
       "para qué sirven las barras en un gráfico",
       "gráfico de barras",
-      "qué significa la barra más alta"
+      "qué significa la barra más alta",
+      "qué significa la barra más alta en un gráfico"
     ],
     "respuesta": "Un gráfico de barras muestra cantidades con barras de distintas alturas, paradas o acostadas. La barra más alta es el valor más grande o el más repetido, y la más corta es el valor más chico.",
     "fragmentos": [
       "guia34-110"
+    ]
+  },
+  {
+    "id": "qa-130",
+    "tema": "Ángulos agudos y obtusos",
+    "pregunta": "¿Qué es un ángulo agudo y un ángulo obtuso?",
+    "variantes": [
+      "qué es un ángulo agudo",
+      "qué es un ángulo obtuso",
+      "qué son los ángulos agudos y obtusos",
+      "cómo son los ángulos agudos",
+      "diferencia entre ángulo agudo y obtuso",
+      "cómo es un ángulo obtuso",
+      "qué ángulos tiene un rombo"
+    ],
+    "respuesta": "Un ángulo agudo es más cerrado que un ángulo recto, como una punta finita. Un ángulo obtuso es más abierto que un ángulo recto, como una esquina bien abierta. El rombo, por ejemplo, tiene dos ángulos agudos y dos obtusos.",
+    "fragmentos": [
+      "guia34-93"
+    ]
+  },
+  {
+    "id": "qa-131",
+    "tema": "La arista de un cuerpo geométrico",
+    "pregunta": "¿Qué es una arista?",
+    "variantes": [
+      "qué son las aristas",
+      "cómo es una arista",
+      "dónde está la arista de un cuerpo",
+      "una arista de una caja",
+      "arista",
+      "qué es una arista de un cuerpo geométrico",
+      "las aristas de una caja"
+    ],
+    "respuesta": "La arista es la línea donde se juntan dos caras de un cuerpo geométrico. Por ejemplo, en una caja, cada borde donde se tocan dos lados es una arista.",
+    "fragmentos": [
+      "guia34-96"
+    ]
+  },
+  {
+    "id": "qa-132",
+    "tema": "La cara de un cuerpo geométrico",
+    "pregunta": "¿Qué es una cara de un cuerpo geométrico?",
+    "variantes": [
+      "qué son las caras de un cuerpo",
+      "cómo es una cara de un cuerpo",
+      "las caras de una caja",
+      "qué es una cara",
+      "cara de un cuerpo geométrico",
+      "cuántas caras tiene un cuerpo geométrico",
+      "qué es una cara plana"
+    ],
+    "respuesta": "La cara es cada una de las superficies planas o curvas que forman el cuerpo geométrico por fuera. Una caja tiene seis caras, y una pelota tiene una sola cara curva.",
+    "fragmentos": [
+      "guia34-96"
+    ]
+  },
+  {
+    "id": "qa-133",
+    "tema": "Qué es un poliedro",
+    "pregunta": "¿Qué es un poliedro?",
+    "variantes": [
+      "qué son los poliedros",
+      "cómo es un poliedro",
+      "un cuerpo con todas las caras planas",
+      "poliedro",
+      "qué cuerpos son poliedros",
+      "los poliedros pueden rodar",
+      "qué cuerpos tienen todas las caras planas"
+    ],
+    "respuesta": "Un poliedro es un cuerpo geométrico que tiene todas sus caras planas y rectas, como el cubo, los prismas y las pirámides. Como no tienen ninguna parte curva, los poliedros no pueden rodar.",
+    "fragmentos": [
+      "guia34-100"
+    ]
+  },
+  {
+    "id": "qa-134",
+    "tema": "Los cuerpos redondos",
+    "pregunta": "¿Qué son los cuerpos redondos?",
+    "variantes": [
+      "qué es un cuerpo redondo",
+      "cuáles son los cuerpos redondos",
+      "qué es una esfera",
+      "qué es un cilindro",
+      "qué es un cono",
+      "los cuerpos redondos pueden rodar",
+      "qué cuerpos tienen una parte curva"
+    ],
+    "respuesta": "Los cuerpos redondos son los que tienen alguna superficie curva y por eso pueden rodar: la esfera, como una pelota; el cilindro, como una lata; y el cono, como un sombrero de cumpleaños.",
+    "fragmentos": [
+      "guia34-100"
+    ]
+  },
+  {
+    "id": "qa-135",
+    "tema": "Qué es un cuadrilátero",
+    "pregunta": "¿Qué es un cuadrilátero?",
+    "variantes": [
+      "qué son los cuadriláteros",
+      "cómo es un cuadrilátero",
+      "una figura de cuatro lados se llama cuadrilátero",
+      "cuadrilátero",
+      "qué figuras son cuadriláteros",
+      "una figura de cuatro lados",
+      "qué figuras tienen cuatro lados"
+    ],
+    "respuesta": "Un cuadrilátero es cualquier figura plana que tiene cuatro lados. El cuadrado, el rectángulo y el rombo son todos cuadriláteros, aunque cada uno tenga sus propias características.",
+    "fragmentos": [
+      "guia34-87"
+    ]
+  },
+  {
+    "id": "qa-136",
+    "tema": "La mitad de un número",
+    "pregunta": "¿Qué es la mitad de un número?",
+    "variantes": [
+      "cuánto es la mitad de un número",
+      "cómo saco la mitad de un número",
+      "qué es sacar la mitad",
+      "cuánto es la mitad de diez",
+      "la mitad de un número",
+      "cómo se saca la mitad de un número",
+      "qué es dividir un número por dos"
+    ],
+    "respuesta": "La mitad de un número es repartirlo en dos partes iguales, o sea dividirlo por dos. Es lo contrario del doble: la mitad de diez es cinco, porque cinco más cinco es diez.",
+    "fragmentos": [
+      "guia34-41"
+    ]
+  },
+  {
+    "id": "qa-137",
+    "tema": "Comparar un medio y un cuarto",
+    "pregunta": "¿Qué es más grande, un medio o un cuarto?",
+    "variantes": [
+      "qué es más grande un medio o un cuarto",
+      "es más grande un cuarto o un medio",
+      "cuál es más chico un medio o un cuarto",
+      "comparar un medio y un cuarto",
+      "qué fracción es más grande",
+      "un medio es más grande que un cuarto",
+      "cuál fracción es más chica"
+    ],
+    "respuesta": "Un medio es más grande que un cuarto. Si cortás algo en dos partes, cada parte es más grande que si lo cortás en cuatro partes: cuantas más partes hacés, más chica es cada una.",
+    "fragmentos": [
+      "guia34-67"
     ]
   }
 ]
